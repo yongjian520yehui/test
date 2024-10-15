@@ -1,31 +1,39 @@
 extends CanvasLayer
-@onready var pause_menu = $PauseMenu
+@onready var label = $Label
+@onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var main_menu = $MianMenu
 
-
-# Called when the node enters the scene tree for the first time.
+var test : = false
 func _ready():
-	pass # Replace with function body.
-
+	var tree := get_tree()
+	if tree.paused==true:
+		label.text="pause"
+	else:
+		label.text="not pause"
+		
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("eixt"):
+	if event.is_action_pressed(&"exit"):
+		print("get INput")
 		var tree := get_tree()
+		print(tree.paused)
 		tree.paused = not tree.paused
-		#print(tree.paused)
-		if tree.paused:
-			#pause_menu.open()
-			print("open")
-			tree.paused=true
-			print(tree.paused)
+		if tree.paused==true:
+			label.text="pause"
 		else:
-			#pause_menu.close()
-			print("close")
-			tree.paused=false
-			print(tree.paused)
+			label.text="not pause"
+			
+		if tree.paused:
+			pause_menu.open()
+			#print(tree.paused)
+		else:
+			pause_menu.close()
 
 		get_tree().root.set_input_as_handled()
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-		
+		#test = not test
+		#if test:
+			#pause_menu.open()
+		#else:
+			#pause_menu.close()
+		#get_tree().root.set_input_as_handled()
+
