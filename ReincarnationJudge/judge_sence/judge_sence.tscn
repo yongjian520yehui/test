@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=3 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="PackedScene" uid="uid://dckaqoyg8vqjc" path="res://judge_sence/table.tscn" id="1_anvhb"]
+[ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="2_kiydy"]
 
 [node name="JudgeSence" type="Node2D"]
 
 [node name="Table" parent="." instance=ExtResource("1_anvhb")]
 position = Vector2(942, 859)
+
+[node name="BookGhost" parent="." instance=ExtResource("2_kiydy")]
+visible = false
