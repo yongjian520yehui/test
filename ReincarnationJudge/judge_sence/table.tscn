@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dckaqoyg8vqjc"]
+
+[ext_resource type="Texture2D" uid="uid://cx6j353uo6u3f" path="res://judge_sence/table.png.jpeg" id="1_mav57"]
+
+[node name="Table" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mav57")

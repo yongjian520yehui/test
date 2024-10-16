@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0hx1753xcng"]
+[gd_scene load_steps=7 format=3 uid="uid://b0hx1753xcng"]
 
 [ext_resource type="Script" path="res://menu/mainMenu.gd" id="1_yu65p"]
+[ext_resource type="FontFile" uid="uid://bmjlli7h6vtxs" path="res://fonts/fusion-pixel.otf" id="2_drnoa"]
+[ext_resource type="FontFile" uid="uid://c7ho5rlxgt5y4" path="res://fonts/DinkieBitmapDemo-7px.ttf" id="3_j7yfo"]
+[ext_resource type="FontFile" uid="uid://b1xyyot7wjrl7" path="res://fonts/ColaKind.otf" id="4_yddwd"]
+[ext_resource type="FontFile" uid="uid://df4c37rb486ae" path="res://fonts/CCOverbyteOn.ttf" id="5_uyki3"]
+
+[sub_resource type="Theme" id="Theme_x7vxe"]
 
 [node name="MianMenu" type="Panel"]
 anchors_preset = 15
@@ -37,16 +43,26 @@ grow_vertical = 2
 
 [node name="MenuStartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_x7vxe")
+theme_override_fonts/font = ExtResource("2_drnoa")
 text = "开始游戏"
 
 [node name="MenuContinueButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_j7yfo")
 text = "继续游戏"
 
 [node name="MenuSettingButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_yddwd")
 text = "设置"
 
 [node name="MenuExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_uyki3")
 text = "退出游戏"
+
+[connection signal="pressed" from="VBoxContainer/MenuStartButton" to="." method="_on_menu_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuContinueButton" to="." method="_on_menu_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuSettingButton" to="." method="_on_menu_setting_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuExitButton" to="." method="_on_menu_exit_button_pressed"]

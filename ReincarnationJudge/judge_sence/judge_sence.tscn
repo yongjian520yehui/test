@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byw7sibergtuc"]
+
+[ext_resource type="PackedScene" uid="uid://dckaqoyg8vqjc" path="res://judge_sence/table.tscn" id="1_anvhb"]
+
+[node name="JudgeSence" type="Node2D"]
+
+[node name="Table" parent="." instance=ExtResource("1_anvhb")]
+position = Vector2(942, 859)
