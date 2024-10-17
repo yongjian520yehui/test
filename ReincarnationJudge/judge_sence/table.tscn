@@ -1,19 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dckaqoyg8vqjc"]
 
-[ext_resource type="Texture2D" uid="uid://cx6j353uo6u3f" path="res://judge_sence/table.png.jpeg" id="1_mav57"]
+[ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/table.png.jpeg" id="1_mav57"]
 
 [node name="Table" type="Node2D"]
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -333.5
-offset_top = -215.0
-offset_right = 333.5
-offset_bottom = 215.0
-grow_horizontal = 2
-grow_vertical = 2
-icon = ExtResource("1_mav57")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.83893, 0.722073)
+texture = ExtResource("1_mav57")

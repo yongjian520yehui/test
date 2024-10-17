@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwgw3k2tmmxfs"]
+[gd_scene load_steps=3 format=3 uid="uid://dwgw3k2tmmxfs"]
 
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="1_epnsy"]
+[ext_resource type="Script" path="res://judge_sence/book_ghost.gd" id="1_k3ld3"]
 
 [node name="BookGhost" type="Node2D"]
+script = ExtResource("1_k3ld3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -26,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="Control/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,73 +36,84 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="基本信息" type="Button" parent="Control/Panel/TabContainer"]
+[node name="TabContainer" type="TabContainer" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="基本信息" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_epnsy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/TabContainer/基本信息"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/基本信息"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/TabContainer/基本信息/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Control/Panel/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "page1
 "
 
-[node name="Label2" type="Label" parent="Control/Panel/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "page1
 "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/TabContainer/基本信息/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Control/Panel/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
+[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "上一页"
 
-[node name="Button2" type="Button" parent="Control/Panel/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
+[node name="Button2" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "下一页"
 
-[node name="生平介绍" type="Button" parent="Control/Panel/TabContainer"]
+[node name="生平介绍" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Panel/TabContainer/生平介绍"]
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/TabContainer/生平介绍"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "page2
 "
 
-[node name="阴间记录" type="Button" parent="Control/Panel/TabContainer"]
+[node name="阴间记录" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="言行" type="Button" parent="Control/Panel/TabContainer"]
+[node name="言行" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="死亡原因" type="Button" parent="Control/Panel/TabContainer"]
+[node name="死亡原因" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Button6" type="Button" parent="Control/Panel/TabContainer"]
+[node name="评价" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="Close" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "关闭"
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Close" to="." method="_on_close_pressed"]

@@ -1,12 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=7 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="PackedScene" uid="uid://dckaqoyg8vqjc" path="res://judge_sence/table.tscn" id="1_anvhb"]
+[ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="2_kiydy"]
+[ext_resource type="Texture2D" uid="uid://c3jba4nljn02o" path="res://judge_sence/dangan.png" id="3_mqnl3"]
+[ext_resource type="Script" path="res://judge_sence/CanvasLayer.gd" id="5_plety"]
+[ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="5_vev0h"]
 
 [node name="JudgeSence" type="Node2D"]
+script = ExtResource("1_gltdn")
 
 [node name="Table" parent="." instance=ExtResource("1_anvhb")]
 position = Vector2(942, 859)
 
 [node name="BookGhost" parent="." instance=ExtResource("2_kiydy")]
 visible = false
+z_index = 1
+
+[node name="files" type="Button" parent="."]
+offset_left = 676.0
+offset_top = 759.0
+offset_right = 852.0
+offset_bottom = 983.0
+icon = ExtResource("3_mqnl3")
+
+[node name="files2" type="Button" parent="."]
+offset_left = 888.0
+offset_top = 758.0
+offset_right = 1064.0
+offset_bottom = 982.0
+icon = ExtResource("3_mqnl3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("5_plety")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_vev0h")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[connection signal="pressed" from="files" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="files2" to="." method="_on_button_pressed"]

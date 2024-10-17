@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://e4xcb20h6o6q"]
+
+[ext_resource type="Script" path="res://judge_sence/files.gd" id="1_6qei1"]
+[ext_resource type="Texture2D" uid="uid://c3jba4nljn02o" path="res://judge_sence/dangan.png" id="1_g1rty"]
+
+[node name="Files" type="Node2D"]
+script = ExtResource("1_6qei1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -112.0
+offset_right = 88.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_g1rty")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

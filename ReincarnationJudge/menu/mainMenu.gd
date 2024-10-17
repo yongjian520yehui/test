@@ -24,4 +24,4 @@ func _on_menu_continue_button_pressed() -> void:
 
 
 func _on_menu_start_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://judge_sence/judge_sence.tscn")
