@@ -9,7 +9,7 @@ extends Control
 @onready var resume_button := center_cont.get_node(^"VBoxContainer/ResumeButton") as Button
 @onready var label: Label = $ColorRect/CenterContainer/VBoxContainer/Label
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var tree = get_tree()
 	if tree.paused==true:
 		label.text="pause"

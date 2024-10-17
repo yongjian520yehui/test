@@ -1,9 +1,10 @@
 extends Node2D
 
 
-@onready var files: Button = $files
-@onready var pause_menu: PauseMenu = $CanvasLayer/PauseMenu
+@onready var files: Button = $CanvasLayer/files
+@onready var pause_menu: PauseMenu = %PauseMenu
 @onready var book_ghost: Control = $CanvasLayer/book_ghost
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 
 
@@ -13,10 +14,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_button_pressed() -> void:
 	book_ghost.visible=true
+	animation_player.play("files_get")
 	pass
