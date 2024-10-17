@@ -41,7 +41,6 @@ offset_bottom = 982.0
 icon = ExtResource("3_mqnl3")
 
 [node name="book_ghost" parent="CanvasLayer" instance=ExtResource("6_qugnk")]
-unique_name_in_owner = true
 visible = false
 offset_left = 579.0
 offset_top = 74.0
@@ -53,7 +52,6 @@ process_mode = 3
 script = ExtResource("6_vbum2")
 
 [node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("5_vev0h")]
-unique_name_in_owner = true
 visible = false
 anchors_preset = 8
 anchor_left = 0.5

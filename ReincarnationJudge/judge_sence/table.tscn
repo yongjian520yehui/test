@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/table.png.jpeg" id="1_mav57"]
 
-[node name="Table" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.83893, 0.722073)
+scale = Vector2(2.63874, 1.06386)
 texture = ExtResource("1_mav57")

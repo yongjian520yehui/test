@@ -1,5 +1,6 @@
-extends Node2D
-@onready var book_ghost: Node2D = $"."
+extends Control
+@onready var book_ghost: Control = %book_ghost
+
 
 
 # Called when the node enters the scene tree for the first time.

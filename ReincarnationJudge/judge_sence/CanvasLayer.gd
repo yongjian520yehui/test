@@ -11,14 +11,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"exit"):
-		var tree := get_tree()
-		tree.paused = not tree.paused
-		if tree.paused:
-			pause_menu.open()
-			#print(tree.paused)
-		else:
-			pause_menu.close()
 
-		get_tree().root.set_input_as_handled()

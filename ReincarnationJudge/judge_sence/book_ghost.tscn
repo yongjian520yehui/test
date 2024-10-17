@@ -1,26 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwgw3k2tmmxfs"]
+[gd_scene load_steps=2 format=3 uid="uid://dwgw3k2tmmxfs"]
 
-[ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="1_epnsy"]
-[ext_resource type="Script" path="res://judge_sence/book_ghost.gd" id="1_k3ld3"]
+[ext_resource type="Script" path="res://judge_sence/book_ghost.gd" id="1_sclrs"]
 
-[node name="BookGhost" type="Node2D"]
-script = ExtResource("1_k3ld3")
-
-[node name="Control" type="Control" parent="."]
+[node name="BookGhost" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 660.0
-offset_top = 290.0
-offset_right = 1260.0
-offset_bottom = 790.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1320.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sclrs")
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,92 +21,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TabContainer" type="TabContainer" parent="Control/Panel/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
 
-[node name="基本信息" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_epnsy")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/基本信息"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "page1
-"
-
-[node name="Label2" type="Label" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "page1
-"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "上一页"
-
-[node name="Button2" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "下一页"
-
-[node name="生平介绍" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
-visible = false
+[node name="基本信息" type="Button" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/TabContainer/生平介绍"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/基本信息"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
-text = "page2
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "姓名："
+
+[node name="Name" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "name
 "
 
-[node name="阴间记录" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "国家："
+
+[node name="Country" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "name
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "宗教："
+
+[node name="Religion" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "name
+"
+
+[node name="生平介绍" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="言行" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
+[node name="前世评价" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="死亡原因" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
+[node name="死亡原因" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="评价" type="Button" parent="Control/Panel/VBoxContainer/TabContainer"]
+[node name="申请表" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Close" type="Button" parent="Control/Panel/VBoxContainer"]
+[node name="Close" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "关闭"
 
-[connection signal="pressed" from="Control/Panel/VBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]

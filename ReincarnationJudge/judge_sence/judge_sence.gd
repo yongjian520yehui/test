@@ -1,7 +1,9 @@
 extends Node2D
-@onready var book_ghost: Node2D = $BookGhost
+
+
 @onready var files: Button = $files
 @onready var pause_menu: PauseMenu = $CanvasLayer/PauseMenu
+@onready var book_ghost: Control = $CanvasLayer/book_ghost
 
 
 
@@ -17,3 +19,4 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	book_ghost.visible=true
+	pass
