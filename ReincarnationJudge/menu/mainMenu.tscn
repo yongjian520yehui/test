@@ -1,12 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0hx1753xcng"]
+[gd_scene load_steps=3 format=3 uid="uid://b0hx1753xcng"]
 
 [ext_resource type="Script" path="res://menu/mainMenu.gd" id="1_yu65p"]
-[ext_resource type="FontFile" uid="uid://bmjlli7h6vtxs" path="res://fonts/fusion-pixel.otf" id="2_drnoa"]
-[ext_resource type="FontFile" uid="uid://c7ho5rlxgt5y4" path="res://fonts/DinkieBitmapDemo-7px.ttf" id="3_j7yfo"]
-[ext_resource type="FontFile" uid="uid://b1xyyot7wjrl7" path="res://fonts/ColaKind.otf" id="4_yddwd"]
-[ext_resource type="FontFile" uid="uid://df4c37rb486ae" path="res://fonts/CCOverbyteOn.ttf" id="5_uyki3"]
-
-[sub_resource type="Theme" id="Theme_x7vxe"]
+[ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="2_orskt"]
 
 [node name="MianMenu" type="Panel"]
 anchors_preset = 15
@@ -16,15 +11,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yu65p")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(834.75, 448.25)
+scale = Vector2(3.92382, 3.16024)
+
 [node name="GameNameLable" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -100.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 257.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_orskt")
+theme_override_font_sizes/font_size = 50
 text = "轮回法官"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -43,23 +45,22 @@ grow_vertical = 2
 
 [node name="MenuStartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_x7vxe")
-theme_override_fonts/font = ExtResource("2_drnoa")
-text = "开始游戏"
+theme_override_fonts/font = ExtResource("2_orskt")
+text = "新游戏"
 
 [node name="MenuContinueButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_j7yfo")
+theme_override_fonts/font = ExtResource("2_orskt")
 text = "继续游戏"
 
 [node name="MenuSettingButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_yddwd")
+theme_override_fonts/font = ExtResource("2_orskt")
 text = "设置"
 
 [node name="MenuExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_uyki3")
+theme_override_fonts/font = ExtResource("2_orskt")
 text = "退出游戏"
 
 [connection signal="pressed" from="VBoxContainer/MenuStartButton" to="." method="_on_menu_start_button_pressed"]

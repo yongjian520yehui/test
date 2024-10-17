@@ -45,7 +45,7 @@ horizontal_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ResumeButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="PauseResumeButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pwl11")
 text = "继续游戏"
@@ -55,12 +55,17 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pwl11")
 text = "设置"
 
+[node name="PauseSaveButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pwl11")
+text = "保存游戏"
+
 [node name="PauseBackMainMenuButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pwl11")
 text = "返回主菜单"
 
-[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="PauseQuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pwl11")
 text = "退出游戏
@@ -69,7 +74,8 @@ text = "退出游戏
 [node name="Panel" type="Panel" parent="ColorRect/CenterContainer"]
 layout_mode = 2
 
-[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PauseResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PauseSettingButton" to="." method="_on_pause_setting_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PauseSaveButton" to="." method="_on_pause_save_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PauseBackMainMenuButton" to="." method="_on_pause_back_main_menu_button_pressed"]
-[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PauseQuitButton" to="." method="_on_quit_button_pressed"]

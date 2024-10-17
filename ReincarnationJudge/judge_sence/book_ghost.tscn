@@ -42,6 +42,7 @@ layout_mode = 2
 text = "姓名："
 
 [node name="Name" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "name
 "
@@ -54,6 +55,7 @@ layout_mode = 2
 text = "国家："
 
 [node name="Country" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "name
 "
@@ -66,6 +68,7 @@ layout_mode = 2
 text = "宗教："
 
 [node name="Religion" type="Label" parent="VBoxContainer/TabContainer/基本信息/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "name
 "
@@ -74,17 +77,68 @@ text = "name
 visible = false
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/生平介绍"]
+layout_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/生平介绍/HBoxContainer"]
+layout_mode = 2
+text = "姓名："
+
+[node name="Intro" type="Label" parent="VBoxContainer/TabContainer/生平介绍/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name
+"
+
 [node name="前世评价" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/前世评价"]
+layout_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/前世评价/HBoxContainer"]
+layout_mode = 2
+text = "姓名："
+
+[node name="Evaluation" type="Label" parent="VBoxContainer/TabContainer/前世评价/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name
+"
 
 [node name="死亡原因" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/死亡原因"]
+layout_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/死亡原因/HBoxContainer"]
+layout_mode = 2
+text = "姓名："
+
+[node name="Reason" type="Label" parent="VBoxContainer/TabContainer/死亡原因/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name
+"
+
 [node name="申请表" type="Button" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/申请表"]
+layout_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/申请表/HBoxContainer"]
+layout_mode = 2
+text = "姓名："
+
+[node name="Applay" type="Label" parent="VBoxContainer/TabContainer/申请表/HBoxContainer"]
+layout_mode = 2
+text = "name
+"
 
 [node name="Close" type="Button" parent="VBoxContainer"]
 layout_mode = 2

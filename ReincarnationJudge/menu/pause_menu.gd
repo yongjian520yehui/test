@@ -6,7 +6,7 @@ extends Control
 @export var fade_out_duration := 0.2
 
 @onready var center_cont := $ColorRect/CenterContainer as CenterContainer
-@onready var resume_button := center_cont.get_node(^"VBoxContainer/ResumeButton") as Button
+@onready var resume_button := center_cont.get_node(^"VBoxContainer/PauseResumeButton") as Button
 @onready var label: Label = $ColorRect/CenterContainer/VBoxContainer/Label
 
 func _process(_delta: float) -> void:
@@ -77,3 +77,9 @@ func _on_pause_back_main_menu_button_pressed() -> void:
 
 func _on_pause_setting_button_pressed() -> void:
 	print("设置页面")
+
+
+func _on_pause_save_button_pressed():
+	get_tree().paused = false
+	print("保存中。。。。")
+	close()

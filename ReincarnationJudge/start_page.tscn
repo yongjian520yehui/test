@@ -13,6 +13,7 @@ script = ExtResource("1_ho8kv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_qf7dl")]
+visible = false
 
 [node name="Label" type="Label" parent="."]
 process_mode = 3

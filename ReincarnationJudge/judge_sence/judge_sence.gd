@@ -20,5 +20,6 @@ func _process(_delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	book_ghost.visible=true
+	book_ghost.open()
 	animation_player.play("files_get")
-	pass
+
