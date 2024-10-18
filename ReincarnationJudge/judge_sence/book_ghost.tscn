@@ -136,6 +136,7 @@ layout_mode = 2
 text = "姓名："
 
 [node name="Applay" type="Label" parent="VBoxContainer/TabContainer/申请表/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "name
 "
