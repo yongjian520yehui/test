@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=14 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="PackedScene" uid="uid://dckaqoyg8vqjc" path="res://judge_sence/table.tscn" id="1_anvhb"]
 [ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
+[ext_resource type="Texture2D" uid="uid://cysk1nbuwuip1" path="res://judge_sence/Necromancer_creativekind-Sheet.png" id="2_rm4lc"]
 [ext_resource type="Texture2D" uid="uid://c3jba4nljn02o" path="res://judge_sence/dangan.png" id="3_mqnl3"]
 [ext_resource type="Script" path="res://judge_sence/CanvasLayer.gd" id="5_plety"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="5_vev0h"]
@@ -37,13 +38,54 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_74io8"]
+resource_name = "death_god_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathGod:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_hunb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathGod:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_galhf"]
 _data = {
+"RESET": SubResource("Animation_hunb5"),
+"death_god_idle": SubResource("Animation_74io8"),
 "ghost_book_get": SubResource("Animation_in7ld")
 }
 
 [node name="JudgeSence" type="Node2D"]
 script = ExtResource("1_gltdn")
+
+[node name="DeathGod" type="Sprite2D" parent="."]
+position = Vector2(60, 500)
+scale = Vector2(3, 3)
+texture = ExtResource("2_rm4lc")
+hframes = 17
+vframes = 5
+frame = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_plety")

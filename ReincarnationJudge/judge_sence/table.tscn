@@ -9,5 +9,5 @@ anchor_right = 1.0
 grow_horizontal = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.63874, 1.06386)
+scale = Vector2(2.63874, 0.821087)
 texture = ExtResource("1_mav57")
