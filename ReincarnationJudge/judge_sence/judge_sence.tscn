@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=23 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="PackedScene" uid="uid://dckaqoyg8vqjc" path="res://judge_sence/table.tscn" id="1_anvhb"]
 [ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://judge_sence/PauseCanvasLayer.gd" id="6_vbum2"]
-[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://judge_sence/sprites/Time & weather.png" id="8_6rkfi"]
 
 [sub_resource type="Animation" id="Animation_3dbyd"]
 length = 0.001
@@ -125,11 +124,15 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_nuaxo"]
+resource_name = "tex"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_galhf"]
 _data = {
 "RESET": SubResource("Animation_hunb5"),
 "death_god_idle": SubResource("Animation_74io8"),
-"ghost_book_get": SubResource("Animation_in7ld")
+"ghost_book_get": SubResource("Animation_in7ld"),
+"tex": SubResource("Animation_nuaxo")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucfdi"]
@@ -138,6 +141,8 @@ region_rect = Rect2(160, 128, 48, 48)
 
 [sub_resource type="Theme" id="Theme_t4qds"]
 Button/styles/normal = SubResource("StyleBoxTexture_ucfdi")
+
+[sub_resource type="Theme" id="Theme_ywqgq"]
 
 [node name="JudgeSence" type="Node2D"]
 script = ExtResource("1_gltdn")
@@ -178,16 +183,11 @@ autoplay = "death_god2_idle"
 script = ExtResource("5_plety")
 
 [node name="Table" parent="CanvasLayer" instance=ExtResource("1_anvhb")]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -210.0
-offset_right = 4.0
-offset_bottom = -210.0
 grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="FilesButton" type="Button" parent="CanvasLayer"]
 visible = false
@@ -207,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 872.0
-offset_top = 428.0
-offset_right = 1048.0
-offset_bottom = 652.0
+offset_left = 1832.0
+offset_top = 968.0
+offset_right = 2008.0
+offset_bottom = 1192.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_t4qds")
@@ -251,24 +251,10 @@ offset_right = -367.0
 offset_bottom = -148.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = SubResource("Theme_ywqgq")
 theme_override_fonts/font = ExtResource("6_7kowl")
 theme_override_font_sizes/font_size = 30
 text = "下一个"
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="time" type="Sprite2D" parent="CanvasLayer/Control"]
-position = Vector2(-38, 78)
-texture = ExtResource("8_6rkfi")
-region_enabled = true
-region_rect = Rect2(16, 16, 144, 144)
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

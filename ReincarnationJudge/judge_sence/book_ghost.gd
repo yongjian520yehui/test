@@ -6,10 +6,10 @@ extends Control
 @export var fade_out_duration := 1
 @onready var ghost_name = %Name
 @onready var country: Label = %Country
-@onready var intro: Label = %Intro
-@onready var evaluation: Label = %Evaluation
-@onready var reason: Label = %Reason
-@onready var applay: Label = %Applay
+#@onready var intro: Label = %Intro
+#@onready var evaluation: Label = %Evaluation
+#@onready var reason: Label = %Reason
+#@onready var applay: Label = %Applay
 @onready var religion: Label = %Religion
 
 
