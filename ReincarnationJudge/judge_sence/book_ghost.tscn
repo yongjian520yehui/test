@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwgw3k2tmmxfs"]
+[gd_scene load_steps=4 format=3 uid="uid://dwgw3k2tmmxfs"]
 
 [ext_resource type="Script" path="res://judge_sence/book_ghost.gd" id="1_sclrs"]
+[ext_resource type="Theme" uid="uid://cmlcg3is5ppjo" path="res://fonts/tabcontainerTheme.tres" id="2_ornhx"]
+
+[sub_resource type="Theme" id="Theme_hdn8c"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 
 [node name="BookGhost" type="Control"]
 layout_mode = 3
@@ -25,9 +29,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
+theme = ExtResource("2_ornhx")
 
 [node name="基本信息" type="Button" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
+theme = SubResource("Theme_hdn8c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/基本信息"]
 layout_mode = 0
@@ -140,6 +146,10 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "name
 "
+
+[node name="TabBar" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
 
 [node name="Close" type="Button" parent="VBoxContainer"]
 layout_mode = 2

@@ -1,14 +1,101 @@
-[gd_scene load_steps=14 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=22 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="PackedScene" uid="uid://dckaqoyg8vqjc" path="res://judge_sence/table.tscn" id="1_anvhb"]
 [ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
-[ext_resource type="Texture2D" uid="uid://cysk1nbuwuip1" path="res://judge_sence/Necromancer_creativekind-Sheet.png" id="2_rm4lc"]
-[ext_resource type="Texture2D" uid="uid://c3jba4nljn02o" path="res://judge_sence/dangan.png" id="3_mqnl3"]
+[ext_resource type="Texture2D" uid="uid://cysk1nbuwuip1" path="res://judge_sence/sprites/Necromancer_creativekind-Sheet.png" id="2_rm4lc"]
+[ext_resource type="Texture2D" uid="uid://c3jba4nljn02o" path="res://judge_sence/sprites/dangan.png" id="3_mqnl3"]
 [ext_resource type="Script" path="res://judge_sence/CanvasLayer.gd" id="5_plety"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
+[ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://judge_sence/PauseCanvasLayer.gd" id="6_vbum2"]
+[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://judge_sence/sprites/Time & weather.png" id="8_6rkfi"]
+
+[sub_resource type="Animation" id="Animation_3dbyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [68]
+}
+
+[sub_resource type="Animation" id="Animation_ikoeq"]
+resource_name = "death_god2_dismiss"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [102, 103, 104, 105, 106, 107, 108, 109, 110]
+}
+
+[sub_resource type="Animation" id="Animation_hxhej"]
+resource_name = "death_god2_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thir6"]
+_data = {
+"RESET": SubResource("Animation_3dbyd"),
+"death_god2_dismiss": SubResource("Animation_ikoeq"),
+"death_god2_idle": SubResource("Animation_hxhej")
+}
+
+[sub_resource type="Animation" id="Animation_hunb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathGod:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_74io8"]
+resource_name = "death_god_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathGod:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7]
+}
 
 [sub_resource type="Animation" id="Animation_in7ld"]
 resource_name = "files_get"
@@ -38,37 +125,6 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_74io8"]
-resource_name = "death_god_idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DeathGod:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_hunb5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DeathGod:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_galhf"]
 _data = {
 "RESET": SubResource("Animation_hunb5"),
@@ -76,8 +132,31 @@ _data = {
 "ghost_book_get": SubResource("Animation_in7ld")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucfdi"]
+texture = ExtResource("6_aghy4")
+region_rect = Rect2(160, 128, 48, 48)
+
+[sub_resource type="Theme" id="Theme_t4qds"]
+Button/styles/normal = SubResource("StyleBoxTexture_ucfdi")
+
 [node name="JudgeSence" type="Node2D"]
 script = ExtResource("1_gltdn")
+
+[node name="DeathGod2" type="Sprite2D" parent="."]
+position = Vector2(1727, 456)
+scale = Vector2(3, 3)
+texture = ExtResource("2_rm4lc")
+flip_h = true
+hframes = 17
+vframes = 7
+frame = 68
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="DeathGod2"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_thir6")
+}
+autoplay = "death_god2_idle"
 
 [node name="DeathGod" type="Sprite2D" parent="."]
 position = Vector2(60, 500)
@@ -86,6 +165,14 @@ texture = ExtResource("2_rm4lc")
 hframes = 17
 vframes = 5
 frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DeathGod"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_galhf")
+}
+autoplay = "death_god2_idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_plety")
@@ -120,13 +207,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -112.0
-offset_right = 88.0
-offset_bottom = 112.0
+offset_left = 872.0
+offset_top = 428.0
+offset_right = 1048.0
+offset_bottom = 652.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("3_mqnl3")
+theme = SubResource("Theme_t4qds")
 
 [node name="book_ghost" parent="CanvasLayer" instance=ExtResource("6_qugnk")]
 unique_name_in_owner = true
@@ -168,6 +255,21 @@ theme_override_fonts/font = ExtResource("6_7kowl")
 theme_override_font_sizes/font_size = 30
 text = "下一个"
 
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="time" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(-38, 78)
+texture = ExtResource("8_6rkfi")
+region_enabled = true
+region_rect = Rect2(16, 16, 144, 144)
+
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("6_vbum2")
@@ -180,12 +282,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_galhf")
-}
 
 [connection signal="pressed" from="CanvasLayer/GhostBookButton" to="." method="_on_ghost_book_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/JudgeButton" to="." method="_on_judge_button_pressed"]
