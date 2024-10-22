@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwgw3k2tmmxfs"]
+[gd_scene load_steps=4 format=3 uid="uid://dwgw3k2tmmxfs"]
 
 [ext_resource type="Script" path="res://judge_sence/book_ghost.gd" id="1_sclrs"]
-[ext_resource type="Theme" uid="uid://cmlcg3is5ppjo" path="res://fonts/tabcontainerTheme.tres" id="2_ornhx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3axvt"]
 
@@ -32,7 +31,6 @@ theme = SubResource("Theme_y0tk8")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
-theme = ExtResource("2_ornhx")
 
 [node name="基本信息" type="TabBar" parent="VBoxContainer/TabContainer"]
 custom_minimum_size = Vector2(300, 0)

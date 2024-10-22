@@ -1,6 +1,6 @@
 {
 	"day1":[{"baseInfo":{"name":"bob","country":"USA","religion":"基督教","sex":1},"intro":"自我介绍","evaluation":"评价","reason":"谋杀","applay":{"target":"转世为人","destination":"富有家庭"}}],
-	"day2":[{"baseInfo":{"name":"？？？","country":"China","religion":"none","sex":2},"intro":"自我介绍","evaluation":"评价","reason":"谋杀","applay":{"target":"转世为人","destination":"富有家庭"}}],
+	"day2":[{"baseInfo":{"name":"？？？","country":"China","religion":"none","sex":2},"intro":"传销头目被人砍死","evaluation":"评价","reason":"他杀","applay":{"target":"转世为人","destination":"富有家庭"}}],
 	"day3":[{"baseInfo":{"name":"彭洪菊","country":"China","religion":"unknown","sex":2},"intro":"彭洪菊拐卖妇女儿童85名，其中10名儿童死亡，2004年被判处死刑","evaluation":"","reason":"death penalty","applay":{"target":"","destination":""}}],
 	"day4":[{"baseInfo":{"name":"","country":"","religion":"","sex":1},"intro":"","evaluation":"","reason":"","applay":{"target":"","destination":""}}],
 	"day5":[{"baseInfo":{"name":"","country":"","religion":"","sex":1},"intro":"","evaluation":"","reason":"","applay":{"target":"","destination":""}}],
