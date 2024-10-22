@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=3 uid="uid://br0rxfg55la0d"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://br0rxfg55la0d"]
+>>>>>>> b28f08c66bdaea4644b5ec8a47be14d9de7ec549
 
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://judge_sence/sprites/Time & weather.png" id="1_o1jxs"]
 [ext_resource type="Texture2D" uid="uid://cysk1nbuwuip1" path="res://judge_sence/sprites/Necromancer_creativekind-Sheet.png" id="2_12ba3"]
@@ -7,6 +11,7 @@
 atlas = ExtResource("1_o1jxs")
 region = Rect2(16, 64, 48, 48)
 
+<<<<<<< HEAD
 [sub_resource type="Theme" id="Theme_2v3ci"]
 
 [sub_resource type="Animation" id="Animation_xn0cq"]
@@ -44,6 +49,11 @@ _data = {
 "RESET": SubResource("Animation_60y33"),
 "new_animation": SubResource("Animation_xn0cq")
 }
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa43a"]
+atlas = ExtResource("1_o1jxs")
+region = Rect2(176, 64, 48, 48)
+>>>>>>> b28f08c66bdaea4644b5ec8a47be14d9de7ec549
 
 [node name="GridContainer" type="GridContainer"]
 offset_right = 40.0
@@ -85,6 +95,7 @@ texture_normal = SubResource("AtlasTexture_b0f0y")
 [node name="TextureButton9" type="TextureButton" parent="."]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_b0f0y")
+<<<<<<< HEAD
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -102,3 +113,22 @@ theme = SubResource("Theme_2v3ci")
 libraries = {
 "": SubResource("AnimationLibrary_oq5ut")
 }
+=======
+texture_hover = SubResource("AtlasTexture_pa43a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.477
+anchor_right = 0.523
+anchor_bottom = 0.529
+offset_left = -89.496
+offset_top = -0.0960083
+offset_right = 88.504
+offset_bottom = 0.207977
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+>>>>>>> b28f08c66bdaea4644b5ec8a47be14d9de7ec549

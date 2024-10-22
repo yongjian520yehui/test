@@ -35,7 +35,10 @@ size_flags_stretch_ratio = 10.0
 theme = ExtResource("2_ornhx")
 
 [node name="基本信息" type="TabBar" parent="VBoxContainer/TabContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+tab_count = 1
+tab_0/title = ""
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/基本信息"]
 layout_mode = 0
@@ -73,39 +76,39 @@ layout_mode = 2
 text = "name
 "
 
-[node name="生平介绍" type="TabBar" parent="VBoxContainer/TabContainer"]
+[node name="生平事迹" type="TabBar" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/生平介绍"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/生平事迹"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 columns = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/生平介绍/GridContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/生平事迹/GridContainer"]
 layout_mode = 2
 text = "姓名："
 
-[node name="Name" type="Label" parent="VBoxContainer/TabContainer/生平介绍/GridContainer"]
+[node name="Name" type="Label" parent="VBoxContainer/TabContainer/生平事迹/GridContainer"]
 layout_mode = 2
 text = "name
 "
 
-[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/生平介绍/GridContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/生平事迹/GridContainer"]
 layout_mode = 2
 text = "国家："
 
-[node name="Country" type="Label" parent="VBoxContainer/TabContainer/生平介绍/GridContainer"]
+[node name="Country" type="Label" parent="VBoxContainer/TabContainer/生平事迹/GridContainer"]
 layout_mode = 2
 text = "name
 "
 
-[node name="Label3" type="Label" parent="VBoxContainer/TabContainer/生平介绍/GridContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/TabContainer/生平事迹/GridContainer"]
 layout_mode = 2
 text = "宗教："
 
-[node name="Religion" type="Label" parent="VBoxContainer/TabContainer/生平介绍/GridContainer"]
+[node name="Religion" type="Label" parent="VBoxContainer/TabContainer/生平事迹/GridContainer"]
 layout_mode = 2
 text = "name
 "
