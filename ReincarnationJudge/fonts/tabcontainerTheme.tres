@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cmlcg3is5ppjo"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cmlcg3is5ppjo"]
 
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="1_hpojr"]
+[ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="1_sjxkl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gyod6"]
 texture = ExtResource("1_hpojr")
@@ -23,6 +24,10 @@ texture = ExtResource("1_hpojr")
 region_rect = Rect2(720, 16, 48, 48)
 
 [resource]
+TabContainer/constants/outline_size = 0
+TabContainer/constants/side_margin = 20
+TabContainer/font_sizes/font_size = 16
+TabContainer/fonts/font = ExtResource("1_sjxkl")
 TabContainer/styles/panel = SubResource("StyleBoxTexture_gyod6")
 TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_u7pnv")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_tpdri")
