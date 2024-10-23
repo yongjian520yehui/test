@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0wfnvqaoge3n"]
+[gd_scene load_steps=5 format=3 uid="uid://b0wfnvqaoge3n"]
 
 [ext_resource type="Script" path="res://start_page.gd" id="1_ho8kv"]
 [ext_resource type="PackedScene" uid="uid://b0hx1753xcng" path="res://menu/mainMenu.tscn" id="1_thgri"]
+[ext_resource type="Texture2D" uid="uid://cn0txfqsqytat" path="res://menu/dungeon background 1.png" id="2_20uyr"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="2_qf7dl"]
 
 [node name="StartPage" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_ho8kv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_20uyr")
 
 [node name="MianMenu" parent="." instance=ExtResource("1_thgri")]
 

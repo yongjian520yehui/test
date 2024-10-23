@@ -16,6 +16,7 @@ offset_right = -1320.0
 offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(300, 250)
 script = ExtResource("1_sclrs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -35,8 +36,6 @@ size_flags_stretch_ratio = 10.0
 [node name="基本信息" type="TabBar" parent="VBoxContainer/TabContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-tab_count = 1
-tab_0/title = ""
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/基本信息"]
 layout_mode = 0

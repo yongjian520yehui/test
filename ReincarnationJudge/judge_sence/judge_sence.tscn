@@ -1,6 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
+[ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://judge_sence/sprites/dungeon background 11.png" id="2_bru36"]
 [ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://judge_sence/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://judge_sence/sprites/UI cooking.png" id="3_okide"]
@@ -27,10 +28,6 @@ region = Rect2(160, 128, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb8qy"]
 atlas = ExtResource("6_aghy4")
 region = Rect2(16, 176, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ysr4a"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(256, 128, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7i1h"]
 atlas = ExtResource("6_aghy4")
@@ -108,18 +105,24 @@ script = ExtResource("1_gltdn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bru36")
+
 [node name="Ghost4" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
-anchors_preset = -1
-anchor_left = 0.0691916
-anchor_top = 0.649799
-anchor_right = 3.06919
-anchor_bottom = 3.6498
-offset_left = 25.1521
-offset_top = -29.7824
-offset_right = -5734.85
-offset_bottom = -3269.78
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 800.0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 160.0
+grow_vertical = 2
 scale = Vector2(3, 3)
-metadata/_edit_use_anchors_ = true
 
 [node name="Ghost3" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
 anchors_preset = -1
@@ -134,12 +137,14 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = 121.0
-offset_right = -66.0
-offset_bottom = 121.0
+offset_left = -820.0
+offset_top = 160.0
+offset_right = -820.0
+offset_bottom = 160.0
 grow_horizontal = 0
+grow_vertical = 2
 scale = Vector2(3, 3)
 
 [node name="Ghost" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
@@ -148,10 +153,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 30.0001
-offset_top = -54.0
-offset_right = 30.0001
-offset_bottom = -54.0
+offset_top = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3, 3)
 
 [node name="GostTable" type="TextureButton" parent="CanvasLayer"]
@@ -160,10 +165,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -32.0
-offset_right = 24.0
-offset_bottom = 32.0
+offset_left = -47.0
+offset_top = 168.0
+offset_right = 1.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -209,17 +214,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = 936.0
+offset_top = 516.0
+offset_right = 984.0
+offset_bottom = 564.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = SubResource("AtlasTexture_l1qv1")
 texture_pressed = SubResource("AtlasTexture_nb8qy")
-texture_hover = SubResource("AtlasTexture_ysr4a")
 texture_disabled = SubResource("AtlasTexture_d7i1h")
 texture_focused = SubResource("AtlasTexture_g8aug")
 script = ExtResource("5_1iucn")
@@ -307,6 +311,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Divider" parent="CanvasLayer" instance=ExtResource("8_muyfv")]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_right = 0.0
@@ -316,6 +321,7 @@ offset_bottom = 260.0
 grow_horizontal = 1
 
 [node name="Divider2" parent="CanvasLayer" instance=ExtResource("8_muyfv")]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_right = 0.0

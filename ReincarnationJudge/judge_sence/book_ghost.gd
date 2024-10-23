@@ -16,7 +16,10 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
+	
+func _gui_input(event):
+	if Input.is_action_pressed("mouse_left"):
+		global_position = get_global_mouse_position()-pivot_offset
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
