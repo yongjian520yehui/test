@@ -35,5 +35,6 @@ func _on_ghost_book_button_pressed() -> void:
 	if book_ghost.visible == false:
 		book_ghost.visible=true
 		book_ghost.open()
+	
 
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dppk6rnf3cu4m"]
+
+[ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/sprites/table.png.jpeg" id="1_etlgm"]
+
+[node name="Divider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 17.0
+texture = ExtResource("1_etlgm")
+expand_mode = 2

@@ -1,17 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=23 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
+[ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://judge_sence/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://judge_sence/sprites/UI cooking.png" id="3_okide"]
+[ext_resource type="Script" path="res://judge_sence/GhostBookButton.gd" id="5_1iucn"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://judge_sence/PauseCanvasLayer.gd" id="6_vbum2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3cs6u"]
-atlas = ExtResource("3_okide")
-region = Rect2(336, 128, 48, 56)
+[ext_resource type="PackedScene" uid="uid://dppk6rnf3cu4m" path="res://judge_sence/divider.tscn" id="8_muyfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
 atlas = ExtResource("3_okide")
@@ -40,6 +39,21 @@ region = Rect2(208, 176, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8aug"]
 atlas = ExtResource("6_aghy4")
 region = Rect2(16, 128, 96, 48)
+
+[sub_resource type="Animation" id="Animation_kgoaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/GhostBookButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(936, 516)]
+}
 
 [sub_resource type="Animation" id="Animation_in7ld"]
 resource_name = "files_get"
@@ -81,21 +95,6 @@ tracks/2/keys = {
 "values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_kgoaa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/GhostBookButton:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(936, 516)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_galhf"]
 _data = {
 "RESET": SubResource("Animation_kgoaa"),
@@ -109,6 +108,52 @@ script = ExtResource("1_gltdn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Ghost4" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
+anchors_preset = -1
+anchor_left = 0.0691916
+anchor_top = 0.649799
+anchor_right = 3.06919
+anchor_bottom = 3.6498
+offset_left = 25.1521
+offset_top = -29.7824
+offset_right = -5734.85
+offset_bottom = -3269.78
+scale = Vector2(3, 3)
+metadata/_edit_use_anchors_ = true
+
+[node name="Ghost3" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
+anchors_preset = -1
+anchor_left = 0.355208
+anchor_top = 0.182407
+anchor_right = 0.355208
+anchor_bottom = 0.182407
+scale = Vector2(3, 3)
+metadata/_edit_use_anchors_ = true
+
+[node name="Ghost2" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 121.0
+offset_right = -66.0
+offset_bottom = 121.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+
+[node name="Ghost" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0001
+offset_top = -54.0
+offset_right = 30.0001
+offset_bottom = -54.0
+scale = Vector2(3, 3)
+
 [node name="GostTable" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -121,10 +166,15 @@ offset_right = 24.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = SubResource("AtlasTexture_3cs6u")
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_juti8")
 texture_pressed = SubResource("AtlasTexture_juti8")
+texture_hover = SubResource("AtlasTexture_juti8")
+texture_disabled = SubResource("AtlasTexture_juti8")
+texture_focused = SubResource("AtlasTexture_juti8")
 
 [node name="Table" type="TextureRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -152,6 +202,7 @@ texture_normal = SubResource("AtlasTexture_q308k")
 
 [node name="GhostBookButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(48, 48)
 anchors_preset = 8
 anchor_left = 0.5
@@ -171,6 +222,7 @@ texture_pressed = SubResource("AtlasTexture_nb8qy")
 texture_hover = SubResource("AtlasTexture_ysr4a")
 texture_disabled = SubResource("AtlasTexture_d7i1h")
 texture_focused = SubResource("AtlasTexture_g8aug")
+script = ExtResource("5_1iucn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GhostBookButton"]
 unique_name_in_owner = true
@@ -216,6 +268,7 @@ offset_right = -367.0
 offset_bottom = -148.0
 grow_horizontal = 0
 grow_vertical = 0
+size_flags_horizontal = 8
 theme = SubResource("Theme_ywqgq")
 theme_override_fonts/font = ExtResource("6_7kowl")
 theme_override_font_sizes/font_size = 30
@@ -248,6 +301,28 @@ offset_right = -226.0
 offset_bottom = -99.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Divider" parent="CanvasLayer" instance=ExtResource("8_muyfv")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_top = 260.0
+offset_bottom = 260.0
+grow_horizontal = 1
+
+[node name="Divider2" parent="CanvasLayer" instance=ExtResource("8_muyfv")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_top = -231.0
+offset_bottom = -231.0
+grow_horizontal = 1
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
