@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://judge_sence/PauseCanvasLayer.gd" id="6_vbum2"]
-[ext_resource type="PackedScene" uid="uid://dppk6rnf3cu4m" path="res://judge_sence/divider.tscn" id="8_muyfv"]
+[ext_resource type="PackedScene" uid="uid://bllmarad26s51" path="res://judge_sence/time.tscn" id="10_tircv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
 atlas = ExtResource("3_okide")
@@ -105,7 +105,7 @@ script = ExtResource("1_gltdn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="背景" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -214,10 +214,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 936.0
-offset_top = 516.0
-offset_right = 984.0
-offset_bottom = 564.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -306,29 +306,12 @@ offset_bottom = -99.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Divider" parent="CanvasLayer" instance=ExtResource("8_muyfv")]
-visible = false
-anchors_preset = 4
-anchor_top = 0.5
-anchor_right = 0.0
-anchor_bottom = 0.5
-offset_top = 260.0
-offset_bottom = 260.0
-grow_horizontal = 1
-
-[node name="Divider2" parent="CanvasLayer" instance=ExtResource("8_muyfv")]
-visible = false
-anchors_preset = 4
-anchor_top = 0.5
-anchor_right = 0.0
-anchor_bottom = 0.5
-offset_top = -231.0
-offset_bottom = -231.0
-grow_horizontal = 1
+[node name="Time" parent="CanvasLayer" instance=ExtResource("10_tircv")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

@@ -72,7 +72,7 @@ func _on_pause_back_main_menu_button_pressed() -> void:
 	if visible:
 		get_tree().paused = false
 		#close()
-		get_tree().change_scene_to_file("res://start_page.tscn")
+		get_tree().change_scene_to_file("res://main.tscn")
 		
 
 func _on_pause_setting_button_pressed() -> void:
