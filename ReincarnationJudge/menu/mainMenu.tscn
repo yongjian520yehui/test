@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0hx1753xcng"]
+[gd_scene load_steps=7 format=3 uid="uid://b0hx1753xcng"]
 
 [ext_resource type="Script" path="res://menu/mainMenu.gd" id="1_yu65p"]
+[ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://menu/light.png" id="2_bvwll"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="2_orskt"]
+[ext_resource type="Texture2D" uid="uid://cn0txfqsqytat" path="res://menu/dungeon background 1.png" id="2_qt5xb"]
+
+[sub_resource type="Animation" id="Animation_m6cvv"]
+resource_name = "flashing_light"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.1, 2.0, 0.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmfvi"]
+_data = {
+"flashing_light": SubResource("Animation_m6cvv")
+}
 
 [node name="MianMenu" type="Panel"]
 anchors_preset = 15
@@ -11,9 +35,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yu65p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(834.75, 448.25)
-scale = Vector2(3.92382, 3.16024)
+[node name="Label" type="Label" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -47.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "pause
+"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 1023
+visibility_layer = 1023
+position = Vector2(469, 454)
+color = Color(1, 0.101961, 1, 1)
+energy = 0.1
+texture = ExtResource("2_bvwll")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qt5xb")
 
 [node name="GameNameLable" type="Label" parent="."]
 layout_mode = 1
@@ -21,9 +70,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -100.0
-offset_top = 200.0
+offset_top = 300.0
 offset_right = 100.0
-offset_bottom = 257.0
+offset_bottom = 357.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_orskt")
 theme_override_font_sizes/font_size = 50
@@ -36,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -36.0
+offset_top = -60.0
+offset_right = 36.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -62,6 +111,12 @@ text = "设置"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_orskt")
 text = "退出游戏"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fmfvi")
+}
+autoplay = "flashing_light"
 
 [connection signal="pressed" from="VBoxContainer/MenuStartButton" to="." method="_on_menu_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuContinueButton" to="." method="_on_menu_continue_button_pressed"]

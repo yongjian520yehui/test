@@ -1,15 +1,19 @@
 extends Panel
 const PAUSE_MENU = preload("res://menu/pause_menu.tscn")
+@onready var label: Label = $Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-
+func _process(delta: float) -> void:
+	var tree := get_tree()
+	if tree.paused==true:
+		label.text="pause"
+	else:
+		label.text = "running"
+		
 func _on_menu_exit_button_pressed() -> void:
 	if visible:
 		get_tree().quit()
