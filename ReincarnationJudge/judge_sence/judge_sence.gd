@@ -6,12 +6,14 @@ extends Node2D
 @onready var book_ghost = %book_ghost
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var ghost_book_position = $CanvasLayer/GhostBookPosition
+@onready var time_label: Label = %TimeLabel
 
+var success_case := 0
+var failed_case := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -29,6 +31,7 @@ func _on_next_button_pressed() -> void:
 func _on_judge_button_pressed() -> void:
 	if book_ghost.visible== false:
 		ghost_book_button.visible= false
+	
 
 
 func _on_ghost_book_button_pressed() -> void:
@@ -36,5 +39,6 @@ func _on_ghost_book_button_pressed() -> void:
 		book_ghost.visible=true
 		book_ghost.open()
 	
-
+func is_success():
+	if true: success_case += 1
 

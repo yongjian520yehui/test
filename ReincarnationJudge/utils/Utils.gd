@@ -9,6 +9,10 @@ func save_game(content):
 	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
 	file.store_string(content)
 
+func load_game(content):
+	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
+	file.store_string(content)
+
 func load_file(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = file.get_as_text()

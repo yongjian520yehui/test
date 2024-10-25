@@ -80,6 +80,8 @@ func _on_pause_setting_button_pressed() -> void:
 
 
 func _on_pause_save_button_pressed():
-	get_tree().paused = false
+	var data = {"天数":1,"金钱":100}
 	print("保存中。。。。")
+	Utils.save_game(str(data))
+	get_tree().paused = false
 	close()
