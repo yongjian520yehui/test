@@ -367,6 +367,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
+[node name="Label" type="Label" parent="PauseCanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_7kowl")
+text = "第一天"
+
 [connection signal="pressed" from="CanvasLayer/GhostBookButton" to="." method="_on_ghost_book_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/JudgeButton" to="." method="_on_judge_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
