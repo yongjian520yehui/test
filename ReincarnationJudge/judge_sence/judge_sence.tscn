@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=29 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://judge_sence/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://judge_sence/sprites/dungeon background 11.png" id="2_bru36"]
 [ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://ghost_data/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://judge_sence/sprites/UI cooking.png" id="3_okide"]
+[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://ghost_1.tscn" id="3_tu538"]
 [ext_resource type="Script" path="res://judge_sence/GhostBookButton.gd" id="5_1iucn"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
@@ -128,17 +129,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bru36")
 
-[node name="Ghost4" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 800.0
-offset_top = 160.0
-offset_right = 800.0
-offset_bottom = 160.0
-grow_vertical = 2
-scale = Vector2(3, 3)
-
 [node name="Ghost3" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
 anchors_preset = -1
 anchor_left = 0.355208
@@ -148,27 +138,15 @@ anchor_bottom = 0.182407
 scale = Vector2(3, 3)
 metadata/_edit_use_anchors_ = true
 
-[node name="Ghost2" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -820.0
-offset_top = 160.0
-offset_right = -820.0
-offset_bottom = 160.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(3, 3)
-
 [node name="Ghost" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -25.0
 offset_top = 160.0
+offset_right = 25.0
 offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -342,7 +320,6 @@ text = "19:20:20"
 [node name="TimeSystem" type="Node" parent="CanvasLayer"]
 script = ExtResource("11_pn5gi")
 date_time = SubResource("Resource_yv7w3")
-ticks_per_second = 600
 
 [node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
 position = Vector2(1420, 281)
@@ -353,6 +330,12 @@ texture = ExtResource("13_at7m5")
 position = Vector2(552, 357)
 color = Color(1, 0.152941, 1, 1)
 texture = ExtResource("13_at7m5")
+
+[node name="Ghost1" parent="CanvasLayer" instance=ExtResource("3_tu538")]
+position = Vector2(1152, 762)
+
+[node name="Ghost2" parent="CanvasLayer" instance=ExtResource("3_tu538")]
+position = Vector2(810, 759)
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

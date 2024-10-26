@@ -1,34 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwgw3k2tmmxfs"]
+[gd_scene load_steps=6 format=3 uid="uid://cym1ehsm7tw63"]
 
-[ext_resource type="Script" path="res://judge_sence/book_ghost.gd" id="1_sclrs"]
+[ext_resource type="Script" path="res://draganddrop.gd" id="1_d35we"]
+[ext_resource type="Script" path="res://book.gd" id="1_v1mjw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bq7t7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nmk5"]
+size = Vector2(556, 421)
 
-[sub_resource type="Theme" id="Theme_y0tk8"]
-/styles/tab_focus = SubResource("StyleBoxTexture_bq7t7")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3axvt"]
 
-[node name="BookGhost" type="Control" node_paths=PackedStringArray("target")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1320.0
-offset_bottom = -580.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(300, 250)
-script = ExtResource("1_sclrs")
-target = NodePath(".")
+[sub_resource type="Theme" id="Theme_qaa6l"]
+/styles/tab_focus = SubResource("StyleBoxTexture_3axvt")
+
+[node name="Book" type="Area2D"]
+script = ExtResource("1_v1mjw")
 metadata/_edit_group_ = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(275, 206.5)
+shape = SubResource("RectangleShape2D_1nmk5")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_y0tk8")
+offset_right = 549.0
+offset_bottom = 411.0
+theme = SubResource("Theme_qaa6l")
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -228,4 +222,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "关闭"
 
-[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]
+[node name="draganddrop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("1_d35we")
+target = NodePath("..")

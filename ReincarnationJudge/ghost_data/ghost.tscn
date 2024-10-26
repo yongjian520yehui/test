@@ -1,14 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://dclyulfsj2vhi"]
+[gd_scene load_steps=6 format=3 uid="uid://dclyulfsj2vhi"]
 
 [ext_resource type="Texture2D" uid="uid://cysk1nbuwuip1" path="res://judge_sence/sprites/Necromancer_creativekind-Sheet.png" id="1_7l2lc"]
+[ext_resource type="Script" path="res://ghost_data/ghost.gd" id="1_31k0o"]
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://ghost_data/2d_outline_shader.tres" id="2_qdutb"]
+[ext_resource type="Script" path="res://ghost_data/OutlineHighlighter.gd" id="2_yqyib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qiocc"]
 atlas = ExtResource("1_7l2lc")
 region = Rect2(380, 575, 44, 50)
 
 [node name="Ghost" type="Control"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_31k0o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("2_qdutb")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(23, 27)
 texture = SubResource("AtlasTexture_qiocc")
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("2_yqyib")
+visuals = NodePath("../CanvasGroup")
+outline_color = Color(0.99558, 0.99558, 0.99558, 1)
+outline_thickness = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

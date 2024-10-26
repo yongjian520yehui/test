@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://n0prsf2so3df"]
+
+[ext_resource type="Script" path="res://ghost_1.gd" id="1_lv8ya"]
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://ghost_data/2d_outline_shader.tres" id="2_ymb71"]
+[ext_resource type="Texture2D" uid="uid://vupeurqq3nh7" path="res://ghost_data/monsters.png" id="3_t0582"]
+[ext_resource type="Script" path="res://ghost_data/OutlineHighlighter.gd" id="4_kix74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jte4"]
+size = Vector2(25, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn02t"]
+atlas = ExtResource("3_t0582")
+region = Rect2(98, 129, 29, 30)
+
+[node name="Ghost1" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_lv8ya")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7jte4")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("2_ymb71")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+texture = SubResource("AtlasTexture_yn02t")
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("4_kix74")
+visuals = NodePath("../CanvasGroup")
+outline_color = Color(0.298039, 0.988235, 0.988235, 1)
+outline_thickness = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
