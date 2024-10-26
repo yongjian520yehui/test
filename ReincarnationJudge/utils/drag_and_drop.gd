@@ -6,7 +6,7 @@ signal drag_started
 signal dropped(starting_position: Vector2)
 
 @export var enabled: bool = true
-@export var target: Area2D
+@export var target: Control
 
 var starting_position: Vector2
 var offset := Vector2.ZERO
@@ -15,12 +15,13 @@ var dragging := false
 
 func _ready() -> void:
 	assert(target, "No target set for DragAndDrop Component!")
-	target.input_event.connect(_on_target_input_event.unbind(1))
+	target.gui_input.connect(_on_target_input_event)
 
 
 func _process(_delta: float) -> void:
 	if dragging and target:
-		target.global_position = target.get_global_mouse_position() + offset
+		get_parent().global_position = target.get_global_mouse_position() + offset
+		#target.global_position = target.get_global_mouse_position() + offset
 
 
 func _input(event: InputEvent) -> void:
@@ -55,7 +56,7 @@ func _drop() -> void:
 	dropped.emit(starting_position)
 	
 
-func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
+func _on_target_input_event(event: InputEvent) -> void:
 	if not enabled:
 		return
 

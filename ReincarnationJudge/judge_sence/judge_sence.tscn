@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://ghost_data/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://judge_sence/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://judge_sence/sprites/UI cooking.png" id="3_okide"]
-[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://ghost_1.tscn" id="3_tu538"]
-[ext_resource type="Script" path="res://judge_sence/GhostBookButton.gd" id="5_1iucn"]
+[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://ghost_data/ghost_1.tscn" id="3_tu538"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://menu/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://judge_sence/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://judge_sence/PauseCanvasLayer.gd" id="6_vbum2"]
+[ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="7_kjcro"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://judge_sence/sprites/Time & weather.png" id="10_7mc66"]
 [ext_resource type="Script" path="res://utils/timeSystem.gd" id="11_pn5gi"]
 [ext_resource type="Script" path="res://utils/date_time.gd" id="12_l3wlv"]
@@ -188,7 +188,6 @@ expand_mode = 2
 
 [node name="FilesButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -197,6 +196,10 @@ offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_q308k")
+
+[node name="drag" type="Node" parent="CanvasLayer/FilesButton" node_paths=PackedStringArray("target")]
+script = ExtResource("7_kjcro")
+target = NodePath("..")
 
 [node name="GhostBookButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -219,7 +222,6 @@ texture_normal = SubResource("AtlasTexture_l1qv1")
 texture_pressed = SubResource("AtlasTexture_nb8qy")
 texture_disabled = SubResource("AtlasTexture_d7i1h")
 texture_focused = SubResource("AtlasTexture_g8aug")
-script = ExtResource("5_1iucn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GhostBookButton"]
 unique_name_in_owner = true
@@ -228,6 +230,10 @@ libraries = {
 "": SubResource("AnimationLibrary_galhf")
 }
 autoplay = "death_god2_idle"
+
+[node name="drag" type="Node" parent="CanvasLayer/GhostBookButton" node_paths=PackedStringArray("target")]
+script = ExtResource("7_kjcro")
+target = NodePath("..")
 
 [node name="book_ghost" parent="CanvasLayer" instance=ExtResource("6_qugnk")]
 unique_name_in_owner = true

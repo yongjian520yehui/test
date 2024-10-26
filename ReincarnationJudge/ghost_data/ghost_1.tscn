@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://n0prsf2so3df"]
 
-[ext_resource type="Script" path="res://ghost_1.gd" id="1_lv8ya"]
+[ext_resource type="Script" path="res://ghost_data/ghost_1.gd" id="1_lv8ya"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://ghost_data/2d_outline_shader.tres" id="2_ymb71"]
 [ext_resource type="Texture2D" uid="uid://vupeurqq3nh7" path="res://ghost_data/monsters.png" id="3_t0582"]
 [ext_resource type="Script" path="res://ghost_data/OutlineHighlighter.gd" id="4_kix74"]
