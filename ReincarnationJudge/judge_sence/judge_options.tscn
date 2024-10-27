@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7k2if286c54n"]
+
+[ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://judge_sence/sprites/UI books & more.png" id="1_8dvmq"]
+[ext_resource type="Script" path="res://judge_sence/judge_options.gd" id="1_q5b83"]
+[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://judge_sence/sprites/Time & weather.png" id="2_ybomv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bosey"]
+atlas = ExtResource("1_8dvmq")
+region = Rect2(656, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12k12"]
+atlas = ExtResource("2_ybomv")
+region = Rect2(64, 112, 48, 48)
+
+[node name="JudgeOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q5b83")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 105.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FirstSelection" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "天堂"
+popup/item_0/icon = SubResource("AtlasTexture_bosey")
+popup/item_0/id = 0
+popup/item_1/text = "地狱"
+popup/item_1/icon = SubResource("AtlasTexture_12k12")
+popup/item_1/id = 1
+popup/item_2/text = "人间"
+popup/item_2/icon = SubResource("AtlasTexture_12k12")
+popup/item_2/id = 2
+
+[node name="Second-1" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "天堂"
+popup/item_0/icon = SubResource("AtlasTexture_bosey")
+popup/item_0/id = 0
+popup/item_1/text = "地狱"
+popup/item_1/id = 1
+
+[node name="Second-2" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "天堂"
+popup/item_0/icon = SubResource("AtlasTexture_bosey")
+popup/item_0/id = 0
+popup/item_1/text = "地狱"
+popup/item_1/id = 1
+
+[node name="Second-3" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "天堂"
+popup/item_0/icon = SubResource("AtlasTexture_bosey")
+popup/item_0/id = 0
+popup/item_1/text = "地狱"
+popup/item_1/id = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Judge" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "判决"
+
+[node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "取消"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Judge" to="." method="_on_judge_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Cancel" to="." method="_on_cancel_pressed"]

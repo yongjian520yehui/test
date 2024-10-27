@@ -47,7 +47,7 @@ func _start_dragging() -> void:
 	starting_position = target.global_position
 	target.add_to_group("dragging")
 	target.z_index = 99
-	offset = target.global_position - target.get_global_mouse_position()
+	offset = get_parent().global_position - get_parent().get_global_mouse_position()
 	drag_started.emit()
 
 

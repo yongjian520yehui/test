@@ -7,6 +7,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var ghost_book_position = $CanvasLayer/GhostBookPosition
 @onready var time_label: Label = %TimeLabel
+@onready var judge_options: Control = $CanvasLayer/JudgeOptions
 
 var success_case := 0
 var failed_case := 0
@@ -29,8 +30,9 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_judge_button_pressed() -> void:
-	if book_ghost.visible== false:
-		ghost_book_button.visible= false
+	if book_ghost.visible == false:
+		ghost_book_button.visible = false
+		judge_options.visible = true
 	
 
 
