@@ -236,4 +236,6 @@ text = "关闭"
 script = ExtResource("2_xjylj")
 target = NodePath("../VBoxContainer/TabContainer/基本信息")
 
+[connection signal="gui_input" from="VBoxContainer/TabContainer/基本信息/GridContainer/Label" to="." method="_on_label_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/TabContainer/基本信息/GridContainer/Name" to="." method="_on_name_gui_input"]
 [connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]

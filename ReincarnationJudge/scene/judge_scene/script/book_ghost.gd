@@ -64,5 +64,3 @@ func open() -> void:
 		1.0,
 		fade_out_duration
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-
-	

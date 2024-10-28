@@ -122,28 +122,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bru36")
 
-[node name="Ghost3" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
-anchors_preset = -1
-anchor_left = 0.355208
-anchor_top = 0.182407
-anchor_right = 0.355208
-anchor_bottom = 0.182407
-scale = Vector2(3, 3)
-metadata/_edit_use_anchors_ = true
-
 [node name="Ghost" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = 4.0
+offset_top = 96.0
+offset_right = 54.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
 
 [node name="GostTable" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8
@@ -317,6 +307,7 @@ theme_override_fonts/font = ExtResource("6_7kowl")
 text = "19:20:20"
 
 [node name="DateSystem" parent="CanvasLayer/TimeUI" node_paths=PackedStringArray("show") instance=ExtResource("11_wgvcv")]
+speed = 1
 show = NodePath("../TimeLabel")
 
 [node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
@@ -330,10 +321,10 @@ color = Color(1, 0.152941, 1, 1)
 texture = ExtResource("13_at7m5")
 
 [node name="Ghost1" parent="CanvasLayer" instance=ExtResource("3_tu538")]
-position = Vector2(1152, 762)
+position = Vector2(1234, 757)
 
 [node name="Ghost2" parent="CanvasLayer" instance=ExtResource("3_tu538")]
-position = Vector2(810, 759)
+position = Vector2(708, 747)
 
 [node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
 visible = false
