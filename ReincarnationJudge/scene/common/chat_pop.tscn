@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://gchnwx6gtd3e"]
+
+[ext_resource type="Script" path="res://scene/common/chat_pop.gd" id="1_bren6"]
+[ext_resource type="Texture2D" uid="uid://c5e2in6l5cice" path="res://scene/common/testButton.9.png" id="2_h32k2"]
+
+[node name="ChatPop" type="Node2D"]
+script = ExtResource("1_bren6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 228.0
+offset_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_h32k2")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 161.0
+offset_bottom = 136.0
+text = "你什么意思？
+你什么意思？？？？？？
+你什么意思？？？？？？？？？"
+autowrap_mode = 1
+
+[connection signal="minimum_size_changed" from="NinePatchRect/Label" to="." method="_on_label_minimum_size_changed"]

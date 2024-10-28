@@ -16,5 +16,5 @@ func _ready():
 func _process(delta):
 	timeString = date_time.increase_by_sec( delta * ticks_per_second )
 	if timeString.left(2) == "18":
-		get_tree().change_scene_to_file("res://statistics_page/statisticsPage.tscn")
+		get_tree().change_scene_to_file(Utils.STATISTICS_PAGE)
 	time_label.text = timeString

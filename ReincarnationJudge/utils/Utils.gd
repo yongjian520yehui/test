@@ -1,5 +1,20 @@
 extends Node
 
+const PAUSE_MENU := "res://scene/menu/scene/pause_menu.tscn"
+const MAIN_MENU := "res://scene/menu/scene/mainMenu.tscn"
+const GHOST := "res://scene/ghost_data/scene/ghost.tscn"
+const GHOST_WORKER := "res://scene/ghost_data/scene/ghost_worker.tscn"
+const CHAT_POP := "res://utils/chat_pop.tscn"
+const TIME_SYSTEM := "res://utils/time_system.tscn"
+const BOOK_GHOST := "res://scene/judge_scene/scene/book_ghost.tscn"
+const FILES :="res://scene/judge_scene/scene/files.tscn"
+const JUDGE_OPTIONS := "res://scene/judge_scene/scene/judge_options.tscn"
+const JUDGE_SENCE := "res://scene/judge_scene/scene/judge_sence.tscn"
+const STATISTICS_PAGE := "res://scene/statistics_page/scene/statisticsPage.tscn"
+
+const NOMAL_GHOST := "res://scene/ghost_data/data/nomal_ghost.json"
+const IMPORTANT_GHOST := "res://scene/ghost_data/data/important_ghost.json"
+
 func load_json_file(filePath):
 	var content = load_file(filePath)
 	var json = JSON.parse_string(content)
@@ -20,7 +35,7 @@ func load_file(filePath):
 
 func ghost_factory():
 	var ghost_data
-	var contant = load_json_file("res://ghost_data/nomal_ghost.json")
+	var contant = load_json_file(Utils.NOMAL_GHOST)
 
 	var ghost_name = contant["name"][randi_range(0,contant["name"].size()-1)]
 	var country = contant["country"][randi_range(0,contant["country"].size()-1)]
