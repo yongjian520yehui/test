@@ -31,12 +31,12 @@ layout_mode = 2
 
 [node name="FirstSelection" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
-item_count = 3
 selected = 0
+item_count = 3
 popup/item_0/text = "天堂"
 popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_0/id = 0
 popup/item_1/text = "地狱"
 popup/item_1/icon = SubResource("AtlasTexture_12k12")
 popup/item_1/id = 1
@@ -44,39 +44,37 @@ popup/item_2/text = "人间"
 popup/item_2/icon = SubResource("AtlasTexture_12k12")
 popup/item_2/id = 2
 
-[node name="Second-1" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Second-tiantang" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
-item_count = 2
 selected = 0
+item_count = 2
 popup/item_0/text = "天堂"
 popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_0/id = 0
 popup/item_1/text = "地狱"
 popup/item_1/id = 1
 
-[node name="Second-2" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Second-diyu" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 alignment = 1
-item_count = 2
 selected = 0
-popup/item_0/text = "天堂"
+item_count = 2
+popup/item_0/text = "地狱1"
 popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_0/id = 0
-popup/item_1/text = "地狱"
+popup/item_1/text = "地狱2"
 popup/item_1/id = 1
 
-[node name="Second-3" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Second-renjian" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 alignment = 1
-item_count = 2
 selected = 0
-popup/item_0/text = "天堂"
+item_count = 2
+popup/item_0/text = "人间1"
 popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_0/id = 0
-popup/item_1/text = "地狱"
+popup/item_1/text = "人间2"
 popup/item_1/id = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -96,5 +94,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "取消"
 
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/FirstSelection" to="." method="_on_first_selection_item_selected"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Judge" to="." method="_on_judge_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Cancel" to="." method="_on_cancel_pressed"]

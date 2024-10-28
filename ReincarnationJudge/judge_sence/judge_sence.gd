@@ -24,8 +24,8 @@ func get_Pos():
 	return ghost_book_position.global_position
 
 func _on_next_button_pressed() -> void:
-	if ghost_book_button.visible== false:
-		ghost_book_button.visible=true
+	if ghost_book_button.visible == false:
+		ghost_book_button.visible = true
 		animation_player.play("ghost_book_get")
 
 
@@ -33,14 +33,12 @@ func _on_judge_button_pressed() -> void:
 	if book_ghost.visible == false:
 		ghost_book_button.visible = false
 		judge_options.visible = true
-	
 
 
 func _on_ghost_book_button_pressed() -> void:
 	if book_ghost.visible == false:
-		book_ghost.visible=true
+		book_ghost.visible = true
 		book_ghost.open()
 	
 func is_success():
 	if true: success_case += 1
-

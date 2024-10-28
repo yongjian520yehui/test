@@ -1,4 +1,5 @@
 extends Area2D
+@onready var canvas_group: CanvasGroup = $CanvasGroup
 
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
 

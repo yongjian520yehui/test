@@ -16,4 +16,3 @@ func clear_highlight() -> void:
 
 func highlight() -> void:
 	visuals.material.set_shader_parameter("line_thickness", outline_thickness)
-

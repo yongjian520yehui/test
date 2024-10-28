@@ -5,7 +5,7 @@ extends Node
 @export var ticks_per_second :int = 6
 @onready var time_label: Label = %TimeLabel
 
-var timeString : = ""
+var timeString 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -3,9 +3,10 @@ extends Control
 @onready var judge: Button = $VBoxContainer/HBoxContainer2/Judge
 @onready var cancel: Button = $VBoxContainer/HBoxContainer2/Cancel
 @onready var first_selection: OptionButton = $VBoxContainer/HBoxContainer/FirstSelection
-@onready var second_1: OptionButton = $"VBoxContainer/HBoxContainer/Second-1"
-@onready var second_2: OptionButton = $"VBoxContainer/HBoxContainer/Second-2"
-@onready var second_3: OptionButton = $"VBoxContainer/HBoxContainer/Second-3"
+@onready var second_tiantang: OptionButton = $"VBoxContainer/HBoxContainer/Second-tiantang"
+@onready var second_diyu: OptionButton = $"VBoxContainer/HBoxContainer/Second-diyu"
+@onready var second_renjian: OptionButton = $"VBoxContainer/HBoxContainer/Second-renjian"
+
 
 var first: String
 var second: String
@@ -30,3 +31,19 @@ func _on_judge_pressed() -> void:
 	
 func _on_cancel_pressed() -> void:
 	visible = false
+
+
+func _on_first_selection_item_selected(index: int) -> void:
+	match index:
+		0:
+			second_tiantang.visible= true
+			second_diyu.visible= false
+			second_renjian.visible= false
+		1:
+			second_tiantang.visible= false
+			second_diyu.visible= true
+			second_renjian.visible= false
+		2:
+			second_tiantang.visible= false
+			second_diyu.visible= false
+			second_renjian.visible= true

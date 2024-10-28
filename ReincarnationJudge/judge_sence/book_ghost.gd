@@ -66,5 +66,3 @@ func open() -> void:
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 	
-
-
