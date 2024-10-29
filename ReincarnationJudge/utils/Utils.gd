@@ -10,10 +10,18 @@ const BOOK_GHOST := "res://scene/judge_scene/scene/book_ghost.tscn"
 const FILES :="res://scene/judge_scene/scene/files.tscn"
 const JUDGE_OPTIONS := "res://scene/judge_scene/scene/judge_options.tscn"
 const JUDGE_SENCE := "res://scene/judge_scene/scene/judge_sence.tscn"
-const STATISTICS_PAGE := "res://scene/statistics_page/scene/statisticsPage.tscn"
+const STATISTICS_SCENE := "res://scene/statistics_scene/scene/statisticsPage.tscn"
 
 const NOMAL_GHOST := "res://scene/ghost_data/data/nomal_ghost.json"
 const IMPORTANT_GHOST := "res://scene/ghost_data/data/important_ghost.json"
+
+
+var missing_value = 100
+var saved_money = 101
+var cost = {"道具":1}
+var salary = 102
+var fine = 10
+
 
 func load_json_file(filePath):
 	var content = load_file(filePath)

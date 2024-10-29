@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://n0prsf2so3df"]
 
-[ext_resource type="Script" path="res://scene/ghost_data/scripts/ghost_worker.gd" id="1_lv8ya"]
+[ext_resource type="Script" path="res://scene/ghost/scripts/ghost_worker.gd" id="1_lv8ya"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="2_jn1lw"]
-[ext_resource type="Texture2D" uid="uid://vupeurqq3nh7" path="res://scene/ghost_data/sprites/monsters.png" id="3_t0582"]
+[ext_resource type="Texture2D" uid="uid://vupeurqq3nh7" path="res://scene/ghost/sprites/monsters.png" id="3_t0582"]
 [ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="4_vowob"]
 [ext_resource type="PackedScene" uid="uid://gchnwx6gtd3e" path="res://scene/common/chat_pop.tscn" id="5_6ddqn"]
 
@@ -33,8 +33,12 @@ visuals = NodePath("../CanvasGroup")
 outline_color = Color(0.298039, 0.988235, 0.988235, 1)
 outline_thickness = 1
 
-[node name="ChatPop" parent="." instance=ExtResource("5_6ddqn")]
-position = Vector2(-35, -114)
+[node name="ChatPosition" type="Node2D" parent="."]
+position = Vector2(73, -71)
+
+[node name="ChatPop" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_6ddqn")]
+position = Vector2(73, -85)
+target = NodePath("../ChatPosition")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

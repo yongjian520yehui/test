@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
-[ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://scene/ghost_data/scene/ghost.tscn" id="2_k2ium"]
+[ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://scene/ghost/scene/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://scene/judge_scene/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://scene/judge_scene/sprites/UI cooking.png" id="3_okide"]
-[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://scene/ghost_data/scene/ghost_worker.tscn" id="3_tu538"]
+[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://scene/ghost/scene/ghost_worker.tscn" id="3_tu538"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
@@ -128,10 +128,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 4.0
-offset_top = 96.0
-offset_right = 54.0
-offset_bottom = 146.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 109.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
 

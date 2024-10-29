@@ -92,10 +92,10 @@ func _process(delta):
 # 打印当前日期和时间的格式化输出  
 func print_date():  
 	#print("{current_date.year}-{current_date.month:02}-{current_date.day:02} {current_date.hour:02}:{current_date.minute:02}:{current_date.second:02}")
-	print(current_date)
+	#print(current_date)
 	var string = Time.get_datetime_string_from_datetime_dict(current_date,true)
 
 	var timeArray = string.split(" ",true,2)
 	var time = timeArray[0]
-	print(time)
+	#print(time)
 	return time

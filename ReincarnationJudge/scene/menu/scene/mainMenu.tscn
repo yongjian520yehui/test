@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0hx1753xcng"]
+[gd_scene load_steps=6 format=3 uid="uid://b0hx1753xcng"]
 
 [ext_resource type="Script" path="res://scene/menu/script/mainMenu.gd" id="1_yu65p"]
 [ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="2_bvwll"]
-[ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="2_orskt"]
 [ext_resource type="Texture2D" uid="uid://cn0txfqsqytat" path="res://scene/menu/sprites/dungeon background 1.png" id="2_qt5xb"]
 
 [sub_resource type="Animation" id="Animation_m6cvv"]
@@ -74,7 +73,6 @@ offset_top = 300.0
 offset_right = 100.0
 offset_bottom = 357.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_orskt")
 theme_override_font_sizes/font_size = 50
 text = "轮回法官"
 
@@ -94,22 +92,18 @@ grow_vertical = 2
 
 [node name="MenuStartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_orskt")
 text = "新游戏"
 
 [node name="MenuContinueButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_orskt")
 text = "继续游戏"
 
 [node name="MenuSettingButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_orskt")
 text = "设置"
 
 [node name="MenuExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_orskt")
 text = "退出游戏"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -15,8 +15,15 @@ var dragging := false
 
 func _ready() -> void:
 	assert(target, "No target set for DragAndDrop Component!")
-	target.gui_input.connect(_on_target_input_event)
-
+	var children : Array
+	if is_instance_of(target , TabContainer):
+		children = target.get_children()
+		print(children)
+		for child in children:
+			if is_instance_of(child , TabBar):
+				child.gui_input.connect(_on_target_input_event)
+	else :
+		target.gui_input.connect(_on_target_input_event)
 
 func _process(_delta: float) -> void:
 	if dragging and target:
