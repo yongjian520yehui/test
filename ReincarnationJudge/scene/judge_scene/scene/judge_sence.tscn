@@ -333,6 +333,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="EndThisYear" type="Button" parent="CanvasLayer"]
 offset_right = 8.0
@@ -346,18 +348,6 @@ script = ExtResource("6_vbum2")
 [node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("5_vev0h")]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-
-[node name="Label" type="Label" parent="PauseCanvasLayer"]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("6_7kowl")
-text = "第一天"
 
 [connection signal="pressed" from="CanvasLayer/GhostBookButton" to="." method="_on_ghost_book_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/JudgeButton" to="." method="_on_judge_button_pressed"]

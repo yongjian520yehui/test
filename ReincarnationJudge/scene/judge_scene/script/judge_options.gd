@@ -6,6 +6,8 @@ extends Control
 @onready var second_tiantang: OptionButton = $"VBoxContainer/HBoxContainer/Second-tiantang"
 @onready var second_diyu: OptionButton = $"VBoxContainer/HBoxContainer/Second-diyu"
 @onready var second_renjian: OptionButton = $"VBoxContainer/HBoxContainer/Second-renjian"
+@onready var color_rect = $ColorRect
+@onready var v_box_container = $VBoxContainer
 
 
 var first: String
@@ -13,7 +15,7 @@ var second: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	color_rect.size = v_box_container.size
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

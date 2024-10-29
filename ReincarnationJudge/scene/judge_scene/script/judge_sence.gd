@@ -45,4 +45,4 @@ func is_success():
 
 
 func _on_end_this_year_pressed() -> void:
-	get_tree().change_scene_to_file(Utils.STATISTICS_PAGE)
+	get_tree().change_scene_to_file(Utils.STATISTICS_SCENE)

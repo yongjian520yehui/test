@@ -24,8 +24,8 @@ func _on_menu_setting_button_pressed() -> void:
 
 
 func _on_menu_continue_button_pressed() -> void:
-	pass # Replace with function body.
-
+	Utils.load_game()
+	get_tree().change_scene_to_file(Utils.JUDGE_SENCE)
 
 func _on_menu_start_button_pressed() -> void:
 	get_tree().change_scene_to_file(Utils.JUDGE_SENCE)

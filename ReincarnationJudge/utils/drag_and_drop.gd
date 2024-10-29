@@ -18,7 +18,7 @@ func _ready() -> void:
 	var children : Array
 	if is_instance_of(target , TabContainer):
 		children = target.get_children()
-		print(children)
+		#print(children)
 		for child in children:
 			if is_instance_of(child , TabBar):
 				child.gui_input.connect(_on_target_input_event)
