@@ -3,7 +3,7 @@ extends Node
 
 @export var visuals: Node
 @export var outline_color: Color
-@export_range(1, 10) var outline_thickness: int
+@export_range(0, 10) var outline_thickness: int
 
 
 func _ready() -> void:
@@ -11,8 +11,10 @@ func _ready() -> void:
 
 
 func clear_highlight() -> void:
+	print("clear_highlight")
 	visuals.material.set_shader_parameter("line_thickness", 0)
 
 
 func highlight() -> void:
+	print("highlight")
 	visuals.material.set_shader_parameter("line_thickness", outline_thickness)

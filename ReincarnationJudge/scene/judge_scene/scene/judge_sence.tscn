@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
-[ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://character/ghost/scene/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://scene/judge_scene/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://scene/judge_scene/sprites/UI cooking.png" id="3_okide"]
 [ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://character/ghost/scene/ghost_worker.tscn" id="3_tu538"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="13_at7m5"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
 [ext_resource type="Script" path="res://scene/common/dialogue/dialogue_controller.gd" id="15_m413h"]
+[ext_resource type="PackedScene" uid="uid://5c48eqhajqak" path="res://character/ghost/scene/ghost.tscn" id="16_bkkko"]
 [ext_resource type="Resource" uid="uid://iriolugta38b" path="res://scene/common/dialogue/story01.tres" id="16_p4xqh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
@@ -123,19 +123,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bru36")
-
-[node name="Ghost" parent="CanvasLayer" instance=ExtResource("2_k2ium")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 109.0
-offset_bottom = 127.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="GostTable" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8
@@ -328,6 +315,9 @@ position = Vector2(1234, 757)
 [node name="Ghost2" parent="CanvasLayer" instance=ExtResource("3_tu538")]
 position = Vector2(708, 747)
 
+[node name="Ghost" parent="CanvasLayer" instance=ExtResource("16_bkkko")]
+position = Vector2(962, 664)
+
 [node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
 visible = false
 anchors_preset = 8
@@ -346,7 +336,7 @@ text = "结束这一年"
 [node name="dialogueControler" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("actor_list")]
 script = ExtResource("15_m413h")
 dialogue_list = ExtResource("16_p4xqh")
-actor_list = [NodePath("../Ghost1"), NodePath("../Ghost2")]
+actor_list = [NodePath("../Ghost"), NodePath("../Ghost2")]
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

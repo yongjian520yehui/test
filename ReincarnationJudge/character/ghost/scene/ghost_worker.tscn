@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://n0prsf2so3df"]
 
-[ext_resource type="Script" path="res://character/ghost/scene/ghost_worker.gd" id="1_q1tcu"]
+[ext_resource type="Script" path="res://character/ghost/scripts/ghost_worker.gd" id="1_q1tcu"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="2_jn1lw"]
 [ext_resource type="Texture2D" uid="uid://bnqlrya7tysd" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 01.png" id="3_6hlpm"]
 [ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="4_vowob"]

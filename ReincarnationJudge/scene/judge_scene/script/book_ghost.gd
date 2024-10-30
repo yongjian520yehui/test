@@ -24,7 +24,6 @@ func _on_close_pressed() -> void:
 
 func close() -> void:
 	var tween := create_tween()
-	get_tree().paused = false
 	tween.tween_property(
 		self,
 		^"modulate:a",
@@ -38,10 +37,11 @@ func close() -> void:
 		#fade_out_duration
 	#).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(hide)
+	z_index = 0
 
 func open() -> void:
 	var ghost_json_data = Utils.ghost_factory()
-
+	z_index=1
 	ghost_name.text = ghost_json_data["day1"][0]["baseInfo"]["name"]
 	country.text = ghost_json_data["day1"][0]["baseInfo"]["country"]
 	religion.text = ghost_json_data["day1"][0]["baseInfo"]["religion"]
