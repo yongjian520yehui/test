@@ -19,6 +19,7 @@ config/icon="res://scene/menu/sprites/dungeon background 1.png"
 [autoload]
 
 Utils="*res://utils/Utils.gd"
+DataServer="*res://utils/data_server.gd"
 
 [display]
 

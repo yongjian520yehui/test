@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://n0prsf2so3df"]
+
+[ext_resource type="Script" path="res://character/ghost/scene/ghost_worker.gd" id="1_q1tcu"]
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="2_jn1lw"]
+[ext_resource type="Texture2D" uid="uid://bnqlrya7tysd" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 01.png" id="3_6hlpm"]
+[ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="4_vowob"]
+[ext_resource type="Texture2D" uid="uid://dqd0b6y7vjtlp" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 02.png" id="4_xk5ca"]
+[ext_resource type="Texture2D" uid="uid://csrbg2nvvbtsn" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 03.png" id="5_droem"]
+[ext_resource type="Texture2D" uid="uid://dajd2nfceq7u3" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 04.png" id="6_c0tug"]
+[ext_resource type="Texture2D" uid="uid://c3uoxl1wc03me" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 05.png" id="7_vy7i2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jte4"]
+size = Vector2(25, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8mda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6hlpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xk5ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_droem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c0tug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vy7i2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="GhostWorker" type="Area2D" node_paths=PackedStringArray("bubble_marker")]
+monitoring = false
+script = ExtResource("1_q1tcu")
+bubble_marker = NodePath("ChatPosition")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_7jte4")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("2_jn1lw")
+scale = Vector2(5, 5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+sprite_frames = SubResource("SpriteFrames_p8mda")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("4_vowob")
+visuals = NodePath("../CanvasGroup")
+outline_color = Color(0.298039, 0.988235, 0.988235, 1)
+outline_thickness = 1
+
+[node name="ChatPosition" type="Node2D" parent="."]
+position = Vector2(73, -71)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

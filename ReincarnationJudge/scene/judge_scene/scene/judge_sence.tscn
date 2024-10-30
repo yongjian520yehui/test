@@ -1,11 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=30 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
-[ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://scene/ghost/scene/ghost.tscn" id="2_k2ium"]
+[ext_resource type="PackedScene" uid="uid://dclyulfsj2vhi" path="res://character/ghost/scene/ghost.tscn" id="2_k2ium"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://scene/judge_scene/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://scene/judge_scene/sprites/UI cooking.png" id="3_okide"]
-[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://scene/ghost/scene/ghost_worker.tscn" id="3_tu538"]
+[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://character/ghost/scene/ghost_worker.tscn" id="3_tu538"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://scene/common/date_system.tscn" id="11_wgvcv"]
 [ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="13_at7m5"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
+[ext_resource type="Script" path="res://scene/common/dialogue/dialogue_controller.gd" id="15_m413h"]
+[ext_resource type="Resource" uid="uid://iriolugta38b" path="res://scene/common/dialogue/story01.tres" id="16_p4xqh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
 atlas = ExtResource("3_okide")
@@ -340,6 +342,11 @@ grow_vertical = 2
 offset_right = 8.0
 offset_bottom = 8.0
 text = "结束这一年"
+
+[node name="dialogueControler" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("actor_list")]
+script = ExtResource("15_m413h")
+dialogue_list = ExtResource("16_p4xqh")
+actor_list = [NodePath("../Ghost1"), NodePath("../Ghost2")]
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

@@ -8,13 +8,14 @@ extends Node2D
 @onready var ghost_book_position = $CanvasLayer/GhostBookPosition
 @onready var time_label: Label = %TimeLabel
 @onready var judge_options: Control = $CanvasLayer/JudgeOptions
+@onready var dialogue_controler: DialogueController = $CanvasLayer/dialogueControler
 
 var success_case := 0
 var failed_case := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	dialogue_controler.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
