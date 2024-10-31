@@ -9,6 +9,8 @@ extends Node2D
 @onready var time_label: Label = %TimeLabel
 @onready var judge_options: Control = $CanvasLayer/JudgeOptions
 @onready var dialogue_controler: DialogueController = $CanvasLayer/dialogueControler
+@onready var ghost_workder_2: GhostWorker = $CanvasLayer/GhostWorkder2
+
 
 var success_case := 0
 var failed_case := 0
@@ -16,6 +18,9 @@ var failed_case := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	dialogue_controler.start()
+	#for woker in get_tree().get_nodes_in_group("workers"):
+		#print(woker.name)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -28,6 +33,7 @@ func _on_next_button_pressed() -> void:
 	if ghost_book_button.visible == false:
 		ghost_book_button.visible = true
 		animation_player.play("ghost_book_get")
+	Utils.attack_ghost.emit()
 
 
 func _on_judge_button_pressed() -> void:

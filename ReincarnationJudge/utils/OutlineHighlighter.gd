@@ -11,10 +11,10 @@ func _ready() -> void:
 
 
 func clear_highlight() -> void:
-	print("clear_highlight")
+	#print("clear_highlight")
 	visuals.material.set_shader_parameter("line_thickness", 0)
 
 
 func highlight() -> void:
-	print("highlight")
+	#print("highlight")
 	visuals.material.set_shader_parameter("line_thickness", outline_thickness)

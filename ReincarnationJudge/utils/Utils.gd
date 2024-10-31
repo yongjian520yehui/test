@@ -18,6 +18,7 @@ const STATISTICS_SCENE := "res://scene/statistics_scene/scene/statisticsPage.tsc
 const NOMAL_GHOST := "res://character/ghost/data/nomal_ghost.json"
 const IMPORTANT_GHOST := "res://character/ghost/data/important_ghost.json"
 
+signal attack_ghost
 
 var missing_value = 100
 var saved_money = 101

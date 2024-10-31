@@ -6,25 +6,25 @@ extends BasicCharacter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super()
+	Utils.attack_ghost.connect(isAttack)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_selected:
+		outline_highlighter.highlight()
 
+func isAttack():
+	self.is_attack = true
 
 func _on_mouse_entered() -> void:
-	#if drag_and_drop.dragging:
-		#return
-	print("enter")
-	outline_highlighter.highlight()
-	z_index = 1
+	if not is_selected:
+		outline_highlighter.highlight()
+		z_index = 1
 
 
 func _on_mouse_exited() -> void:
-	#if drag_and_drop.dragging:
-		#return
-	
-	outline_highlighter.clear_highlight()
-	z_index = 0
+	if not is_selected:
+		outline_highlighter.clear_highlight()
+		z_index = 0
