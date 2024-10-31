@@ -1,5 +1,5 @@
 class_name BasicCharacter
-extends Area2D
+extends CharacterBody2D
 
 ## 聊天位置组件
 @export var bubble_marker: Node

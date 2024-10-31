@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=32 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
 [ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://scene/judge_scene/sprites/table.png.jpeg" id="3_jsgsv"]
 [ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://scene/judge_scene/sprites/UI cooking.png" id="3_okide"]
-[ext_resource type="PackedScene" uid="uid://n0prsf2so3df" path="res://character/ghost/scene/ghost_worker.tscn" id="3_tu538"]
+[ext_resource type="PackedScene" uid="uid://d3xtwo83t57ri" path="res://character/ghost/scene/ghost_normal.tscn" id="4_dcdjj"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
@@ -16,9 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="13_at7m5"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
 [ext_resource type="Script" path="res://scene/common/dialogue/dialogue_controller.gd" id="15_m413h"]
-[ext_resource type="PackedScene" uid="uid://5c48eqhajqak" path="res://character/ghost/scene/ghost.tscn" id="16_bkkko"]
 [ext_resource type="Resource" uid="uid://iriolugta38b" path="res://scene/common/dialogue/story01.tres" id="16_p4xqh"]
-[ext_resource type="PackedScene" uid="uid://ctlkgxp1tknak" path="res://scene/common/select_units/select_units.tscn" id="17_i2d6t"]
+[ext_resource type="Script" path="res://scene/common/select_units/select_units.gd" id="17_7dyxu"]
+[ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="18_2ofpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33xbh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
 atlas = ExtResource("3_okide")
@@ -114,16 +116,53 @@ region = Rect2(16, 176, 48, 48)
 [node name="JudgeSence" type="Node2D"]
 script = ExtResource("1_gltdn")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(957, 537.5)
+scale = Vector2(1.27474, 1.08301)
+texture = ExtResource("2_bru36")
+
+[node name="GhostNiuTou" parent="." instance=ExtResource("18_2ofpg")]
+position = Vector2(777, 747)
+
+[node name="GhostNormal" parent="." instance=ExtResource("4_dcdjj")]
+position = Vector2(961, 622)
+
+[node name="RtsNode" type="Node2D" parent="."]
+script = ExtResource("17_7dyxu")
+
+[node name="Table" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 346.5
+offset_top = 836.0
+offset_right = 1573.5
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_jsgsv")
+expand_mode = 2
+
+[node name="SelectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("RectangleShape2D_33xbh")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1420, 281)
+color = Color(1, 0.0235294, 0.913725, 1)
+texture = ExtResource("13_at7m5")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(552, 357)
+color = Color(1, 0.152941, 1, 1)
+texture = ExtResource("13_at7m5")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
-
-[node name="背景" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_bru36")
 
 [node name="GostTable" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8
@@ -143,21 +182,6 @@ texture_pressed = SubResource("AtlasTexture_juti8")
 texture_hover = SubResource("AtlasTexture_juti8")
 texture_disabled = SubResource("AtlasTexture_juti8")
 texture_focused = SubResource("AtlasTexture_juti8")
-
-[node name="Table" type="TextureRect" parent="CanvasLayer"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -613.5
-offset_top = -244.0
-offset_right = 613.5
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("3_jsgsv")
-expand_mode = 2
 
 [node name="FilesButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -300,22 +324,6 @@ text = "19:20:20"
 speed = 1
 show = NodePath("../TimeLabel")
 
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
-position = Vector2(1420, 281)
-color = Color(1, 0.0235294, 0.913725, 1)
-texture = ExtResource("13_at7m5")
-
-[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer"]
-position = Vector2(552, 357)
-color = Color(1, 0.152941, 1, 1)
-texture = ExtResource("13_at7m5")
-
-[node name="GhostWorkder2" parent="CanvasLayer" instance=ExtResource("3_tu538")]
-position = Vector2(819, 740)
-
-[node name="Ghost" parent="CanvasLayer" instance=ExtResource("16_bkkko")]
-position = Vector2(962, 664)
-
 [node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
 visible = false
 anchors_preset = 8
@@ -334,9 +342,7 @@ text = "结束这一年"
 [node name="dialogueControler" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("actor_list")]
 script = ExtResource("15_m413h")
 dialogue_list = ExtResource("16_p4xqh")
-actor_list = [NodePath("../Ghost"), NodePath("../GhostWorkder2")]
-
-[node name="Area2D" parent="CanvasLayer" instance=ExtResource("17_i2d6t")]
+actor_list = [NodePath("../../GhostNormal"), NodePath("../../GhostNiuTou")]
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnsmos4wcrqtm"]
+
+[ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
+[ext_resource type="Script" path="res://scene/common/select_units/select_units.gd" id="2_3sooi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1qf"]
+
+[node name="Test" type="Node2D"]
+
+[node name="GhostNiuTou" parent="." instance=ExtResource("1_pgy0d")]
+position = Vector2(438, 456)
+
+[node name="GhostNiuTou2" parent="." instance=ExtResource("1_pgy0d")]
+position = Vector2(1162, 417)
+
+[node name="GhostNiuTou3" parent="." instance=ExtResource("1_pgy0d")]
+position = Vector2(773, 278)
+
+[node name="RtsNode" type="Node2D" parent="."]
+script = ExtResource("2_3sooi")
+
+[node name="SelectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("RectangleShape2D_ax1qf")

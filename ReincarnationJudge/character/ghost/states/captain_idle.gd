@@ -8,6 +8,7 @@ func enter() -> void:
 
 
 func physics_update(delta: float) -> void:
+	
 	if character.is_hurt:
 		transition_to("Hit")
 		return

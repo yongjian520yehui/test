@@ -1,4 +1,4 @@
-class_name Ghost
+class_name GhostNormal
 extends BasicCharacter
 
 @onready var canvas_group: CanvasGroup = $CanvasGroup

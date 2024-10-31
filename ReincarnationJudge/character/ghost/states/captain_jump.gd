@@ -6,7 +6,7 @@ extends StateBase
 
 func enter() -> void:
 	character.animation_player.play("jump")
-	character.velocity.y = (character as GhostWorker).jump_power
+	character.velocity.y = (character as GhostNiuTou).jump_power
 	#jump_dust = DustCreater.generete(DustCreater.JUMP_DUST, get_tree().current_scene, character.global_position)
 	
 

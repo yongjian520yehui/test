@@ -1,4 +1,4 @@
-class_name GhostWorker
+class_name GhostNiuTou
 extends BasicCharacter
 
 @onready var canvas_group: CanvasGroup = $CanvasGroup
@@ -18,13 +18,14 @@ func _process(delta: float) -> void:
 func isAttack():
 	self.is_attack = true
 
-func _on_mouse_entered() -> void:
+
+func _on_area_2d_mouse_entered():
 	if not is_selected:
 		outline_highlighter.highlight()
 		z_index = 1
 
 
-func _on_mouse_exited() -> void:
+func _on_area_2d_mouse_exited():
 	if not is_selected:
 		outline_highlighter.clear_highlight()
 		z_index = 0

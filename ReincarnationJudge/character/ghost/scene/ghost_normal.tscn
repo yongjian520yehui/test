@@ -1,0 +1,237 @@
+[gd_scene load_steps=49 format=3 uid="uid://d3xtwo83t57ri"]
+
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="1_63kok"]
+[ext_resource type="Script" path="res://character/ghost/scene/ghost_normal.gd" id="1_bvp8n"]
+[ext_resource type="Texture2D" uid="uid://c23xj51apax31" path="res://asset/graphics/character/Bomb Guy/1-Idle/1.png" id="3_ms0hf"]
+[ext_resource type="Texture2D" uid="uid://dy35nwlgbwpre" path="res://asset/graphics/character/Bomb Guy/1-Idle/2.png" id="4_aj67c"]
+[ext_resource type="Texture2D" uid="uid://dmu43rvl3who0" path="res://asset/graphics/character/Bomb Guy/1-Idle/3.png" id="5_tyxji"]
+[ext_resource type="Texture2D" uid="uid://rruua8nclpiv" path="res://asset/graphics/character/Bomb Guy/1-Idle/4.png" id="6_7m2pr"]
+[ext_resource type="Texture2D" uid="uid://6ucuaefckmce" path="res://asset/graphics/character/Bomb Guy/1-Idle/5.png" id="7_4veqy"]
+[ext_resource type="Texture2D" uid="uid://d1l4b3r6i1n67" path="res://asset/graphics/character/Bomb Guy/1-Idle/6.png" id="8_l2vth"]
+[ext_resource type="Texture2D" uid="uid://p3aeksjw5u3h" path="res://asset/graphics/character/Bomb Guy/1-Idle/7.png" id="9_4f2gq"]
+[ext_resource type="Texture2D" uid="uid://d8bec6fdxouo" path="res://asset/graphics/character/Bomb Guy/1-Idle/8.png" id="10_wp1pm"]
+[ext_resource type="Texture2D" uid="uid://dmyw63oqnekxe" path="res://asset/graphics/character/Bomb Guy/1-Idle/9.png" id="11_u0ler"]
+[ext_resource type="Texture2D" uid="uid://dfddej68rgukt" path="res://asset/graphics/character/Bomb Guy/1-Idle/10.png" id="12_qst7v"]
+[ext_resource type="Texture2D" uid="uid://vc8k0k204f1h" path="res://asset/graphics/character/Bomb Guy/1-Idle/11.png" id="13_w1286"]
+[ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="14_bbnqq"]
+[ext_resource type="Texture2D" uid="uid://cx6q3p0vpcmpq" path="res://asset/graphics/character/Bomb Guy/1-Idle/12.png" id="14_mocss"]
+[ext_resource type="Texture2D" uid="uid://dgffaycwgta6q" path="res://asset/graphics/character/Bomb Guy/1-Idle/13.png" id="15_el4ln"]
+[ext_resource type="Script" path="res://utils/state_machine/state_machine.gd" id="15_pg8sv"]
+[ext_resource type="Texture2D" uid="uid://bn7hg6c7ysqsh" path="res://asset/graphics/character/Bomb Guy/1-Idle/14.png" id="16_2t7wc"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_fall.gd" id="16_tec0i"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_hit.gd" id="17_bocf8"]
+[ext_resource type="Texture2D" uid="uid://ba6t4mtf80vxg" path="res://asset/graphics/character/Bomb Guy/1-Idle/15.png" id="17_fxgve"]
+[ext_resource type="Texture2D" uid="uid://beulurit0koct" path="res://asset/graphics/character/Bomb Guy/1-Idle/16.png" id="18_8u0g7"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_idle.gd" id="18_qcf37"]
+[ext_resource type="Texture2D" uid="uid://c8l61rxk4o2w3" path="res://asset/graphics/character/Bomb Guy/1-Idle/17.png" id="19_ayovh"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_jump.gd" id="19_bmg4v"]
+[ext_resource type="Texture2D" uid="uid://cm60vw75piswn" path="res://asset/graphics/character/Bomb Guy/1-Idle/18.png" id="20_f0rkk"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_run.gd" id="20_w3jpp"]
+[ext_resource type="Texture2D" uid="uid://tple6v8h1n84" path="res://asset/graphics/character/Bomb Guy/1-Idle/19.png" id="21_3a11b"]
+[ext_resource type="Script" path="res://utils/stats/stats.gd" id="21_146xc"]
+[ext_resource type="Script" path="res://character/ghost/direction/direction.gd" id="22_41saj"]
+[ext_resource type="Texture2D" uid="uid://bvu8wyro6252g" path="res://asset/graphics/character/Bomb Guy/1-Idle/20.png" id="22_hlcx5"]
+[ext_resource type="Texture2D" uid="uid://uf66mtjf3c3w" path="res://asset/graphics/character/Bomb Guy/1-Idle/21.png" id="23_leoot"]
+[ext_resource type="Texture2D" uid="uid://bvcbrs3yl5g38" path="res://asset/graphics/character/Bomb Guy/1-Idle/22.png" id="24_e40yg"]
+[ext_resource type="Texture2D" uid="uid://yubcp48dg0fl" path="res://asset/graphics/character/Bomb Guy/1-Idle/23.png" id="25_okqmh"]
+[ext_resource type="Texture2D" uid="uid://pp4xsmsm6ckp" path="res://asset/graphics/character/Bomb Guy/1-Idle/24.png" id="26_q532w"]
+[ext_resource type="Texture2D" uid="uid://bhk1pgefwhru4" path="res://asset/graphics/character/Bomb Guy/1-Idle/25.png" id="27_caw8j"]
+[ext_resource type="Texture2D" uid="uid://dnglnmewjml81" path="res://asset/graphics/character/Bomb Guy/1-Idle/26.png" id="28_uos3d"]
+[ext_resource type="Texture2D" uid="uid://dlbp4wy84lx5i" path="res://asset/graphics/character/Bomb Guy/7-Hit/1.png" id="29_b3nri"]
+[ext_resource type="Texture2D" uid="uid://c04xke8ifwvbg" path="res://asset/graphics/character/Bomb Guy/7-Hit/2.png" id="30_ff61a"]
+[ext_resource type="Texture2D" uid="uid://btvii2wpy3f2s" path="res://asset/graphics/character/Bomb Guy/7-Hit/3.png" id="31_2aqlx"]
+[ext_resource type="Texture2D" uid="uid://bsd62c5j543se" path="res://asset/graphics/character/Bomb Guy/7-Hit/4.png" id="32_b6ncx"]
+[ext_resource type="Texture2D" uid="uid://cculqk6yjbuiv" path="res://asset/graphics/character/Bomb Guy/7-Hit/5.png" id="33_c4wdy"]
+[ext_resource type="Texture2D" uid="uid://c30f7w4f02e1p" path="res://asset/graphics/character/Bomb Guy/7-Hit/6.png" id="34_6f15x"]
+[ext_resource type="Texture2D" uid="uid://bxik85f5goega" path="res://asset/graphics/character/Bomb Guy/7-Hit/7.png" id="35_rltxr"]
+[ext_resource type="Texture2D" uid="uid://dwti0rjx54ucc" path="res://asset/graphics/character/Bomb Guy/7-Hit/8.png" id="36_ro0b8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bjum"]
+size = Vector2(25, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgdwm"]
+size = Vector2(123, 129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy8i8"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_b3nri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ff61a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2aqlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_b6ncx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_c4wdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_6f15x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_rltxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ro0b8")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ms0hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aj67c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tyxji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7m2pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4veqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l2vth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4f2gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wp1pm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u0ler")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qst7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_w1286")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mocss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_el4ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2t7wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fxgve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8u0g7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ayovh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_f0rkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3a11b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_hlcx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_leoot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_e40yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_okqmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_q532w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_caw8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_uos3d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="GhostNormal" type="CharacterBody2D" node_paths=PackedStringArray("bubble_marker", "stats", "animation_player", "state_machine")]
+script = ExtResource("1_bvp8n")
+bubble_marker = NodePath("ChatPosition")
+stats = NodePath("Stats")
+animation_player = NodePath("CanvasGroup/AnimatedSprite2D")
+state_machine = NodePath("StateMachine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_8bjum")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xgdwm")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("1_63kok")
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+sprite_frames = SubResource("SpriteFrames_dy8i8")
+animation = &"hit"
+autoplay = "idle"
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("14_bbnqq")
+visuals = NodePath("../CanvasGroup")
+outline_color = Color(0.298039, 0.988235, 0.988235, 1)
+outline_thickness = 1
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("15_pg8sv")
+initial_state = NodePath("Idle")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("16_tec0i")
+
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("17_bocf8")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("18_qcf37")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("19_bmg4v")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("20_w3jpp")
+
+[node name="ChatPosition" type="Node2D" parent="."]
+position = Vector2(73, -71)
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("21_146xc")
+
+[node name="Direction" type="Node" parent="." node_paths=PackedStringArray("Graphics")]
+script = ExtResource("22_41saj")
+Graphics = NodePath("../CanvasGroup/AnimatedSprite2D")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

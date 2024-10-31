@@ -1,0 +1,148 @@
+[gd_scene load_steps=27 format=3 uid="uid://d3xtwo83t57ri"]
+
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="1_63kok"]
+[ext_resource type="Script" path="res://character/ghost/scene/ghost.gd" id="1_bvp8n"]
+[ext_resource type="Texture2D" uid="uid://bqtyt64xfdwrf" path="res://asset/graphics/character/captain_clown_nose/with_sword/15-Attack 1/Attack 1 01.png" id="2_4q76n"]
+[ext_resource type="Texture2D" uid="uid://2wf3foq6xgi4" path="res://asset/graphics/character/captain_clown_nose/with_sword/15-Attack 1/Attack 1 02.png" id="3_7b2nm"]
+[ext_resource type="Texture2D" uid="uid://do7ppf7g0hy0o" path="res://asset/graphics/character/captain_clown_nose/with_sword/15-Attack 1/Attack 1 03.png" id="4_2ivc3"]
+[ext_resource type="Texture2D" uid="uid://bwpjdhl3y5yti" path="res://asset/graphics/character/captain_clown_nose/with_sword/14-Hit Sword/Hit Sword 01.png" id="5_d1yl3"]
+[ext_resource type="Texture2D" uid="uid://dfr04jni0egnw" path="res://asset/graphics/character/captain_clown_nose/with_sword/14-Hit Sword/Hit Sword 02.png" id="6_s2qfq"]
+[ext_resource type="Texture2D" uid="uid://dx548d07nmtw5" path="res://asset/graphics/character/captain_clown_nose/with_sword/14-Hit Sword/Hit Sword 03.png" id="7_wyc8j"]
+[ext_resource type="Texture2D" uid="uid://cnt5l3422uk3o" path="res://asset/graphics/character/captain_clown_nose/with_sword/14-Hit Sword/Hit Sword 04.png" id="8_pytkw"]
+[ext_resource type="Texture2D" uid="uid://bnqlrya7tysd" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 01.png" id="9_wx3fi"]
+[ext_resource type="Texture2D" uid="uid://dqd0b6y7vjtlp" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 02.png" id="10_uv6n8"]
+[ext_resource type="Texture2D" uid="uid://csrbg2nvvbtsn" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 03.png" id="11_6bh7u"]
+[ext_resource type="Texture2D" uid="uid://dajd2nfceq7u3" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 04.png" id="12_03a6m"]
+[ext_resource type="Texture2D" uid="uid://c3uoxl1wc03me" path="res://asset/graphics/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 05.png" id="13_j6ewp"]
+[ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="14_bbnqq"]
+[ext_resource type="Script" path="res://utils/state_machine/state_machine.gd" id="15_pg8sv"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_fall.gd" id="16_tec0i"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_hit.gd" id="17_bocf8"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_idle.gd" id="18_qcf37"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_jump.gd" id="19_bmg4v"]
+[ext_resource type="Script" path="res://character/ghost/states/captain_run.gd" id="20_w3jpp"]
+[ext_resource type="Script" path="res://utils/stats/stats.gd" id="21_146xc"]
+[ext_resource type="Script" path="res://character/ghost/direction/direction.gd" id="22_41saj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bjum"]
+size = Vector2(25, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgdwm"]
+size = Vector2(123, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy8i8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4q76n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7b2nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ivc3")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d1yl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s2qfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wyc8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pytkw")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wx3fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uv6n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6bh7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_03a6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j6ewp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="GhostNormal" type="CharacterBody2D" node_paths=PackedStringArray("bubble_marker", "stats", "animation_player", "state_machine")]
+script = ExtResource("1_bvp8n")
+bubble_marker = NodePath("ChatPosition")
+stats = NodePath("Stats")
+animation_player = NodePath("CanvasGroup/AnimatedSprite2D")
+state_machine = NodePath("StateMachine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_8bjum")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xgdwm")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("1_63kok")
+scale = Vector2(5, 5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+sprite_frames = SubResource("SpriteFrames_dy8i8")
+animation = &"attack"
+autoplay = "idle"
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("14_bbnqq")
+visuals = NodePath("../CanvasGroup")
+outline_color = Color(0.298039, 0.988235, 0.988235, 1)
+outline_thickness = 1
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("15_pg8sv")
+initial_state = NodePath("Idle")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("16_tec0i")
+
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("17_bocf8")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("18_qcf37")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("19_bmg4v")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("20_w3jpp")
+
+[node name="ChatPosition" type="Node2D" parent="."]
+position = Vector2(73, -71)
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("21_146xc")
+
+[node name="Direction" type="Node" parent="." node_paths=PackedStringArray("Graphics")]
+script = ExtResource("22_41saj")
+Graphics = NodePath("../CanvasGroup/AnimatedSprite2D")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

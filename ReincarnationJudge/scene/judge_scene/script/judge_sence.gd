@@ -9,7 +9,7 @@ extends Node2D
 @onready var time_label: Label = %TimeLabel
 @onready var judge_options: Control = $CanvasLayer/JudgeOptions
 @onready var dialogue_controler: DialogueController = $CanvasLayer/dialogueControler
-@onready var ghost_workder_2: GhostWorker = $CanvasLayer/GhostWorkder2
+
 
 
 var success_case := 0
