@@ -9,23 +9,23 @@ func _ready() -> void:
 	super()
 	Utils.attack_ghost.connect(isAttack)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if is_selected:
-		outline_highlighter.highlight()
-
+#func _process(delta: float) -> void:
+	#if is_selected:
+		#outline_highlighter.highlight()
+	#else:
+		#outline_highlighter.clear_highlight()
+		
 func isAttack():
 	self.is_attack = true
 
 
 func _on_area_2d_mouse_entered():
-	if not is_selected:
-		outline_highlighter.highlight()
-		z_index = 1
-
+	state_machine._on_area_2d_mouse_entered()
 
 func _on_area_2d_mouse_exited():
-	if not is_selected:
-		outline_highlighter.clear_highlight()
-		z_index = 0
+	state_machine._on_area_2d_mouse_exited()
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	state_machine._on_area_2d_input_event(viewport, event, shape_idx)

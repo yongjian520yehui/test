@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://s0vsemqwnofk"]
+[gd_scene load_steps=29 format=3 uid="uid://s0vsemqwnofk"]
 
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="1_7yi67"]
 [ext_resource type="Script" path="res://character/ghost/scene/ghost_niu_tou.gd" id="1_kc5ne"]
@@ -22,7 +22,9 @@
 [ext_resource type="Script" path="res://character/ghost/states/captain_jump.gd" id="19_0xqg1"]
 [ext_resource type="Script" path="res://character/ghost/states/captain_run.gd" id="20_5lx7y"]
 [ext_resource type="Script" path="res://utils/stats/stats.gd" id="21_7vg0r"]
+[ext_resource type="Script" path="res://character/ghost/scene/hover.gd" id="22_0k0qr"]
 [ext_resource type="Script" path="res://character/ghost/direction/direction.gd" id="22_f3qsl"]
+[ext_resource type="Script" path="res://character/ghost/scene/selected.gd" id="23_r6y5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33bi0"]
 size = Vector2(25, 26)
@@ -93,9 +95,11 @@ animation_player = NodePath("CanvasGroup/AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_33bi0")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 0)
@@ -138,6 +142,12 @@ script = ExtResource("19_0xqg1")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("20_5lx7y")
 
+[node name="Hover" type="Node" parent="StateMachine"]
+script = ExtResource("22_0k0qr")
+
+[node name="Selected" type="Node" parent="StateMachine"]
+script = ExtResource("23_r6y5v")
+
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("21_7vg0r")
 
@@ -145,5 +155,6 @@ script = ExtResource("21_7vg0r")
 script = ExtResource("22_f3qsl")
 Graphics = NodePath("../CanvasGroup/AnimatedSprite2D")
 
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

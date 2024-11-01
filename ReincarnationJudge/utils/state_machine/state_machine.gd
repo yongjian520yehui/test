@@ -5,7 +5,7 @@ extends Node
 ## 初始状态
 @export var initial_state: StateBase
 
-## 是否运行状态机 
+## 是否运行状态机 ，由基础角色类中readey方法控制
 var _started: bool = false
 ##状态字典
 var _states: Dictionary = {}
@@ -20,32 +20,47 @@ var _history_states: Array[String] = []
 
 
 func _ready() -> void:
+#	状态机获取所有状态名，将状态的状态机设为自己
 	for state: StateBase in get_children():
 		state.state_machine = self
 		if owner is BasicCharacter:
 			state.character = owner
 		
 		_states[state.name] = state
-	
+#	设置初始状态
 	if initial_state:
 		_add_history_state(initial_state.name)
 		initial_state.enter()
 		current_state = initial_state
 
-
+#每帧都在检测状态更新，和状态持续时间
 func _physics_process(delta: float) -> void:
 	if _started and current_state:
 		current_state_run_time += delta
 		current_state.physics_update(delta)
 		
-
+#update暂时不用
 func _process(delta: float) -> void:
 	if _started and current_state:
 		current_state.update(delta)
-		
+
+
+func _on_area_2d_mouse_entered():
+	if _started and current_state:
+		current_state._on_area_2d_mouse_entered()
+
+
+func _on_area_2d_mouse_exited():
+	if _started and current_state:
+		current_state._on_area_2d_mouse_exited()
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if _started and current_state:
+		current_state._on_area_2d_input_event(event)
 
 func change_state(from: StateBase, to: String) -> void:
-	#print(from.name, " -> ", to)
+	print(from.name, " -> ", to)
 	var cs: StateBase = current_state
 	current_state = null
 	

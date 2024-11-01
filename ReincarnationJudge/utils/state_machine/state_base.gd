@@ -15,7 +15,16 @@ func enter() -> void:
 
 func exit() -> void:
 	pass
+
+func _on_area_2d_mouse_entered():
+	pass
+
+
+func _on_area_2d_mouse_exited():
+	pass
 	
+func _on_area_2d_input_event(event: InputEvent) -> void:
+	pass
 
 func update(delta: float) -> void:
 	pass
