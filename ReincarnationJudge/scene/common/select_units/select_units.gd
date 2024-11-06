@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 		selecttion_start_position = get_global_mouse_position()
 #	有初始位置时，才框选
 	elif (event is InputEventMouseButton and event.button_index == 1 
-	and selecttion_start_position!=Vector2.ZERO):
+	and selecttion_start_position != Vector2.ZERO and event.is_released()):
 		_select_units()
 		#框选完重置初始位置
 		selecttion_start_position = Vector2.ZERO
@@ -55,13 +55,13 @@ func _select_units():
 
 	await  get_tree().create_timer(0.04).timeout
 	var units = get_tree().get_nodes_in_group("workers")
-
+	
 	for body in selection_area.get_overlapping_bodies():
 		if body in get_tree().get_nodes_in_group("workers"):
 			body.is_selected = true
 			units.erase(body)
-	
 	for body in units:
+		print("clear selected")
 		body.is_selected = false
 		
 #	比较初始位置和当前鼠标位置，确定左上角的坐标是哪个的x，y

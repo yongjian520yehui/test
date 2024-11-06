@@ -22,30 +22,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33xbh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
-atlas = ExtResource("3_okide")
-region = Rect2(272, 128, 48, 56)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q308k"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(352, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l1qv1"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(160, 128, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nb8qy"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(16, 176, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7i1h"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(208, 176, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8aug"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(16, 128, 96, 48)
-
 [sub_resource type="Animation" id="Animation_kgoaa"]
 length = 0.001
 tracks/0/type = "value"
@@ -107,6 +83,30 @@ _data = {
 "ghost_book_get": SubResource("Animation_in7ld")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
+atlas = ExtResource("3_okide")
+region = Rect2(272, 128, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q308k"]
+atlas = ExtResource("6_aghy4")
+region = Rect2(352, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1qv1"]
+atlas = ExtResource("6_aghy4")
+region = Rect2(160, 128, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb8qy"]
+atlas = ExtResource("6_aghy4")
+region = Rect2(16, 176, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7i1h"]
+atlas = ExtResource("6_aghy4")
+region = Rect2(208, 176, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8aug"]
+atlas = ExtResource("6_aghy4")
+region = Rect2(16, 128, 96, 48)
+
 [sub_resource type="Theme" id="Theme_ywqgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v52v"]
@@ -121,14 +121,8 @@ position = Vector2(957, 537.5)
 scale = Vector2(1.27474, 1.08301)
 texture = ExtResource("2_bru36")
 
-[node name="GhostNiuTou" parent="." instance=ExtResource("18_2ofpg")]
-position = Vector2(777, 747)
-
 [node name="GhostNormal" parent="." instance=ExtResource("4_dcdjj")]
 position = Vector2(961, 622)
-
-[node name="RtsNode" type="Node2D" parent="."]
-script = ExtResource("17_7dyxu")
 
 [node name="Table" type="TextureRect" parent="."]
 visible = false
@@ -146,7 +140,15 @@ grow_vertical = 0
 texture = ExtResource("3_jsgsv")
 expand_mode = 2
 
+[node name="GhostNiuTou" parent="." instance=ExtResource("18_2ofpg")]
+position = Vector2(777, 747)
+
+[node name="RtsNode" type="Node2D" parent="."]
+visible = false
+script = ExtResource("17_7dyxu")
+
 [node name="SelectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
 shape = SubResource("RectangleShape2D_33xbh")
@@ -160,6 +162,13 @@ texture = ExtResource("13_at7m5")
 position = Vector2(552, 357)
 color = Color(1, 0.152941, 1, 1)
 texture = ExtResource("13_at7m5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_galhf")
+}
+autoplay = "death_god2_idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -219,14 +228,6 @@ texture_normal = SubResource("AtlasTexture_l1qv1")
 texture_pressed = SubResource("AtlasTexture_nb8qy")
 texture_disabled = SubResource("AtlasTexture_d7i1h")
 texture_focused = SubResource("AtlasTexture_g8aug")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GhostBookButton"]
-unique_name_in_owner = true
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_galhf")
-}
-autoplay = "death_god2_idle"
 
 [node name="drag" type="Node" parent="CanvasLayer/GhostBookButton" node_paths=PackedStringArray("target")]
 script = ExtResource("7_kjcro")
@@ -321,7 +322,7 @@ theme_override_fonts/font = ExtResource("6_7kowl")
 text = "19:20:20"
 
 [node name="DateSystem" parent="CanvasLayer/TimeUI" node_paths=PackedStringArray("show") instance=ExtResource("11_wgvcv")]
-speed = 1
+speed = 0.5
 show = NodePath("../TimeLabel")
 
 [node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]

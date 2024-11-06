@@ -172,7 +172,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="GhostNormal" type="CharacterBody2D" node_paths=PackedStringArray("bubble_marker", "stats", "animation_player", "state_machine")]
+[node name="GhostNormal" type="CharacterBody2D" node_paths=PackedStringArray("bubble_marker", "stats", "animation_player", "state_machine") groups=["ghosts"]]
 script = ExtResource("1_bvp8n")
 bubble_marker = NodePath("ChatPosition")
 stats = NodePath("Stats")
@@ -195,7 +195,7 @@ scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
 sprite_frames = SubResource("SpriteFrames_dy8i8")
-animation = &"hit"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]

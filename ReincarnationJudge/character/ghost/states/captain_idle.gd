@@ -3,8 +3,8 @@ extends StateBase
 
 
 func enter() -> void:
-	print("enter idle")
 	character.animation_player.play("idle")
+
 
 func _on_area_2d_mouse_entered():
 	if state_machine.current_state != Selected and state_machine._states.has("Hover") :

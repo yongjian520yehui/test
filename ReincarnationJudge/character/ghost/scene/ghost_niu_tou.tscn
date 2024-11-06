@@ -22,9 +22,9 @@
 [ext_resource type="Script" path="res://character/ghost/states/captain_jump.gd" id="19_0xqg1"]
 [ext_resource type="Script" path="res://character/ghost/states/captain_run.gd" id="20_5lx7y"]
 [ext_resource type="Script" path="res://utils/stats/stats.gd" id="21_7vg0r"]
-[ext_resource type="Script" path="res://character/ghost/scene/hover.gd" id="22_0k0qr"]
+[ext_resource type="Script" path="res://character/ghost/states/hover.gd" id="22_0k0qr"]
 [ext_resource type="Script" path="res://character/ghost/direction/direction.gd" id="22_f3qsl"]
-[ext_resource type="Script" path="res://character/ghost/scene/selected.gd" id="23_r6y5v"]
+[ext_resource type="Script" path="res://character/ghost/states/selected.gd" id="23_r6y5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33bi0"]
 size = Vector2(25, 26)
@@ -114,12 +114,6 @@ sprite_frames = SubResource("SpriteFrames_gw831")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
-script = ExtResource("14_32lh5")
-visuals = NodePath("../CanvasGroup")
-outline_color = Color(0.298039, 0.988235, 0.988235, 1)
-outline_thickness = 1
-
 [node name="ChatPosition" type="Node2D" parent="."]
 position = Vector2(73, -71)
 
@@ -147,6 +141,12 @@ script = ExtResource("22_0k0qr")
 
 [node name="Selected" type="Node" parent="StateMachine"]
 script = ExtResource("23_r6y5v")
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("14_32lh5")
+visuals = NodePath("../CanvasGroup")
+outline_color = Color(0.298039, 0.988235, 0.988235, 1)
+outline_thickness = 1
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("21_7vg0r")

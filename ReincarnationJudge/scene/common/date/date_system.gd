@@ -1,7 +1,7 @@
 extends Node  
 class_name DateSystem
 
-@export var speed := 1
+@export var speed := 1.0
 @export var show : Node
 @onready var timer: Timer = $Timer
 
