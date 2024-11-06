@@ -61,7 +61,7 @@ func _select_units():
 			body.is_selected = true
 			units.erase(body)
 	for body in units:
-		print("clear selected")
+		#print("clear selected")
 		body.is_selected = false
 		
 #	比较初始位置和当前鼠标位置，确定左上角的坐标是哪个的x，y

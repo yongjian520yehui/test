@@ -32,11 +32,11 @@ func get_Pos():
 func _on_next_button_pressed() -> void:
 	if ghost_book_button.visible == false:
 		ghost_book_button.visible = true
-		#animation_player.play("ghost_book_get")
-		var tween = create_tween()
-		ghost_book_button.scale = Vector2(2,2)
-		tween.tween_property(ghost_book_button,"position",ghost_book_position.global_position,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-		tween.set_parallel().tween_property(ghost_book_button,"scale",Vector2.ONE,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+		animation_player.play("ghost_book_get")
+		#var tween = create_tween()
+		#ghost_book_button.scale = Vector2(2,2)
+		#tween.tween_property(ghost_book_button,"position",ghost_book_position.global_position,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+		#tween.set_parallel().tween_property(ghost_book_button,"scale",Vector2.ONE,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 		#tween.set_parallel().tween_property(ghost_book_button,"rotation",360.0,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 	Utils.attack_ghost.emit()
 

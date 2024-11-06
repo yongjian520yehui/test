@@ -1,20 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnsmos4wcrqtm"]
+[gd_scene load_steps=4 format=3 uid="uid://cnsmos4wcrqtm"]
 
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
 [ext_resource type="Script" path="res://scene/common/select_units/select_units.gd" id="2_3sooi"]
-[ext_resource type="Shader" path="res://WaterRipple.gdshader" id="3_2nd0p"]
-[ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="4_fu2e7"]
-[ext_resource type="Script" path="res://RippleEffect.gd" id="5_juypr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1qf"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k505b"]
-shader = ExtResource("3_2nd0p")
-shader_parameter/wave_center = null
-shader_parameter/TEXTURE_SIZE = null
-shader_parameter/wave_radius = 10.0
-shader_parameter/wave_speed = 1.0
-shader_parameter/wave_amplitude = 0.1
 
 [node name="Test" type="Node2D"]
 
@@ -34,10 +23,3 @@ script = ExtResource("2_3sooi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
 shape = SubResource("RectangleShape2D_ax1qf")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_k505b")
-position = Vector2(887, 459.5)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_fu2e7")
-script = ExtResource("5_juypr")

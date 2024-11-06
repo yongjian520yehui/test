@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5h5c651ku2ub"]
+
+[ext_resource type="Script" path="res://click.gd" id="1_hdgm8"]
+[ext_resource type="Shader" path="res://shader/click.gdshader" id="2_iyxaw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61mgo"]
+shader = ExtResource("2_iyxaw")
+shader_parameter/width = 0.05
+
+[sub_resource type="Curve" id="Curve_3fges"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fjhvf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mcxir"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5l16r"]
+curve_x = SubResource("Curve_3fges")
+curve_y = SubResource("Curve_fjhvf")
+curve_z = SubResource("Curve_mcxir")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o0ysp"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 50.0
+scale_max = 50.0
+scale_curve = SubResource("CurveXYZTexture_5l16r")
+color = Color(1, 1, 1, 0.596078)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irahj"]
+shader = ExtResource("2_iyxaw")
+shader_parameter/width = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chm8n"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 76.0
+initial_velocity_max = 95.0
+gravity = Vector3(0, 98, 0)
+linear_accel_min = 32.0
+linear_accel_max = 32.0
+scale_max = 2.0
+
+[node name="Click" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdgm8")
+
+[node name="Circle" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_61mgo")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_o0ysp")
+lifetime = 0.5
+one_shot = true
+
+[node name="Point" type="GPUParticles2D" parent="Circle"]
+material = SubResource("ShaderMaterial_irahj")
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_chm8n")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0

@@ -8,7 +8,7 @@ class_name DateSystem
 # 定义初始日期  
 var current_date = {  
 	"year": 2023,  
-	"month": 10,  
+	"month": 1,  
 	"day": 1,  
 	"hour": 0,  
 	"minute": 0,  

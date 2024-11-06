@@ -4,7 +4,6 @@
 
 [node name="DateSystem" type="Node" node_paths=PackedStringArray("show")]
 script = ExtResource("1_5f0ee")
-speed = 10
 show = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]
