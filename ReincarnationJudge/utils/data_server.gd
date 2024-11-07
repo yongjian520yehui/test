@@ -6,6 +6,9 @@ var cost = {"道具":1}
 var salary = 102
 var fine = 10
 var year = 1
+var success_case := 0
+var failed_case := 0
+
 signal dialogue_start
 
 func _ready() -> void:

@@ -1,9 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=27 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
-[ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://scene/judge_scene/sprites/table.png.jpeg" id="3_jsgsv"]
-[ext_resource type="Texture2D" uid="uid://djac4nquex2hj" path="res://scene/judge_scene/sprites/UI cooking.png" id="3_okide"]
 [ext_resource type="PackedScene" uid="uid://d3xtwo83t57ri" path="res://character/ghost/scene/ghost_normal.tscn" id="4_dcdjj"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
@@ -13,19 +11,11 @@
 [ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="7_kjcro"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="10_7mc66"]
 [ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://scene/common/date/date_system.tscn" id="11_wgvcv"]
-[ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="13_at7m5"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="15_m413h"]
 [ext_resource type="Resource" uid="uid://iriolugta38b" path="res://character/dialogue/story01.tres" id="16_p4xqh"]
-[ext_resource type="Script" path="res://utils/select_units/select_units.gd" id="17_7dyxu"]
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="18_2ofpg"]
 [ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/click.tscn" id="18_bav3m"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_juti8"]
-atlas = ExtResource("3_okide")
-region = Rect2(272, 128, 48, 56)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_33xbh"]
 
 [sub_resource type="Animation" id="Animation_kgoaa"]
 length = 0.001
@@ -117,71 +107,31 @@ region = Rect2(16, 176, 48, 48)
 [node name="JudgeSence" type="Node2D"]
 script = ExtResource("1_gltdn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(957, 537.5)
 scale = Vector2(1.27474, 1.08301)
 texture = ExtResource("2_bru36")
 
+[node name="GhostPositon" type="Marker2D" parent="."]
+position = Vector2(977, 743)
+
+[node name="NiuTouPositon" type="Marker2D" parent="."]
+position = Vector2(1157, 741)
+
+[node name="MaMianPositon" type="Marker2D" parent="."]
+position = Vector2(767, 739)
+
+[node name="BlackPositon" type="Marker2D" parent="."]
+position = Vector2(580, 775)
+
+[node name="WhitePositon" type="Marker2D" parent="."]
+position = Vector2(1397, 775)
+
 [node name="GhostNormal" parent="." instance=ExtResource("4_dcdjj")]
-position = Vector2(961, 622)
+position = Vector2(974, 749)
 
-[node name="Table" type="TextureRect" parent="."]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 346.5
-offset_top = 836.0
-offset_right = 1573.5
-offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("3_jsgsv")
-expand_mode = 2
-
-[node name="GostTable" type="TextureButton" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 913.0
-offset_top = 708.0
-offset_right = 961.0
-offset_bottom = 772.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-texture_normal = SubResource("AtlasTexture_juti8")
-texture_pressed = SubResource("AtlasTexture_juti8")
-texture_hover = SubResource("AtlasTexture_juti8")
-texture_disabled = SubResource("AtlasTexture_juti8")
-texture_focused = SubResource("AtlasTexture_juti8")
-
-[node name="GhostNiuTou" parent="." instance=ExtResource("18_2ofpg")]
+[node name="NiuTou" parent="." instance=ExtResource("18_2ofpg")]
 position = Vector2(777, 747)
-
-[node name="RtsNode" type="Node2D" parent="."]
-visible = false
-script = ExtResource("17_7dyxu")
-
-[node name="SelectionArea" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
-shape = SubResource("RectangleShape2D_33xbh")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1420, 281)
-color = Color(1, 0.0235294, 0.913725, 1)
-texture = ExtResource("13_at7m5")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(552, 357)
-color = Color(1, 0.152941, 1, 1)
-texture = ExtResource("13_at7m5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -193,12 +143,12 @@ autoplay = "death_god2_idle"
 [node name="dialogueControler" type="Node" parent="." node_paths=PackedStringArray("actor_list")]
 script = ExtResource("15_m413h")
 dialogue_list = ExtResource("16_p4xqh")
-actor_list = [NodePath("../GhostNormal"), NodePath("../GhostNiuTou")]
+actor_list = [NodePath("../GhostNormal"), NodePath("../NiuTou")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="Click" parent="CanvasLayer" instance=ExtResource("18_bav3m")]
+[node name="ClickEffect" parent="CanvasLayer" instance=ExtResource("18_bav3m")]
 
 [node name="FilesButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true

@@ -17,4 +17,3 @@ void fragment() {
 //
 	COLOR = COLOR * vec4(1.0, 1.0, 1.0, d);
 }
- 

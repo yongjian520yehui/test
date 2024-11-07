@@ -5,25 +5,16 @@ const BUBBLE : PackedScene = preload("res://character/dialogue/Bubble.tscn")
 @export var dialogue_list: DialogueList
 @export var actor_list: Array[BasicCharacter]
 
-
+signal finished()
 
 var _index: int = -1
 var _count: int
 var _list: Array[Dialogue]
 var _started: bool = false
 
-signal finished()
 
 func _ready() -> void:
 	DataServer.dialogue_start.connect(start)
-	var ghost_data = DataServer.ghost_factory()
-	print(ghost_data["dialogue_list"])
-	dialogue_list.value = ghost_data["dialogue_list"]
-	var units = get_tree().get_nodes_in_group("workers")
-	for body in units:
-		actor_list.append(body)
-	_count = dialogue_list.value.size()
-	_list = dialogue_list.value
 	#print(_count,_list)
 	
 
@@ -55,11 +46,11 @@ func start():
 	print(name, " 对话开始")
 	var ghost_data = DataServer.ghost_factory()
 	dialogue_list.value = ghost_data["dialogue_list"]
-	_count = dialogue_list.value.size()
-	_list = dialogue_list.value
 	var units = get_tree().get_nodes_in_group("workers")
 	for body in units:
 		actor_list.append(body)
+	_count = dialogue_list.value.size()
+	_list = dialogue_list.value
 	next()
 	_started = true
 

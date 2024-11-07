@@ -12,17 +12,11 @@ extends Node2D
 
 
 
-var success_case := 0
-var failed_case := 0
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dialogue_controler.start()
-	#for woker in get_tree().get_nodes_in_group("workers"):
-		#print(woker.name)
-	
+	#dialogue_controler.start()
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta: float) -> void:
 	pass
 
@@ -44,7 +38,6 @@ func _on_next_button_pressed() -> void:
 	Utils.attack_ghost.emit()
 	DataServer.dialogue_start.emit()
 
-
 func _on_judge_button_pressed() -> void:
 	if book_ghost.visible == false:
 		ghost_book_button.visible = false
@@ -53,15 +46,16 @@ func _on_judge_button_pressed() -> void:
 		for i in ghost:
 			i.visible = false
 
-
 func _on_ghost_book_button_pressed() -> void:
 	if book_ghost.visible == false:
 		book_ghost.visible = true
 		book_ghost.open()
 
-func is_success():
-	if true: success_case += 1
-
-
 func _on_end_this_year_pressed() -> void:
 	get_tree().change_scene_to_file(Utils.STATISTICS_SCENE)
+
+func is_success(current_case):
+	if true: 
+		DataServer.success_case += 1
+	else :
+		DataServer.failed_case += 1
