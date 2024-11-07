@@ -45,3 +45,12 @@ script = ExtResource("5_2kt5q")
 [node name="dialogue" type="Node" parent="."]
 script = ExtResource("5_43xik")
 dialogue_list = SubResource("Resource_qsay4")
+
+[node name="Ask" type="Button" parent="."]
+offset_left = 1194.0
+offset_top = 912.0
+offset_right = 1266.0
+offset_bottom = 939.0
+text = "对话开始"
+
+[connection signal="pressed" from="Ask" to="Click" method="_on_ask_pressed"]

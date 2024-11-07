@@ -1,8 +1,8 @@
 extends Node
 
 #角色路径
-const GHOST := "res://character/ghost/scene/ghost.tscn"
-const GHOST_WORKER := "res://character/ghost/scene/ghost_worker.tscn"
+const GHOST_NORMAL := "res://character/ghost/scene/ghost_normal.tscn"
+const GHOST_NIU_TOU := "res://character/ghost/scene/ghost_niu_tou.tscn"
 #工具路径
 const TIME_SYSTEM := "res://utils/time_system.tscn"
 #场景文件路径

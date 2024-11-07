@@ -10,6 +10,7 @@ func _on_area_2d_mouse_entered():
 	if state_machine.current_state != Selected and state_machine._states.has("Hover") :
 		transition_to("Hover")
 
+
 func physics_update(delta: float) -> void:
 	if character.is_hurt:
 		if state_machine._states.has("Hit") :

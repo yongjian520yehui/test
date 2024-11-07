@@ -11,9 +11,10 @@ func enter() -> void:
 	character.z_index = 1
 
 func _on_area_2d_input_event(event: InputEvent) -> void:
-	if ( event is InputEventMouseButton and event.is_pressed()):
+	if ( event is InputEventMouseButton and event.is_pressed() and event.button_index == 1):
 		character.outline_highlighter.clear_highlight()
 		character.z_index = 0
+		character.is_selected = false
 		transition_to("Idle")
 
 

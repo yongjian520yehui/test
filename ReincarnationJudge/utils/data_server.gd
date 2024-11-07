@@ -9,7 +9,7 @@ var year = 1
 var success_case := 0
 var failed_case := 0
 
-signal dialogue_start
+signal dialogue_start()
 
 func _ready() -> void:
 	ghost_factory()
@@ -44,7 +44,7 @@ func ghost_factory():
 	var baseInfo = JSON.parse_string(baseInfo_string)
 	ghost_data["baseInfo"] = baseInfo
 	ghost_data["dialogue_list"] = dialogue_list
-	print(ghost_data)
+	#print(ghost_data)
 	return ghost_data
 
 func dialogue_factory(contant):

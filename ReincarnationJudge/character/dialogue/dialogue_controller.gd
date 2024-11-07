@@ -21,7 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if _started:
 		if Input.is_action_just_pressed("mouse_left"):
-			if not next():
+			if not next() :
 				end()
 
 
@@ -42,15 +42,18 @@ func next() -> bool:
 	character.bubble_marker.add_child(bubble)
 	return true
 
-func start():
+func start(character1,character2):
 	print(name, " 对话开始")
+	##获取对话数据
 	var ghost_data = DataServer.ghost_factory()
 	dialogue_list.value = ghost_data["dialogue_list"]
-	var units = get_tree().get_nodes_in_group("workers")
-	for body in units:
-		actor_list.append(body)
+	
+	actor_list.append(character1)
+	actor_list.append(character2)
+	
 	_count = dialogue_list.value.size()
 	_list = dialogue_list.value
+	
 	next()
 	_started = true
 
@@ -60,4 +63,4 @@ func end():
 	_started = false
 	_index = -1
 	finished.emit()
-	#queue_free()
+	queue_free()

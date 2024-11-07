@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
-[ext_resource type="PackedScene" uid="uid://d3xtwo83t57ri" path="res://character/ghost/scene/ghost_normal.tscn" id="4_dcdjj"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="5_2ac6d"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="6_a4pli"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://scene/judge_scene/scene/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://scene/judge_scene/script/PauseCanvasLayer.gd" id="6_vbum2"]
@@ -13,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://scene/common/date/date_system.tscn" id="11_wgvcv"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="15_m413h"]
-[ext_resource type="Resource" uid="uid://iriolugta38b" path="res://character/dialogue/story01.tres" id="16_p4xqh"]
-[ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="18_2ofpg"]
 [ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/click.tscn" id="18_bav3m"]
 
 [sub_resource type="Animation" id="Animation_kgoaa"]
@@ -38,14 +37,14 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/GhostBookButton:position")
+tracks/0/path = NodePath("CanvasLayer/GhostBookButton:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(936, 516), Vector2(936, 950)]
+"values": [0.0, 6.28319]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -62,14 +61,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/GhostBookButton:rotation")
+tracks/2/path = NodePath("CanvasLayer/GhostBookButton:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 6.28319]
+"values": [Vector2(936, 516), Vector2(936, 950)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_galhf"]
@@ -77,6 +76,10 @@ _data = {
 "RESET": SubResource("Animation_kgoaa"),
 "ghost_book_get": SubResource("Animation_in7ld")
 }
+
+[sub_resource type="Resource" id="Resource_kur5a"]
+script = ExtResource("5_2ac6d")
+value = Array[ExtResource("6_a4pli")]([])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q308k"]
 atlas = ExtResource("6_aghy4")
@@ -127,11 +130,7 @@ position = Vector2(580, 775)
 [node name="WhitePositon" type="Marker2D" parent="."]
 position = Vector2(1397, 775)
 
-[node name="GhostNormal" parent="." instance=ExtResource("4_dcdjj")]
-position = Vector2(974, 749)
-
-[node name="NiuTou" parent="." instance=ExtResource("18_2ofpg")]
-position = Vector2(777, 747)
+[node name="ClickEffect" parent="." instance=ExtResource("18_bav3m")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -140,15 +139,12 @@ libraries = {
 }
 autoplay = "death_god2_idle"
 
-[node name="dialogueControler" type="Node" parent="." node_paths=PackedStringArray("actor_list")]
+[node name="DialogueController" type="Node" parent="." groups=["dialogueController"]]
 script = ExtResource("15_m413h")
-dialogue_list = ExtResource("16_p4xqh")
-actor_list = [NodePath("../GhostNormal"), NodePath("../NiuTou")]
+dialogue_list = SubResource("Resource_kur5a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
-
-[node name="ClickEffect" parent="CanvasLayer" instance=ExtResource("18_bav3m")]
 
 [node name="FilesButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true

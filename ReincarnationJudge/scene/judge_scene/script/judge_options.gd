@@ -27,6 +27,11 @@ func _on_judge_pressed() -> void:
 	var select_id = first_selection.selected
 	var item_string = first_selection.get_item_text(select_id)
 	visible = false
+	var ghosts = get_tree().get_nodes_in_group("ghosts")
+	for i in ghosts:
+		#get_tree().create_tween().tween_property(i,^"modulate:a", 0, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+
+		i.queue_free()
 	print(item_string)
 	
 	

@@ -2,6 +2,8 @@ class_name Click extends Control
 
 @onready var circle = $Circle
 @onready var point = $Circle/Point
+@onready var ghost_niu_tou = $"../GhostNiuTou"
+@onready var ghost_niu_tou_1 = $"../GhostNiuTou1"
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -18,3 +20,14 @@ func _input(event):
 
 func _on_circle_finished(a):
 	a.queue_free()
+
+
+func _on_ask_pressed():
+	var dialogueControllerlist = get_tree().get_nodes_in_group("dialogueController")
+	
+	if dialogueControllerlist.size() == 0:
+		var dialogueController = DialogueController.new()
+		add_child(dialogueController)
+		var dialogueList = DialogueList.new()
+		dialogueController.dialogue_list = dialogueList
+	DataServer.dialogue_start.emit(ghost_niu_tou,ghost_niu_tou_1)
