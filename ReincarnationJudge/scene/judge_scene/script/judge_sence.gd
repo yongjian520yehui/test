@@ -7,7 +7,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var time_label: Label = %TimeLabel
 @onready var judge_options: Control = $CanvasLayer/JudgeOptions
-@onready var dialogue_controler: DialogueController = $CanvasLayer/dialogueControler
+@onready var dialogue_controler: DialogueController = $dialogueControler
 @onready var ghost_book_position: Control = $CanvasLayer/GhostBookPosition
 
 
@@ -33,25 +33,32 @@ func _on_next_button_pressed() -> void:
 	if ghost_book_button.visible == false:
 		ghost_book_button.visible = true
 		animation_player.play("ghost_book_get")
+		var ghost = get_tree().get_nodes_in_group("ghosts")
+		for i in ghost:
+			i.visible = true
 		#var tween = create_tween()
 		#ghost_book_button.scale = Vector2(2,2)
 		#tween.tween_property(ghost_book_button,"position",ghost_book_position.global_position,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 		#tween.set_parallel().tween_property(ghost_book_button,"scale",Vector2.ONE,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 		#tween.set_parallel().tween_property(ghost_book_button,"rotation",360.0,0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 	Utils.attack_ghost.emit()
+	DataServer.dialogue_start.emit()
 
 
 func _on_judge_button_pressed() -> void:
 	if book_ghost.visible == false:
 		ghost_book_button.visible = false
 		judge_options.visible = true
+		var ghost = get_tree().get_nodes_in_group("ghosts")
+		for i in ghost:
+			i.visible = false
 
 
 func _on_ghost_book_button_pressed() -> void:
 	if book_ghost.visible == false:
 		book_ghost.visible = true
 		book_ghost.open()
-	
+
 func is_success():
 	if true: success_case += 1
 

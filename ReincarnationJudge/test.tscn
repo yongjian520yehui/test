@@ -1,25 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnsmos4wcrqtm"]
+[gd_scene load_steps=11 format=3 uid="uid://cnsmos4wcrqtm"]
 
+[ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/click.tscn" id="1_e8xqy"]
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
-[ext_resource type="Script" path="res://scene/common/select_units/select_units.gd" id="2_3sooi"]
+[ext_resource type="Script" path="res://utils/select_units/select_units.gd" id="2_3sooi"]
+[ext_resource type="Script" path="res://utils/connect_line.gd" id="4_ksrbb"]
+[ext_resource type="Script" path="res://utils/data_server.gd" id="5_2kt5q"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="5_43xik"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="6_vypin"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="7_2b2u0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1qf"]
 
+[sub_resource type="Resource" id="Resource_qsay4"]
+script = ExtResource("6_vypin")
+value = Array[ExtResource("7_2b2u0")]([])
+
 [node name="Test" type="Node2D"]
 
+[node name="Click" parent="." instance=ExtResource("1_e8xqy")]
+
 [node name="GhostNiuTou" parent="." instance=ExtResource("1_pgy0d")]
-position = Vector2(438, 456)
+position = Vector2(732, 340)
 
-[node name="GhostNiuTou2" parent="." instance=ExtResource("1_pgy0d")]
-position = Vector2(1162, 417)
-
-[node name="GhostNiuTou3" parent="." instance=ExtResource("1_pgy0d")]
-position = Vector2(773, 278)
+[node name="GhostNiuTou1" parent="." instance=ExtResource("1_pgy0d")]
+position = Vector2(718, 917)
 
 [node name="RtsNode" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_3sooi")
 
 [node name="SelectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
 shape = SubResource("RectangleShape2D_ax1qf")
+
+[node name="ConnectLine" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_ksrbb")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_2kt5q")
+
+[node name="dialogue" type="Node" parent="."]
+script = ExtResource("5_43xik")
+dialogue_list = SubResource("Resource_qsay4")

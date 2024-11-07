@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://m260b85n0jrv"]
 
-[ext_resource type="Script" path="res://scene/common/dialogue/Bubble.gd" id="1_8iwo5"]
-[ext_resource type="Texture2D" uid="uid://b0hiqkon6tdbr" path="res://scene/common/dialogue/bubble.png" id="2_h46hm"]
+[ext_resource type="Script" path="res://character/dialogue/Bubble.gd" id="1_8iwo5"]
+[ext_resource type="Texture2D" uid="uid://b0hiqkon6tdbr" path="res://character/dialogue/bubble.png" id="2_h46hm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xxg21"]
 line_spacing = 0.0

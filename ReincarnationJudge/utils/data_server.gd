@@ -6,6 +6,10 @@ var cost = {"道具":1}
 var salary = 102
 var fine = 10
 var year = 1
+signal dialogue_start
+
+func _ready() -> void:
+	ghost_factory()
 
 func save_game(content):
 	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
@@ -19,20 +23,39 @@ func load_game():
 	Utils.saved_money = gameDataJson["saved_money"]
 	
 func ghost_factory():
-	var ghost_data
+	var ghost_data : Dictionary
 	var contant = Utils.load_json_file(Utils.NOMAL_GHOST)
 
 	var ghost_name = contant["name"][randi_range(0,contant["name"].size()-1)]
 	var country = contant["country"][randi_range(0,contant["country"].size()-1)]
 	var religion = contant["religion"][randi_range(0,contant["religion"].size()-1)]
-	var sex = contant["sex"]
-	var intro = contant["intro"]
-	var evaluation = contant["evaluation"]
-	var reason = contant["reason"]
-	var applay = contant["applay"]
+	var sex = contant["sex"][randi_range(0,contant["sex"].size()-1)]
+	#var intro = contant["intro"]
+	#var evaluation = contant["evaluation"]
+	#var reason = contant["reason"]
+	#var applay = contant["applay"]
 
-	var formate_string = '{"day1":[{"baseInfo":{"name":"%s","country":"%s","religion":"%s","sex":1},"intro":"","evaluation":"","reason":"","applay":{"target":"","destination":""}}]}'
-	var ghost_data_string = formate_string % [ghost_name,country,religion]
-	#print(ghost_data_string)
-	ghost_data = JSON.parse_string(ghost_data_string)
+	var dialogue_list = dialogue_factory(contant)
+	
+	var baseInfo_string = '{"name":"%s","country":"%s","religion":"%s","sex":"%s"}' % [ghost_name,country,religion,sex]
+	var baseInfo = JSON.parse_string(baseInfo_string)
+	ghost_data["baseInfo"] = baseInfo
+	ghost_data["dialogue_list"] = dialogue_list
+	print(ghost_data)
 	return ghost_data
+
+func dialogue_factory(contant):
+	
+	var ghost_dialogue_list = contant["ghost_dialogue"]
+	var self_dialogue_list = contant["self_dialogue"]
+	var dialogue_list : Array[Dialogue]
+	var ghost_dialogue = Dialogue.new()
+	ghost_dialogue.actor_id = 0
+	ghost_dialogue.content = ghost_dialogue_list["first"][randi_range(0,ghost_dialogue_list["first"].size()-1)]
+	dialogue_list.append(ghost_dialogue)
+	var self_dialogue = Dialogue.new()
+	self_dialogue.actor_id = 1
+	self_dialogue.content = self_dialogue_list["first"][randi_range(0,self_dialogue_list["first"].size()-1)]
+	dialogue_list.append(self_dialogue)
+
+	return dialogue_list

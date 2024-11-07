@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://scene/common/date/date_system.tscn" id="11_wgvcv"]
 [ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="13_at7m5"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
-[ext_resource type="Script" path="res://scene/common/dialogue/dialogue_controller.gd" id="15_m413h"]
-[ext_resource type="Resource" uid="uid://iriolugta38b" path="res://scene/common/dialogue/story01.tres" id="16_p4xqh"]
-[ext_resource type="Script" path="res://scene/common/select_units/select_units.gd" id="17_7dyxu"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="15_m413h"]
+[ext_resource type="Resource" uid="uid://iriolugta38b" path="res://character/dialogue/story01.tres" id="16_p4xqh"]
+[ext_resource type="Script" path="res://utils/select_units/select_units.gd" id="17_7dyxu"]
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="18_2ofpg"]
 [ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/click.tscn" id="18_bav3m"]
 
@@ -190,6 +190,11 @@ libraries = {
 }
 autoplay = "death_god2_idle"
 
+[node name="dialogueControler" type="Node" parent="." node_paths=PackedStringArray("actor_list")]
+script = ExtResource("15_m413h")
+dialogue_list = ExtResource("16_p4xqh")
+actor_list = [NodePath("../GhostNormal"), NodePath("../GhostNiuTou")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
@@ -342,11 +347,6 @@ grow_vertical = 2
 offset_right = 8.0
 offset_bottom = 8.0
 text = "结束这一年"
-
-[node name="dialogueControler" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("actor_list")]
-script = ExtResource("15_m413h")
-dialogue_list = ExtResource("16_p4xqh")
-actor_list = [NodePath("../../GhostNormal"), NodePath("../../GhostNiuTou")]
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

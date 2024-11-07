@@ -40,11 +40,11 @@ func close() -> void:
 	z_index = 0
 
 func open() -> void:
-	var ghost_json_data = Utils.ghost_factory()
+	var ghost_data = DataServer.ghost_factory()
 	z_index=1
-	ghost_name.text = ghost_json_data["day1"][0]["baseInfo"]["name"]
-	country.text = ghost_json_data["day1"][0]["baseInfo"]["country"]
-	religion.text = ghost_json_data["day1"][0]["baseInfo"]["religion"]
+	ghost_name.text = ghost_data["baseInfo"]["name"]
+	country.text = ghost_data["baseInfo"]["country"]
+	religion.text = ghost_data["baseInfo"]["religion"]
 	
 	show()
 	#resume_button.grab_focus()

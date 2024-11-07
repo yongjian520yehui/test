@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="DialogueList" load_steps=7 format=3 uid="uid://iriolugta38b"]
+
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_5bfe6"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_nyq2p"]
+
+[sub_resource type="Resource" id="Resource_ipu1a"]
+script = ExtResource("2_nyq2p")
+actor_id = 0
+content = "这是哪里？"
+
+[sub_resource type="Resource" id="Resource_7ujkm"]
+script = ExtResource("2_nyq2p")
+actor_id = 1
+content = "这是你的轮回之所。。。"
+
+[sub_resource type="Resource" id="Resource_3t57y"]
+script = ExtResource("2_nyq2p")
+actor_id = 0
+content = "那你给我安排个好点的，老大"
+
+[sub_resource type="Resource" id="Resource_pf4yr"]
+script = ExtResource("2_nyq2p")
+actor_id = 1
+content = "看情况吧。。。。"
+
+[resource]
+script = ExtResource("1_5bfe6")
+value = Array[ExtResource("2_nyq2p")]([SubResource("Resource_ipu1a"), SubResource("Resource_7ujkm"), SubResource("Resource_3t57y"), SubResource("Resource_pf4yr")])
