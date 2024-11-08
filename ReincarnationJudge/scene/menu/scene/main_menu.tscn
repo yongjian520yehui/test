@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0hx1753xcng"]
 
-[ext_resource type="Script" path="res://scene/menu/script/mainMenu.gd" id="1_yu65p"]
-[ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="2_bvwll"]
-[ext_resource type="Texture2D" uid="uid://cn0txfqsqytat" path="res://scene/menu/sprites/dungeon background 1.png" id="2_qt5xb"]
+[ext_resource type="Script" path="res://scene/menu/script/mainMenu.gd" id="1_uuyvg"]
+[ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="2_ctm8a"]
+[ext_resource type="Texture2D" uid="uid://cn0txfqsqytat" path="res://scene/menu/sprites/dungeon background 1.png" id="3_mapaa"]
 
 [sub_resource type="Animation" id="Animation_m6cvv"]
 resource_name = "flashing_light"
@@ -32,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yu65p")
+script = ExtResource("1_uuyvg")
 
 [node name="Label" type="Label" parent="."]
 process_mode = 3
@@ -52,7 +52,7 @@ visibility_layer = 1023
 position = Vector2(469, 454)
 color = Color(1, 0.101961, 1, 1)
 energy = 0.1
-texture = ExtResource("2_bvwll")
+texture = ExtResource("2_ctm8a")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -61,7 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_qt5xb")
+texture = ExtResource("3_mapaa")
 
 [node name="GameNameLable" type="Label" parent="."]
 layout_mode = 1
@@ -95,6 +95,7 @@ layout_mode = 2
 text = "新游戏"
 
 [node name="MenuContinueButton" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "继续游戏"
 

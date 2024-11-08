@@ -9,21 +9,49 @@ var year = 1
 var success_case := 0
 var failed_case := 0
 
+# 定义初始日期  
+var current_date = {  
+	"year": 2023,  
+	"month": 1,  
+	"day": 1,  
+	"hour": 0,  
+	"minute": 0,  
+	"second": 0  
+}  
+
+var directory_path := "user://save/"  
+var file_path := "user://save/%s.dat" 
+var auto_save_fileName := ""
+
 signal dialogue_start()
 
 func _ready() -> void:
-	ghost_factory()
+	#ghost_factory()
+	pass
 
-func save_game(content):
-	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
-	file.store_string(content)
+func save_game():
+	var gameData = {"years":DataServer.current_date["year"],"saved_money":Utils.saved_money}
 
-func load_game():
-	var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
-	var content = file.get_as_text()
-	var gameDataJson = JSON.parse_string(content)
-	Utils.year = gameDataJson["years"]
-	Utils.saved_money = gameDataJson["saved_money"]
+	# 获取目录下的文件和文件夹列表
+	if not DirAccess.dir_exists_absolute(directory_path):
+		DirAccess.make_dir_absolute(directory_path)
+ 	
+	var saveDir = DirAccess.open(directory_path)
+	var saveFilesArray = saveDir.get_files()
+
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	file.store_string(str(gameData))
+
+
+func load_game(filepath):
+	if filepath:
+		var file = FileAccess.open(filepath, FileAccess.READ)
+		if file:
+			var content = file.get_as_text()
+			var gameDataJson = JSON.parse_string(content)
+			DataServer.current_date["year"] = gameDataJson["years"]
+			Utils.saved_money = gameDataJson["saved_money"]
+	return
 	
 func ghost_factory():
 	var ghost_data : Dictionary

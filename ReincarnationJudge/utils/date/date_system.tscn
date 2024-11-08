@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di0yrbq0taqb1"]
 
-[ext_resource type="Script" path="res://scene/common/date/date_system.gd" id="1_5f0ee"]
+[ext_resource type="Script" path="res://utils/date/date_system.gd" id="1_5f0ee"]
 
 [node name="DateSystem" type="Node" node_paths=PackedStringArray("show")]
 script = ExtResource("1_5f0ee")

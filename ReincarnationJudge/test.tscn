@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://cnsmos4wcrqtm"]
 
-[ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/click.tscn" id="1_e8xqy"]
+[ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/clickEffect/click.tscn" id="1_e8xqy"]
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
 [ext_resource type="Script" path="res://utils/select_units/select_units.gd" id="2_3sooi"]
 [ext_resource type="Script" path="res://utils/connect_line.gd" id="4_ksrbb"]
-[ext_resource type="Script" path="res://utils/data_server.gd" id="5_2kt5q"]
+[ext_resource type="Script" path="res://utils/server/data_server.gd" id="5_2kt5q"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="5_43xik"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="6_vypin"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="7_2b2u0"]

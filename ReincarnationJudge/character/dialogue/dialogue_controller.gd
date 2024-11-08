@@ -18,7 +18,7 @@ func _ready() -> void:
 	#print(_count,_list)
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _started:
 		if Input.is_action_just_pressed("mouse_left"):
 			if not next() :

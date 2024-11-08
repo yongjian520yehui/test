@@ -11,10 +11,10 @@
 [ext_resource type="Script" path="res://scene/judge_scene/script/PauseCanvasLayer.gd" id="6_vbum2"]
 [ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="7_kjcro"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="10_7mc66"]
-[ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://scene/common/date/date_system.tscn" id="11_wgvcv"]
+[ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://utils/date/date_system.tscn" id="11_wgvcv"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="15_m413h"]
-[ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/click.tscn" id="18_bav3m"]
+[ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/clickEffect/click.tscn" id="18_bav3m"]
 
 [sub_resource type="Animation" id="Animation_kgoaa"]
 length = 0.001

@@ -23,14 +23,14 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	pass
 	
-func _on_area_2d_input_event(event: InputEvent) -> void:
+func _on_area_2d_input_event(_event: InputEvent) -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 	
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
 	

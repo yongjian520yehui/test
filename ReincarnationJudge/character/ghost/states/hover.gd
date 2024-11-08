@@ -25,6 +25,6 @@ func _on_area_2d_input_event(event: InputEvent) -> void:
 		transition_to("Selected")
 
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 		#run_dust = DustCreater.generete(DustCreater.RUN_DUST, character.graphics, Vector2(-3, 0))

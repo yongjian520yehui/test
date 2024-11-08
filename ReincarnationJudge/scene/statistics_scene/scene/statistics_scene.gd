@@ -18,7 +18,8 @@ var column_index = 0  # 当前显示的列索引
 func _on_end_pressed() -> void:
 	get_tree().change_scene_to_file(Utils.JUDGE_SENCE)
 	Utils.year += 1
-
+	DataServer.current_date["year"] += 1
+	DataServer.save_game()
 
 # 在脚本加载时调用  
 func _ready():  

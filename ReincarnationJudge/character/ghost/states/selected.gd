@@ -18,7 +18,7 @@ func _on_area_2d_input_event(event: InputEvent) -> void:
 		transition_to("Idle")
 
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if  not character.is_selected :
 		character.outline_highlighter.clear_highlight()
 		character.z_index = 0

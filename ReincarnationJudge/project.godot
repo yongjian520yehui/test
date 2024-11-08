@@ -19,7 +19,7 @@ config/icon="res://scene/menu/sprites/dungeon background 1.png"
 [autoload]
 
 Utils="*res://utils/Utils.gd"
-DataServer="*res://utils/data_server.gd"
+DataServer="*res://utils/server/data_server.gd"
 
 [display]
 
@@ -32,6 +32,7 @@ mouse_cursor/custom_image="res://cursor.png"
 workers=""
 ghosts=""
 dialogueController=""
+save=""
 
 [gui]
 

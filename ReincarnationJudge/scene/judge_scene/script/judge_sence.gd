@@ -23,6 +23,7 @@ const GHOST_NORMAL = preload(Utils.GHOST_NORMAL)
 
 func _ready() -> void:
 	#加载员工
+	#DataServer.load_game()
 	var ghost_niutou = GHOST_NIU_TOU.instantiate()
 	add_child(ghost_niutou)
 	ghost_niutou.global_position = niu_tou_positon.global_position
@@ -74,7 +75,7 @@ func _on_ghost_book_button_pressed() -> void:
 func _on_end_this_year_pressed() -> void:
 	get_tree().change_scene_to_file(Utils.STATISTICS_SCENE)
 
-func is_success(current_case):
+func is_success(_current_case):
 	if true: 
 		DataServer.success_case += 1
 	else :

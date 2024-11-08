@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://llpbjh0u7n2y"]
 
-[ext_resource type="Script" path="res://scene/statistics_scene/script/statistics_page.gd" id="1_32kpg"]
+[ext_resource type="Script" path="res://scene/statistics_scene/scene/statistics_scene.gd" id="1_32kpg"]
 [ext_resource type="Texture2D" uid="uid://ljb2dpbayku5" path="res://scene/statistics_scene/sprites/dungeon background 5.png" id="1_fp8hu"]
 
 [node name="Control" type="Control"]

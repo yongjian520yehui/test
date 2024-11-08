@@ -2,8 +2,7 @@ class_name Click extends Control
 
 @onready var circle = $Circle
 @onready var point = $Circle/Point
-@onready var ghost_niu_tou = $"../GhostNiuTou"
-@onready var ghost_niu_tou_1 = $"../GhostNiuTou1"
+
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -30,4 +29,4 @@ func _on_ask_pressed():
 		add_child(dialogueController)
 		var dialogueList = DialogueList.new()
 		dialogueController.dialogue_list = dialogueList
-	DataServer.dialogue_start.emit(ghost_niu_tou,ghost_niu_tou_1)
+	#DataServer.dialogue_start.emit(ghost_niu_tou,ghost_niu_tou_1)

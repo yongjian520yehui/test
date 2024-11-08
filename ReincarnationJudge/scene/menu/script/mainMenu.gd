@@ -4,10 +4,13 @@ const PAUSE_MENU = preload("res://scene/menu/scene/pause_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var saveDir = DirAccess.open(DataServer.directory_path)
+	var saveFilesArray = saveDir.get_files()
+	if saveFilesArray.size() > 0:
+		$VBoxContainer/MenuContinueButton.visible = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var tree := get_tree()
 	if tree.paused==true:
 		label.text="pause"
@@ -24,7 +27,7 @@ func _on_menu_setting_button_pressed() -> void:
 
 
 func _on_menu_continue_button_pressed() -> void:
-	Utils.load_game()
+	DataServer.load_game("user://save/save_game.dat")
 	get_tree().change_scene_to_file(Utils.JUDGE_SENCE)
 
 func _on_menu_start_button_pressed() -> void:

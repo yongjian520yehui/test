@@ -11,7 +11,7 @@ func enter() -> void:
 	transition_to("Idle")
 
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 	#if character.velocity.x != 0:
 		#character.velocity.x = move_toward(character.velocity.x, 0, 8)

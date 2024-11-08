@@ -55,9 +55,9 @@ func _on_area_2d_mouse_exited():
 		current_state._on_area_2d_mouse_exited()
 
 ## 调用角色当前状态中的输入事件处理方法
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if _started and current_state:
-		current_state._on_area_2d_input_event(event)
+		current_state._on_area_2d_input_event(_event)
 
 ## 切换状态
 func change_state(from: StateBase, to: String) -> void:

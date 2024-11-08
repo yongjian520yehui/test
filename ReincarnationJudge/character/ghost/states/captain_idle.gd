@@ -11,7 +11,7 @@ func _on_area_2d_mouse_entered():
 		transition_to("Hover")
 
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if character.is_hurt:
 		if state_machine._states.has("Hit") :
 			transition_to("Hit")
