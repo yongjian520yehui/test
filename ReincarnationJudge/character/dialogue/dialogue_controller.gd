@@ -14,8 +14,8 @@ var _started: bool = false
 
 
 func _ready() -> void:
+	##连接对话开始信号
 	DataServer.dialogue_start.connect(start)
-	#print(_count,_list)
 	
 
 func _physics_process(_delta: float) -> void:
@@ -42,11 +42,12 @@ func next() -> bool:
 	character.bubble_marker.add_child(bubble)
 	return true
 
-func start(character1,character2):
+func start(character1,character2,dialogue_list1):
 	print(name, " 对话开始")
 	##获取对话数据
-	var ghost_data = DataServer.ghost_factory()
-	dialogue_list.value = ghost_data["dialogue_list"]
+	#var ghost_data = DataServer.ghost_factory()
+	#dialogue_list.value = ghost_data["dialogue_list"]
+	dialogue_list.value = dialogue_list1
 	
 	actor_list.append(character1)
 	actor_list.append(character2)

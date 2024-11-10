@@ -20,8 +20,8 @@ var current_date = {
 }  
 
 var directory_path := "user://save/"  
-var file_path := "user://save/%s.dat" 
-var auto_save_fileName := ""
+var file_path_string := "user://save/%s.dat" 
+var auto_save_file_path := "user://save/autoSave.dat" 
 
 signal dialogue_start()
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 	#ghost_factory()
 	pass
 
-func save_game():
+func save_game(filepath):
 	var gameData = {"years":DataServer.current_date["year"],"saved_money":Utils.saved_money}
 
 	# 获取目录下的文件和文件夹列表
@@ -39,7 +39,7 @@ func save_game():
 	var saveDir = DirAccess.open(directory_path)
 	var saveFilesArray = saveDir.get_files()
 
-	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	var file = FileAccess.open(filepath, FileAccess.WRITE)
 	file.store_string(str(gameData))
 
 
@@ -76,7 +76,6 @@ func ghost_factory():
 	return ghost_data
 
 func dialogue_factory(contant):
-	
 	var ghost_dialogue_list = contant["ghost_dialogue"]
 	var self_dialogue_list = contant["self_dialogue"]
 	var dialogue_list : Array[Dialogue]

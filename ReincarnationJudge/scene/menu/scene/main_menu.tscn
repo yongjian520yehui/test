@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0hx1753xcng"]
+[gd_scene load_steps=7 format=3 uid="uid://b0hx1753xcng"]
 
 [ext_resource type="Script" path="res://scene/menu/script/mainMenu.gd" id="1_uuyvg"]
 [ext_resource type="Texture2D" uid="uid://ddujgl5anueyw" path="res://scene/menu/sprites/light.png" id="2_ctm8a"]
 [ext_resource type="Texture2D" uid="uid://cn0txfqsqytat" path="res://scene/menu/sprites/dungeon background 1.png" id="3_mapaa"]
+[ext_resource type="PackedScene" uid="uid://bgexxbxrmkhn2" path="res://scene/menu/scene/save_menu.tscn" id="4_rtcdv"]
 
 [sub_resource type="Animation" id="Animation_m6cvv"]
 resource_name = "flashing_light"
@@ -112,6 +113,17 @@ libraries = {
 "": SubResource("AnimationLibrary_fmfvi")
 }
 autoplay = "flashing_light"
+
+[node name="SaveMenu" parent="." instance=ExtResource("4_rtcdv")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="VBoxContainer/MenuStartButton" to="." method="_on_menu_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuContinueButton" to="." method="_on_menu_continue_button_pressed"]

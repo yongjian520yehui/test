@@ -31,16 +31,23 @@ func load_json_file(filePath):
 	var json = JSON.parse_string(content)
 	return json
 
-
-func load_game():
-	var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
-	var content = file.get_as_text()
-	var gameDataJson = JSON.parse_string(content)
-	Utils.year = gameDataJson["years"]
-	Utils.saved_money = gameDataJson["saved_money"]
-
-
 func load_file(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = file.get_as_text()
 	return content
+	
+func dialogue_factory(node,character1,character2,dialogue_list):
+	##初始对话控制器
+	var dialogueControllerlist = get_tree().get_nodes_in_group("dialogueController")
+	
+	##如果没有对话控制器，则添加到场景
+	if dialogueControllerlist.size() == 0:
+		##对话控制器，则添加到场景
+		var dialogueController = DialogueController.new()
+		node.add_child(dialogueController)
+		##初始化对话列表
+		var dialogueList = DialogueList.new()
+		dialogueController.dialogue_list = dialogueList
+
+	##发送对话开始信号，dialogueControler连接此信号
+	DataServer.dialogue_start.emit(character1,character2,dialogue_list)

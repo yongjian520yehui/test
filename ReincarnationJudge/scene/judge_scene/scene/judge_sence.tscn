@@ -294,6 +294,14 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "结束这一年"
 
+[node name="Money" type="Label" parent="CanvasLayer"]
+offset_left = 1676.0
+offset_top = 8.0
+offset_right = 1732.0
+offset_bottom = 27.0
+text = "$1000
+"
+
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("6_vbum2")

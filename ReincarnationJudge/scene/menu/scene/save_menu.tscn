@@ -1,65 +1,96 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgexxbxrmkhn2"]
+[gd_scene load_steps=4 format=3 uid="uid://bgexxbxrmkhn2"]
 
-[ext_resource type="Script" path="res://scene/menu/scene/save_menu.gd" id="1_shxw1"]
+[ext_resource type="Script" path="res://scene/menu/script/save_menu.gd" id="1_shxw1"]
+[ext_resource type="Script" path="res://scene/menu/script/save_button.gd" id="2_3s2wi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c3ix"]
 bg_color = Color(0.992157, 0.960784, 0.901961, 1)
 
 [node name="SaveMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_shxw1")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Close" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "关闭"
+
+[node name="Background" type="Panel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8c3ix")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
-offset_right = 166.0
-offset_bottom = 120.0
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 columns = 2
 
-[node name="Button" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位1"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button2" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton2" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位2"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button3" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton3" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位3"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button4" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton4" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位4"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button5" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton5" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位5"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button6" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton6" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位6"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button7" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton7" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位7"
 alignment = 0
+script = ExtResource("2_3s2wi")
 
-[node name="Button8" type="Button" parent="GridContainer" groups=["save"]]
+[node name="SaveButton8" type="Button" parent="VBoxContainer/GridContainer" groups=["save"]]
 layout_mode = 2
 text = "存档空位8"
 alignment = 0
+script = ExtResource("2_3s2wi")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton" to="VBoxContainer/GridContainer/SaveButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton2" to="VBoxContainer/GridContainer/SaveButton2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton3" to="VBoxContainer/GridContainer/SaveButton3" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton4" to="VBoxContainer/GridContainer/SaveButton4" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton5" to="VBoxContainer/GridContainer/SaveButton5" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton6" to="VBoxContainer/GridContainer/SaveButton6" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton7" to="VBoxContainer/GridContainer/SaveButton7" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/SaveButton8" to="VBoxContainer/GridContainer/SaveButton8" method="_on_pressed"]
