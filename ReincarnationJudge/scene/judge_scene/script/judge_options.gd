@@ -15,42 +15,60 @@ var second: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	color_rect.size = v_box_container.size
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	##背景大小计算
+	color_rect.size = v_box_container.size
 
-
+##确定按钮
 func _on_judge_pressed() -> void:
+	##判断审判的选项
 	var select_id = first_selection.selected
 	var item_string = first_selection.get_item_text(select_id)
-	visible = false
+	match select_id:
+		0:
+			var second_tiantang_item_string = second_tiantang.get_item_text(second_tiantang.selected)
+			print(item_string+"->"+second_tiantang_item_string)
+		1:
+			var second_diyu_item_string = second_diyu.get_item_text(second_diyu.selected)
+			print(item_string+"->"+second_diyu_item_string)
+		2:
+			var second_renjian_item_string = second_renjian.get_item_text(second_renjian.selected)
+			print(item_string+"->"+second_renjian_item_string)
+	##隐藏审判选项
+	hide()
+	##释放ghost
 	var ghosts = get_tree().get_nodes_in_group("ghosts")
 	for i in ghosts:
-		#get_tree().create_tween().tween_property(i,^"modulate:a", 0, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-
 		i.queue_free()
-	print(item_string)
+	##下一个按钮可以点击
+	%NextButton.disabled = false
+	%GhostBookButton.disabled = false
 	
 	
-	
+##取消按钮
 func _on_cancel_pressed() -> void:
-	visible = false
+	##隐藏审判选项
+	hide()
+	##审判按钮可以点击
+	%JudgeButton.disabled = false
+	%GhostBookButton.disabled = false
 
-
+##选项的显示和隐藏
 func _on_first_selection_item_selected(index: int) -> void:
 	match index:
 		0:
-			second_tiantang.visible= true
-			second_diyu.visible= false
-			second_renjian.visible= false
+			second_tiantang.show()
+			second_diyu.hide()
+			second_renjian.hide()
 		1:
-			second_tiantang.visible= false
-			second_diyu.visible= true
-			second_renjian.visible= false
+			second_tiantang.hide()
+			second_diyu.show()
+			second_renjian.hide()
 		2:
-			second_tiantang.visible= false
-			second_diyu.visible= false
-			second_renjian.visible= true
+			second_tiantang.hide()
+			second_diyu.hide()
+			second_renjian.show()

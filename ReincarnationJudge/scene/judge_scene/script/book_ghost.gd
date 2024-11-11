@@ -40,7 +40,7 @@ func close() -> void:
 	z_index = 0
 
 func open() -> void:
-	var ghost_data = DataServer.ghost_factory()
+	var ghost_data = DataServer.get_ghost_data()
 	z_index=1
 	ghost_name.text = ghost_data["baseInfo"]["name"]
 	country.text = ghost_data["baseInfo"]["country"]

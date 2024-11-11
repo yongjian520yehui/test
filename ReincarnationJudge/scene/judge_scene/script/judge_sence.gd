@@ -1,16 +1,10 @@
 extends Node2D
 
 ##按钮
-@onready var files_button = %FilesButton
-@onready var ghost_book_button = %GhostBookButton
-@onready var pause_menu: PauseMenu = %PauseMenu
-@onready var book_ghost = %book_ghost
-@onready var time_label: Label = %TimeLabel
+
 ##场景预加载
 const GHOST_NIU_TOU = preload(Utils.GHOST_NIU_TOU)
 const GHOST_NORMAL = preload(Utils.GHOST_NORMAL)
-
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 ##位置节点
 @onready var judge_options: Control = $CanvasLayer/JudgeOptions
@@ -23,13 +17,14 @@ const GHOST_NORMAL = preload(Utils.GHOST_NORMAL)
 
 
 
+
 func _ready() -> void:
 	##加载员工，后续从存档中获取
 	#DataServer.load_game()
 	var ghost_niutou = GHOST_NIU_TOU.instantiate()
 	add_child(ghost_niutou)
 	ghost_niutou.global_position = niu_tou_positon.global_position
-
+	%JudgeButton.disabled = true
 
 func _process(_delta: float) -> void:
 	pass
@@ -49,29 +44,35 @@ func _on_next_button_pressed() -> void:
 	var workers = get_tree().get_nodes_in_group("workers")
 	
 	##显示book
-	if ghost_book_button.visible == false:
-		ghost_book_button.visible = true
-		animation_player.play("ghost_book_get")
+	if %GhostBookButton.visible == false:
+		%GhostBookButton.show()
+		%AnimationPlayer.play("ghost_book_get")
 	
 	##获取对话数据
 	var ghost_data = DataServer.get_ghost_data()
 	var dialogue_list = ghost_data["dialogue_list"]
 	##创建对话节点
 	DataServer.get_dialogue_controller(self,ghosts1[0],workers[0],dialogue_list)
+	
+	##禁用启用button
+	%JudgeButton.disabled = false
+	%NextButton.disabled = true
 
 ##审判按钮点击事件
 func _on_judge_button_pressed() -> void:
-	##显示审判页面
-	if book_ghost.visible == false:
-		ghost_book_button.visible = false
-		judge_options.visible = true
+	
+	%JudgeButton.disabled = true
+	##显示审判页面,隐藏book，显示option
+	if %GhostBook.visible == false:
+		%GhostBookButton.disabled = true
+		judge_options.show()
 
 ##book按钮点击事件
 func _on_ghost_book_button_pressed() -> void:
 	##显示book详细内容
-	if book_ghost.visible == false:
-		book_ghost.visible = true
-		book_ghost.open()
+	if %GhostBook.visible == false:
+		%GhostBook.show()
+		%GhostBook.open()
 
 ##结束这一年按钮，跳转统计页面
 func _on_end_this_year_pressed() -> void:

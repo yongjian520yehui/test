@@ -9,6 +9,7 @@ var contant
 func _ready() -> void:
 	workers = get_tree().get_nodes_in_group("workers")
 	contant = Utils.load_json_file(Utils.NOMAL_GHOST)
+	DataServer.get_ghost_data()
 
 func _input(event):
 	if event is InputEventMouseButton:

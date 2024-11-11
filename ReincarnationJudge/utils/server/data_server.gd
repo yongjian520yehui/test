@@ -30,6 +30,9 @@ var directory_path := "user://save/"
 var file_path_string := "user://save/%s.dat" 
 var auto_save_file_path := "user://save/autoSave.dat" 
 
+##ghost格式化字符串
+var baseInfo_string = '{"name":"%s","country":"%s","religion":"%s","sex":"%s"}'
+
 ##对话开始信号
 signal dialogue_started()
 
@@ -64,22 +67,30 @@ func get_ghost_data():
 	##获取ghost数据，book数据和对话数据
 	var ghost_data : Dictionary
 	var contant = Utils.load_json_file(Utils.NOMAL_GHOST)
-
+	##基础信息
 	var country = contant["country"][randi_range(0,contant["country"].size()-1)]
 	var religion = contant["religion"][randi_range(0,contant["religion"].size()-1)]
 	var sex = contant["sex"][randi_range(0,contant["sex"].size()-1)]
 	var ghost_name = get_ghost_name(sex,country,contant)
+	var baseInfo = JSON.parse_string(baseInfo_string % [ghost_name,country,religion,sex])
+	ghost_data["baseInfo"] = baseInfo
+	##生平介绍
 	#var intro = contant["intro"]
-	#var evaluation = contant["evaluation"]
-	#var reason = contant["reason"]
+	##评价
+	var evaluation = contant["evaluation"][randi_range(0,contant["evaluation"].size()-1)]
+	##死亡原因
+	var reason = contant["reason"]["他杀"][randi_range(0,contant["reason"]["他杀"].size()-1)]
+	
+	##申请表
 	#var applay = contant["applay"]
+	
 	##获取dialogue_list
 	var dialogue_list = get_dialogue_list(contant)
-	
-	var baseInfo_string = '{"name":"%s","country":"%s","religion":"%s","sex":"%s"}' % [ghost_name,country,religion,sex]
-	var baseInfo = JSON.parse_string(baseInfo_string)
-	ghost_data["baseInfo"] = baseInfo
 	ghost_data["dialogue_list"] = dialogue_list
+
+
+	ghost_data["deathReason"] = baseInfo
+	
 	#print(ghost_data)
 	return ghost_data
 	

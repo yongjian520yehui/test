@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7k2if286c54n"]
+[gd_scene load_steps=4 format=3 uid="uid://c7k2if286c54n"]
 
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="1_8dvmq"]
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_options.gd" id="1_q5b83"]
-[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="2_ybomv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bosey"]
 atlas = ExtResource("1_8dvmq")
-region = Rect2(656, 240, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_12k12"]
-atlas = ExtResource("2_ybomv")
-region = Rect2(64, 112, 48, 48)
+region = Rect2(720, 16, 48, 48)
 
 [node name="JudgeOptions" type="Control"]
 layout_mode = 3
@@ -27,9 +22,9 @@ size_flags_vertical = 3
 color = Color(0.223103, 0.223103, 0.223103, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 230.0
-offset_bottom = 105.0
+layout_mode = 1
+offset_right = 238.0
+offset_bottom = 76.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -41,12 +36,9 @@ alignment = 1
 selected = 0
 item_count = 3
 popup/item_0/text = "天堂"
-popup/item_0/icon = SubResource("AtlasTexture_bosey")
 popup/item_1/text = "地狱"
-popup/item_1/icon = SubResource("AtlasTexture_12k12")
 popup/item_1/id = 1
 popup/item_2/text = "人间"
-popup/item_2/icon = SubResource("AtlasTexture_12k12")
 popup/item_2/id = 2
 
 [node name="Second-tiantang" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
@@ -54,32 +46,76 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 selected = 0
-item_count = 2
-popup/item_0/text = "天堂"
-popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_1/text = "地狱"
+item_count = 3
+popup/item_0/text = "初级天堂"
+popup/item_1/text = "中级天堂"
 popup/item_1/id = 1
+popup/item_2/text = "高级天堂"
+popup/item_2/id = 2
 
 [node name="Second-diyu" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+selected = 0
+item_count = 18
+popup/item_0/text = "拔舌地狱"
+popup/item_1/text = "剪刀地狱"
+popup/item_1/id = 1
+popup/item_2/text = "铁树地狱"
+popup/item_2/id = 2
+popup/item_3/text = "孽镜地狱"
+popup/item_3/id = 3
+popup/item_4/text = "蒸笼地狱"
+popup/item_4/id = 4
+popup/item_5/text = "铜柱地狱"
+popup/item_5/id = 5
+popup/item_6/text = "刀山地狱"
+popup/item_6/id = 6
+popup/item_7/text = "冰山地狱"
+popup/item_7/id = 7
+popup/item_8/text = "油锅地狱"
+popup/item_8/id = 8
+popup/item_9/text = "牛坑地狱"
+popup/item_9/id = 9
+popup/item_10/text = "石压地狱"
+popup/item_10/id = 10
+popup/item_11/text = "舂臼地狱"
+popup/item_11/id = 11
+popup/item_12/text = "血池地狱"
+popup/item_12/id = 12
+popup/item_13/text = "枉死地狱"
+popup/item_13/id = 13
+popup/item_14/text = "磔刑地狱"
+popup/item_14/id = 14
+popup/item_15/text = "火山地狱"
+popup/item_15/id = 15
+popup/item_16/text = "石磨地狱"
+popup/item_16/id = 16
+popup/item_17/text = "刀锯地狱"
+popup/item_17/id = 17
+
+[node name="Second-renjian" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 selected = 0
 item_count = 2
-popup/item_0/text = "地狱1"
-popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_1/text = "地狱2"
+popup/item_0/text = "人"
+popup/item_1/text = "动物"
 popup/item_1/id = 1
 
-[node name="Second-renjian" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Third-renjian" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 alignment = 1
 selected = 0
 item_count = 2
-popup/item_0/text = "人间1"
+popup/item_0/text = "人"
 popup/item_0/icon = SubResource("AtlasTexture_bosey")
-popup/item_1/text = "人间2"
+popup/item_1/text = "动物"
 popup/item_1/id = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]

@@ -62,6 +62,11 @@ Space={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="背景"
+2d_render/layer_2="场景"
+
 [rendering]
 
 renderer/rendering_method="mobile"

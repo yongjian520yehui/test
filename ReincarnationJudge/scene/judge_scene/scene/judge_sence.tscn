@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=25 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
@@ -89,17 +89,9 @@ region = Rect2(352, 48, 48, 48)
 atlas = ExtResource("6_aghy4")
 region = Rect2(160, 128, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nb8qy"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(16, 176, 96, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7i1h"]
 atlas = ExtResource("6_aghy4")
 region = Rect2(208, 176, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8aug"]
-atlas = ExtResource("6_aghy4")
-region = Rect2(16, 128, 96, 48)
 
 [sub_resource type="Theme" id="Theme_ywqgq"]
 
@@ -179,15 +171,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = SubResource("AtlasTexture_l1qv1")
-texture_pressed = SubResource("AtlasTexture_nb8qy")
 texture_disabled = SubResource("AtlasTexture_d7i1h")
-texture_focused = SubResource("AtlasTexture_g8aug")
 
 [node name="drag" type="Node" parent="CanvasLayer/GhostBookButton" node_paths=PackedStringArray("target")]
 script = ExtResource("7_kjcro")
 target = NodePath("..")
 
-[node name="book_ghost" parent="CanvasLayer" instance=ExtResource("6_qugnk")]
+[node name="GhostBook" parent="CanvasLayer" instance=ExtResource("6_qugnk")]
 unique_name_in_owner = true
 visible = false
 offset_left = 579.0
@@ -196,6 +186,7 @@ offset_right = -741.0
 offset_bottom = -506.0
 
 [node name="JudgeButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -212,6 +203,7 @@ theme_override_font_sizes/font_size = 30
 text = "判决"
 
 [node name="NextButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
