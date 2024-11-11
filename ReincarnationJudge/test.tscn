@@ -1,19 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnsmos4wcrqtm"]
+[gd_scene load_steps=7 format=3 uid="uid://cnsmos4wcrqtm"]
 
 [ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/clickEffect/click.tscn" id="1_e8xqy"]
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
 [ext_resource type="Script" path="res://utils/select_units/select_units.gd" id="2_3sooi"]
 [ext_resource type="Script" path="res://utils/connect_line.gd" id="4_ksrbb"]
 [ext_resource type="Script" path="res://utils/server/data_server.gd" id="5_2kt5q"]
-[ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="5_43xik"]
-[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="6_vypin"]
-[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="7_2b2u0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1qf"]
-
-[sub_resource type="Resource" id="Resource_qsay4"]
-script = ExtResource("6_vypin")
-value = Array[ExtResource("7_2b2u0")]([])
 
 [node name="Test" type="Node2D"]
 
@@ -42,15 +35,27 @@ script = ExtResource("4_ksrbb")
 [node name="Node" type="Node" parent="."]
 script = ExtResource("5_2kt5q")
 
-[node name="dialogue" type="Node" parent="."]
-script = ExtResource("5_43xik")
-dialogue_list = SubResource("Resource_qsay4")
-
 [node name="Ask" type="Button" parent="."]
-offset_left = 1194.0
-offset_top = 912.0
-offset_right = 1266.0
-offset_bottom = 939.0
+offset_left = 1285.0
+offset_top = 919.0
+offset_right = 1357.0
+offset_bottom = 946.0
 text = "对话开始"
 
+[node name="Next" type="Button" parent="."]
+offset_left = 1455.0
+offset_top = 914.0
+offset_right = 1511.0
+offset_bottom = 941.0
+text = "下一个"
+
+[node name="Judge" type="Button" parent="."]
+offset_left = 1601.0
+offset_top = 916.0
+offset_right = 1657.0
+offset_bottom = 943.0
+text = "审判"
+
 [connection signal="pressed" from="Ask" to="Click" method="_on_ask_pressed"]
+[connection signal="pressed" from="Next" to="Click" method="_on_next_pressed"]
+[connection signal="pressed" from="Judge" to="Click" method="_on_judge_pressed"]

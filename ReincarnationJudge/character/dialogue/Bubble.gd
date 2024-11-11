@@ -21,6 +21,7 @@ func _ready() -> void:
 	else:
 		z_index = 1
 		label.text = text
+	add_to_group("bubble")
 		
 func watch_size() -> void:
 	if size.x > 200:

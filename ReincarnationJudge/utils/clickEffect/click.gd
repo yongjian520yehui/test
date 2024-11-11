@@ -3,6 +3,12 @@ class_name Click extends Control
 @onready var circle = $Circle
 @onready var point = $Circle/Point
 
+var workers
+var contant
+
+func _ready() -> void:
+	workers = get_tree().get_nodes_in_group("workers")
+	contant = Utils.load_json_file(Utils.NOMAL_GHOST)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -22,11 +28,15 @@ func _on_circle_finished(a):
 
 
 func _on_ask_pressed():
-	var dialogueControllerlist = get_tree().get_nodes_in_group("dialogueController")
-	
-	if dialogueControllerlist.size() == 0:
-		var dialogueController = DialogueController.new()
-		add_child(dialogueController)
-		var dialogueList = DialogueList.new()
-		dialogueController.dialogue_list = dialogueList
-	#DataServer.dialogue_start.emit(ghost_niu_tou,ghost_niu_tou_1)
+	var dialogueList = DataServer.get_dialogue_list(contant)
+	DataServer.get_dialogue_controller(self,workers[0],workers[1],dialogueList)
+
+
+func _on_next_pressed() -> void:
+	var dialogueList = DataServer.get_dialogue_list(contant)
+	DataServer.get_dialogue_controller(self,workers[0],workers[1],dialogueList)
+
+
+func _on_judge_pressed() -> void:
+	var dialogueList = DataServer.get_dialogue_list(contant)
+	DataServer.get_dialogue_controller(self,workers[0],workers[1],dialogueList)

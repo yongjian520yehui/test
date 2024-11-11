@@ -36,27 +36,28 @@ func _process(_delta: float) -> void:
 
 
 func _on_next_button_pressed() -> void:
-	##获取ghost和员工
-	var ghosts = get_tree().get_nodes_in_group("ghosts")
-	var workers = get_tree().get_nodes_in_group("workers")
+
 	##如果没有ghost，则添加
-	if ghosts.size() < 1:
+	if get_tree().get_nodes_in_group("ghosts").size() < 1:
 		var ghost_normal = GHOST_NORMAL.instantiate()
 		add_child(ghost_normal)
 		ghost_normal.global_position = ghost_positon.global_position
 		#get_tree().create_tween().tween_property(ghost_normal,^"modulate:a",1.0,1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	
 	##获取目前所有ghost
 	var ghosts1 = get_tree().get_nodes_in_group("ghosts")
+	var workers = get_tree().get_nodes_in_group("workers")
+	
 	##显示book
 	if ghost_book_button.visible == false:
 		ghost_book_button.visible = true
 		animation_player.play("ghost_book_get")
 	
 	##获取对话数据
-	var ghost_data = DataServer.ghost_factory()
+	var ghost_data = DataServer.get_ghost_data()
 	var dialogue_list = ghost_data["dialogue_list"]
 	##创建对话节点
-	Utils.dialogue_factory(self,ghosts1[0],workers[0],dialogue_list)
+	DataServer.get_dialogue_controller(self,ghosts1[0],workers[0],dialogue_list)
 
 ##审判按钮点击事件
 func _on_judge_button_pressed() -> void:

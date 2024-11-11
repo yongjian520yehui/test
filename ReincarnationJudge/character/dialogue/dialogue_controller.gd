@@ -15,8 +15,7 @@ var _started: bool = false
 
 func _ready() -> void:
 	##连接对话开始信号
-	DataServer.dialogue_start.connect(start)
-	
+	DataServer.dialogue_started.connect(start)
 
 func _physics_process(_delta: float) -> void:
 	if _started:
