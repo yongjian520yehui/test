@@ -12,9 +12,9 @@ func _process(delta):
 
 
 func _on_pressed():
-	var filename = text.split("\n",true)[0]
-	var filepath = "user://save/%s.dat" % filename
-	var dir = DirAccess.open(DataServer.directory_path)
+	var filename: String = text.split("\n",true)[0]
+	var filepath: String = "user://save/%s.dat" % filename
+	var dir: DirAccess = DirAccess.open(DataServer.directory_path)
 	print(filepath)
 	if dir.file_exists(filepath):
 		DataServer.load_game(filepath)

@@ -12,11 +12,11 @@
 
 [node name="Click" parent="." instance=ExtResource("1_e8xqy")]
 
-[node name="GhostNiuTou" parent="." instance=ExtResource("1_pgy0d")]
-position = Vector2(732, 340)
-
 [node name="GhostNiuTou1" parent="." instance=ExtResource("1_pgy0d")]
 position = Vector2(718, 917)
+
+[node name="GhostNiuTou" parent="." instance=ExtResource("1_pgy0d")]
+position = Vector2(732, 340)
 
 [node name="RtsNode" type="Node2D" parent="."]
 visible = false

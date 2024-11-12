@@ -81,10 +81,10 @@ func _process(_delta):
 		show.text = time
   
 # 打印当前日期和时间的格式化输出  
-func print_date():  
-	var string = Time.get_datetime_string_from_datetime_dict(DataServer.current_date,true)
+func print_date()-> String:  
+	var string: String = Time.get_datetime_string_from_datetime_dict(DataServer.current_date,true)
 
-	var timeArray = string.split(" ",true,2)
-	var time = timeArray[0]
+	var timeArray: PackedStringArray  = string.split(" ",true,2)
+	var time: String = timeArray[0]
 
 	return time

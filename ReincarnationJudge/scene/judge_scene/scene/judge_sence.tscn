@@ -1,11 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=21 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
-[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="5_2ac6d"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
-[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="6_a4pli"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
 [ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://scene/judge_scene/scene/book_ghost.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://scene/judge_scene/script/PauseCanvasLayer.gd" id="6_vbum2"]
@@ -13,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="10_7mc66"]
 [ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://utils/date/date_system.tscn" id="11_wgvcv"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
-[ext_resource type="Script" path="res://character/dialogue/dialogue_controller.gd" id="15_m413h"]
 [ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/clickEffect/click.tscn" id="18_bav3m"]
 
 [sub_resource type="Animation" id="Animation_kgoaa"]
@@ -77,10 +74,6 @@ _data = {
 "ghost_book_get": SubResource("Animation_in7ld")
 }
 
-[sub_resource type="Resource" id="Resource_kur5a"]
-script = ExtResource("5_2ac6d")
-value = Array[ExtResource("6_a4pli")]([])
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q308k"]
 atlas = ExtResource("6_aghy4")
 region = Rect2(352, 48, 48, 48)
@@ -130,10 +123,6 @@ libraries = {
 "": SubResource("AnimationLibrary_galhf")
 }
 autoplay = "death_god2_idle"
-
-[node name="DialogueController" type="Node" parent="." groups=["dialogueController"]]
-script = ExtResource("15_m413h")
-dialogue_list = SubResource("Resource_kur5a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -293,6 +282,8 @@ offset_right = 1732.0
 offset_bottom = 27.0
 text = "$1000
 "
+
+[node name="EventPositon" type="Marker2D" parent="CanvasLayer"]
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

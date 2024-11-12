@@ -41,12 +41,12 @@ func next() -> bool:
 	character.bubble_marker.add_child(bubble)
 	return true
 
-func start(character1,character2,dialogue_list1):
+func start(character1: BasicCharacter,character2: BasicCharacter,dialogue_list1: DialogueList):
 	print(name, " 对话开始")
 	##获取对话数据
 	#var ghost_data = DataServer.ghost_factory()
 	#dialogue_list.value = ghost_data["dialogue_list"]
-	dialogue_list.value = dialogue_list1
+	dialogue_list = dialogue_list1
 	
 	actor_list.append(character1)
 	actor_list.append(character2)

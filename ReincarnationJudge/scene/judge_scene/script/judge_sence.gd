@@ -16,12 +16,10 @@ const GHOST_NORMAL = preload(Utils.GHOST_NORMAL)
 @onready var white_positon = $WhitePositon
 
 
-
-
 func _ready() -> void:
 	##加载员工，后续从存档中获取
 	#DataServer.load_game()
-	var ghost_niutou = GHOST_NIU_TOU.instantiate()
+	var ghost_niutou: GhostNiuTou = GHOST_NIU_TOU.instantiate()
 	add_child(ghost_niutou)
 	ghost_niutou.global_position = niu_tou_positon.global_position
 	%JudgeButton.disabled = true
@@ -34,14 +32,14 @@ func _on_next_button_pressed() -> void:
 
 	##如果没有ghost，则添加
 	if get_tree().get_nodes_in_group("ghosts").size() < 1:
-		var ghost_normal = GHOST_NORMAL.instantiate()
+		var ghost_normal: GhostNormal = GHOST_NORMAL.instantiate()
 		add_child(ghost_normal)
 		ghost_normal.global_position = ghost_positon.global_position
 		#get_tree().create_tween().tween_property(ghost_normal,^"modulate:a",1.0,1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 	
 	##获取目前所有ghost
-	var ghosts1 = get_tree().get_nodes_in_group("ghosts")
-	var workers = get_tree().get_nodes_in_group("workers")
+	var ghosts1 : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
+	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
 	
 	##显示book
 	if %GhostBookButton.visible == false:
@@ -49,10 +47,13 @@ func _on_next_button_pressed() -> void:
 		%AnimationPlayer.play("ghost_book_get")
 	
 	##获取对话数据
-	var ghost_data = DataServer.get_ghost_data()
-	var dialogue_list = ghost_data["dialogue_list"]
+	var ghost_data: Dictionary = DataServer.get_ghost_data()
+	var dialogue_list: DialogueList = DataServer.get_dialogue_list("beforeJudge","这是哪里")
 	##创建对话节点
-	DataServer.get_dialogue_controller(self,ghosts1[0],workers[0],dialogue_list)
+	DataServer.get_dialogue_controller(self,workers,ghosts1,dialogue_list)
+	
+	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
+	await dialogueController[0].finished
 	
 	##禁用启用button
 	%JudgeButton.disabled = false

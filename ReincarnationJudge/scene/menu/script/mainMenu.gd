@@ -8,9 +8,9 @@ const PAUSE_MENU = preload("res://scene/menu/scene/pause_menu.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	##获取存档目录的存档文件信息，如果没有存档，则继续游戏按钮不显示
-	var saveDir = DirAccess.open(DataServer.directory_path)
+	var saveDir: DirAccess = DirAccess.open(DataServer.directory_path)
 	if saveDir:
-		var saveFilesArray = saveDir.get_files()
+		var saveFilesArray: PackedStringArray  = saveDir.get_files()
 		if saveFilesArray.size() > 0:
 			$VBoxContainer/MenuContinueButton.visible = true
 
@@ -25,7 +25,6 @@ func _process(_delta: float) -> void:
 	
 ##退出
 func _on_menu_exit_button_pressed() -> void:
-
 	if visible:
 		get_tree().quit()
 

@@ -10,14 +10,14 @@ extends Resource
 
 var delta_time :float =0 
 
-func increase_by_sec(delta_seconds:float):
+func increase_by_sec(delta_seconds: float):
 	#var time1 = str(days)+":"+str(hours)+":"+str(minutes)+":"+str(seconds)
 	#var time = str(hours)+":"+str(minutes)+":"+str(seconds)
 	var dict ={"year":years,"month":months,"day":days,"hour":hours,"minute":minutes,"second":seconds}
-	var string = Time.get_datetime_string_from_datetime_dict(dict,true)
+	var string: String = Time.get_datetime_string_from_datetime_dict(dict,true)
 
-	var timeArray = string.split(" ",true,2)
-	var time = timeArray[1]
+	var timeArray: PackedStringArray = string.split(" ",true,2)
+	var time: String = timeArray[1]
 
 	delta_time += delta_seconds
 	if delta_time <1 :return time

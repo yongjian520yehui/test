@@ -6,10 +6,6 @@ extends Control
 @export var fade_out_duration := 1
 @onready var ghost_name = %Name
 @onready var country: Label = %Country
-#@onready var intro: Label = %Intro
-#@onready var evaluation: Label = %Evaluation
-#@onready var reason: Label = %Reason
-#@onready var applay: Label = %Applay
 @onready var religion: Label = %Religion
 
 
@@ -47,7 +43,6 @@ func open() -> void:
 	religion.text = ghost_data["baseInfo"]["religion"]
 	
 	show()
-	#resume_button.grab_focus()
 
 	modulate.a = 0.0
 	v_box_container.anchor_bottom = 0.5

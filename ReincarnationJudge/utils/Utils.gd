@@ -16,6 +16,7 @@ const STATISTICS_SCENE := "res://scene/statistics_scene/scene/statistics_scene.t
 #数据文件路径
 const NOMAL_GHOST := "res://character/ghost/data/nomal_ghost.json"
 const IMPORTANT_GHOST := "res://character/ghost/data/important_ghost.json"
+const DIALOGUE := "res://character/ghost/data/dialogue.json"
 
 signal attack_ghost
 
@@ -26,13 +27,13 @@ var salary = 102
 var fine = 10
 var year = 1
 
-func load_json_file(filePath):
-	var content = load_file(filePath)
-	var json = JSON.parse_string(content)
+func load_json_file(filePath: String)-> Dictionary:
+	var content: String = load_file(filePath)
+	var json: Dictionary = JSON.parse_string(content)
 	return json
 
-func load_file(filePath):
-	var file = FileAccess.open(filePath, FileAccess.READ)
-	var content = file.get_as_text()
+func load_file(filePath: String)-> String:
+	var file: FileAccess = FileAccess.open(filePath, FileAccess.READ)
+	var content: String = file.get_as_text()
 	return content
 	

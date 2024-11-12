@@ -26,28 +26,37 @@ func _process(_delta: float) -> void:
 ##确定按钮
 func _on_judge_pressed() -> void:
 	##判断审判的选项
-	var select_id = first_selection.selected
-	var item_string = first_selection.get_item_text(select_id)
+	var select_id: int = first_selection.selected
+	var item_string: String = first_selection.get_item_text(select_id)
 	match select_id:
 		0:
-			var second_tiantang_item_string = second_tiantang.get_item_text(second_tiantang.selected)
+			var second_tiantang_item_string: String = second_tiantang.get_item_text(second_tiantang.selected)
 			print(item_string+"->"+second_tiantang_item_string)
 		1:
-			var second_diyu_item_string = second_diyu.get_item_text(second_diyu.selected)
+			var second_diyu_item_string: String = second_diyu.get_item_text(second_diyu.selected)
 			print(item_string+"->"+second_diyu_item_string)
 		2:
-			var second_renjian_item_string = second_renjian.get_item_text(second_renjian.selected)
+			var second_renjian_item_string: String = second_renjian.get_item_text(second_renjian.selected)
 			print(item_string+"->"+second_renjian_item_string)
 	##隐藏审判选项
 	hide()
+	#结束对话
+	var dialogue_list = DataServer.get_dialogue_list("afterJudge","谢谢")
 	##释放ghost
-	var ghosts = get_tree().get_nodes_in_group("ghosts")
+	var ghosts: Array[Node] = get_tree().get_nodes_in_group("ghosts")
+	var workers: Array[Node] = get_tree().get_nodes_in_group("workers")
+	DataServer.get_dialogue_controller(self,workers[0],ghosts[0],dialogue_list)
+	
+	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
+	await dialogueController[0].finished
+	
 	for i in ghosts:
 		i.queue_free()
+	
 	##下一个按钮可以点击
 	%NextButton.disabled = false
 	%GhostBookButton.disabled = false
-	
+	%GhostBookButton.hide()
 	
 ##取消按钮
 func _on_cancel_pressed() -> void:
