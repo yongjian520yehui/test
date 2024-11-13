@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BaseEvent" load_steps=8 format=3 uid="uid://ybahfhwto006"]
+
+[ext_resource type="Texture2D" uid="uid://c23xj51apax31" path="res://asset/character/Bomb Guy/1-Idle/1.png" id="1_ec7a0"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_ubnq8"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_awg03"]
+[ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_ejyme"]
+[ext_resource type="Script" path="res://utils/event/base_event.gd" id="3_ki8ra"]
+
+[sub_resource type="Resource" id="Resource_esc2q"]
+script = ExtResource("1_ubnq8")
+value = Array[ExtResource("2_awg03")]([])
+
+[sub_resource type="Resource" id="Resource_ie6yv"]
+script = ExtResource("3_ejyme")
+action = Array[int]([1, 2])
+
+[resource]
+script = ExtResource("3_ki8ra")
+eventName = "女儿"
+eventDesc = "要是能有1万块钱就好了！"
+eventActions = SubResource("Resource_ie6yv")
+avatar = ExtResource("1_ec7a0")
+dialogue = SubResource("Resource_esc2q")
