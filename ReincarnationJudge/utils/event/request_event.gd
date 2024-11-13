@@ -5,8 +5,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var loaded_resource := ResourceLoader.load("res://utils/event/request_event1.tres")
-	event = loaded_resource
+
+	%Avatar.texture = event.avatar
 	%Name.text = event.eventName
 	%Desc.text = event.eventDesc
 	for i in event.eventActions.action :

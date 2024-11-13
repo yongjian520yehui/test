@@ -20,6 +20,7 @@ config/icon="res://scene/menu/sprites/dungeon background 1.png"
 
 Utils="*res://utils/Utils.gd"
 DataServer="*res://utils/server/data_server.gd"
+EventServer="*res://utils/server/event_server.gd"
 
 [display]
 
