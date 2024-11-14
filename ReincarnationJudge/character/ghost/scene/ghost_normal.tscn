@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=3 uid="uid://d3xtwo83t57ri"]
+[gd_scene load_steps=51 format=3 uid="uid://d3xtwo83t57ri"]
 
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="1_63kok"]
 [ext_resource type="Script" path="res://character/ghost/scene/ghost_normal.gd" id="1_bvp8n"]
 [ext_resource type="Texture2D" uid="uid://c23xj51apax31" path="res://asset/character/Bomb Guy/1-Idle/1.png" id="3_ms0hf"]
+[ext_resource type="Shader" path="res://shader/blur.gdshader" id="3_phgb3"]
 [ext_resource type="Texture2D" uid="uid://dy35nwlgbwpre" path="res://asset/character/Bomb Guy/1-Idle/2.png" id="4_aj67c"]
 [ext_resource type="Texture2D" uid="uid://dmu43rvl3who0" path="res://asset/character/Bomb Guy/1-Idle/3.png" id="5_tyxji"]
 [ext_resource type="Texture2D" uid="uid://rruua8nclpiv" path="res://asset/character/Bomb Guy/1-Idle/4.png" id="6_7m2pr"]
@@ -51,6 +52,10 @@ size = Vector2(25, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgdwm"]
 size = Vector2(123, 129)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oflwi"]
+shader = ExtResource("3_phgb3")
+shader_parameter/radius = 5.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dy8i8"]
 animations = [{
@@ -194,6 +199,7 @@ material = ExtResource("1_63kok")
 scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+material = SubResource("ShaderMaterial_oflwi")
 sprite_frames = SubResource("SpriteFrames_dy8i8")
 animation = &"idle"
 autoplay = "idle"

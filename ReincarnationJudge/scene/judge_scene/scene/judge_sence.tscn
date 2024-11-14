@@ -96,6 +96,7 @@ region = Rect2(16, 176, 48, 48)
 script = ExtResource("1_gltdn")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(957, 537.5)
 scale = Vector2(1.27474, 1.08301)
 texture = ExtResource("2_bru36")
@@ -151,10 +152,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = 360.0
+offset_top = 192.0
+offset_right = 408.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -284,6 +285,17 @@ text = "$1000
 "
 
 [node name="EventPositon" type="Marker2D" parent="CanvasLayer"]
+
+[node name="EventPosition" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

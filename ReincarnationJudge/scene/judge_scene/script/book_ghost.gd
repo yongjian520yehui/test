@@ -35,12 +35,11 @@ func close() -> void:
 	tween.tween_callback(hide)
 	z_index = 0
 
-func open() -> void:
-	var ghost_data = DataServer.get_ghost_data()
+func open(book) -> void:
 	z_index=1
-	ghost_name.text = ghost_data["baseInfo"]["name"]
-	country.text = ghost_data["baseInfo"]["country"]
-	religion.text = ghost_data["baseInfo"]["religion"]
+	ghost_name.text = book["baseInfo"]["name"]
+	country.text = book["baseInfo"]["country"]
+	religion.text = book["baseInfo"]["religion"]
 	
 	show()
 

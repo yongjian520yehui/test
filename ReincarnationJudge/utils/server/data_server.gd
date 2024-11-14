@@ -124,7 +124,7 @@ func get_ghost_name(sex: String,country: String, contant: Dictionary)-> String:
 ##获取对话列表
 func get_dialogue_list(type: String ,contant: String)-> DialogueList:
 	##获取数据
-	print(all_dialogue_data[type][contant])
+	#print(all_dialogue_data[type][contant])
 	var dialogue_data: Array = all_dialogue_data[type][contant]
 	
 	var dialogue_array : Array[Dialogue]

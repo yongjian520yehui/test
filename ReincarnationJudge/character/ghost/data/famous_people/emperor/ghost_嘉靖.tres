@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="GhostTest" load_steps=17 format=3 uid="uid://deveema2xfxle"]
+
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_jqnr1"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_ge5vc"]
+[ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_qwh7g"]
+[ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_7yj6n"]
+[ext_resource type="Script" path="res://character/ghost/data/ghost_test.gd" id="5_ehsfj"]
+
+[sub_resource type="Resource" id="Resource_qwkgt"]
+script = ExtResource("2_ge5vc")
+actor_id = 1
+content = "你的意思是朕也通倭!?"
+
+[sub_resource type="Resource" id="Resource_urt8f"]
+script = ExtResource("2_ge5vc")
+actor_id = 1
+content = "欺天了!"
+
+[sub_resource type="Resource" id="Resource_j5l6x"]
+script = ExtResource("2_ge5vc")
+actor_id = 0
+content = "再见!"
+
+[sub_resource type="Resource" id="Resource_opjh8"]
+script = ExtResource("1_jqnr1")
+value = Array[ExtResource("2_ge5vc")]([SubResource("Resource_qwkgt"), SubResource("Resource_urt8f"), SubResource("Resource_j5l6x")])
+
+[sub_resource type="Resource" id="Resource_pemm5"]
+script = ExtResource("2_ge5vc")
+actor_id = 0
+content = "啊啊啊"
+
+[sub_resource type="Resource" id="Resource_8bewd"]
+script = ExtResource("1_jqnr1")
+value = Array[ExtResource("2_ge5vc")]([SubResource("Resource_pemm5")])
+
+[sub_resource type="Resource" id="Resource_46ruu"]
+script = ExtResource("2_ge5vc")
+actor_id = 1
+content = "练得身形似鹤形，千株松下两函经"
+
+[sub_resource type="Resource" id="Resource_cgt6c"]
+script = ExtResource("2_ge5vc")
+actor_id = 0
+content = "你好!朱厚熜~"
+
+[sub_resource type="Resource" id="Resource_opw7s"]
+script = ExtResource("1_jqnr1")
+value = Array[ExtResource("2_ge5vc")]([SubResource("Resource_46ruu"), SubResource("Resource_cgt6c")])
+
+[sub_resource type="Resource" id="Resource_knmce"]
+script = ExtResource("3_qwh7g")
+action = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_gn5ck"]
+script = ExtResource("4_7yj6n")
+eventName = "eventName"
+eventDesc = "eventDesc"
+eventActions = SubResource("Resource_knmce")
+
+[resource]
+script = ExtResource("5_ehsfj")
+dialogue_list_before = SubResource("Resource_opw7s")
+dialogue_list_ask = Array[ExtResource("1_jqnr1")]([SubResource("Resource_8bewd")])
+dialogue_list_after = SubResource("Resource_opjh8")
+book = {
+"baseInfo": {
+"country": "中国",
+"name": "朱厚熜",
+"religion": "道教",
+"sex": "男"
+}
+}
+event = SubResource("Resource_gn5ck")

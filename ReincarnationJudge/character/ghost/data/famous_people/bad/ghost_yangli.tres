@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="GhostTest" load_steps=23 format=3 uid="uid://dhm8fpj2nbi7q"]
+
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_1akmj"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_pyyme"]
+[ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_aln36"]
+[ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_24ce7"]
+[ext_resource type="Script" path="res://character/ghost/data/ghost_test.gd" id="5_1xn7t"]
+
+[sub_resource type="Resource" id="Resource_qwkgt"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "你会不会判啊?"
+
+[sub_resource type="Resource" id="Resource_urt8f"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "给我干哪来了，这还是国内吗？"
+
+[sub_resource type="Resource" id="Resource_j5l6x"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "你等着！！！"
+
+[sub_resource type="Resource" id="Resource_opjh8"]
+script = ExtResource("1_1akmj")
+value = Array[ExtResource("2_pyyme")]([SubResource("Resource_qwkgt"), SubResource("Resource_urt8f"), SubResource("Resource_j5l6x")])
+
+[sub_resource type="Resource" id="Resource_pemm5"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "啊啊啊"
+
+[sub_resource type="Resource" id="Resource_8bewd"]
+script = ExtResource("1_1akmj")
+value = Array[ExtResource("2_pyyme")]([SubResource("Resource_pemm5")])
+
+[sub_resource type="Resource" id="Resource_46ruu"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "这是哪里"
+
+[sub_resource type="Resource" id="Resource_cgt6c"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "这是轮回法庭！"
+
+[sub_resource type="Resource" id="Resource_40086"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "你是男的?"
+
+[sub_resource type="Resource" id="Resource_1deq0"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "是的"
+
+[sub_resource type="Resource" id="Resource_d0p2s"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "能换个女的来吗?我不喜欢普信男"
+
+[sub_resource type="Resource" id="Resource_i0i8w"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "这可由不得你"
+
+[sub_resource type="Resource" id="Resource_lyyxj"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "真下头,快点吧,我赶时间"
+
+[sub_resource type="Resource" id="Resource_u021s"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "那我一定快点！"
+
+[sub_resource type="Resource" id="Resource_opw7s"]
+script = ExtResource("1_1akmj")
+value = Array[ExtResource("2_pyyme")]([SubResource("Resource_46ruu"), SubResource("Resource_cgt6c"), SubResource("Resource_40086"), SubResource("Resource_1deq0"), SubResource("Resource_d0p2s"), SubResource("Resource_i0i8w"), SubResource("Resource_lyyxj"), SubResource("Resource_u021s")])
+
+[sub_resource type="Resource" id="Resource_knmce"]
+script = ExtResource("3_aln36")
+action = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_gn5ck"]
+script = ExtResource("4_24ce7")
+eventName = "eventName"
+eventDesc = "eventDesc"
+eventActions = SubResource("Resource_knmce")
+
+[resource]
+script = ExtResource("5_1xn7t")
+dialogue_list_before = SubResource("Resource_opw7s")
+dialogue_list_ask = Array[ExtResource("1_1akmj")]([SubResource("Resource_8bewd")])
+dialogue_list_after = SubResource("Resource_opjh8")
+book = {
+"baseInfo": {
+"country": "中国",
+"name": "杨笠",
+"religion": "基督教"
+}
+}
+event = SubResource("Resource_gn5ck")

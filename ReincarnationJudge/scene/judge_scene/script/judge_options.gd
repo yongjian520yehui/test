@@ -9,6 +9,7 @@ extends Control
 @onready var color_rect = $ColorRect
 @onready var v_box_container = $VBoxContainer
 
+signal judged
 
 var first: String
 var second: String
@@ -40,19 +41,9 @@ func _on_judge_pressed() -> void:
 			print(item_string+"->"+second_renjian_item_string)
 	##隐藏审判选项
 	hide()
-	#结束对话
-	var dialogue_list = DataServer.get_dialogue_list("afterJudge","谢谢")
-	##释放ghost
-	var ghosts: Array[Node] = get_tree().get_nodes_in_group("ghosts")
-	var workers: Array[Node] = get_tree().get_nodes_in_group("workers")
-	DataServer.get_dialogue_controller(self,workers[0],ghosts[0],dialogue_list)
+	judged.emit()
 	
-	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
-	await dialogueController[0].finished
-	
-	for i in ghosts:
-		i.queue_free()
-	
+		
 	##下一个按钮可以点击
 	%NextButton.disabled = false
 	%GhostBookButton.disabled = false
