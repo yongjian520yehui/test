@@ -43,9 +43,11 @@ func _on_next_button_pressed() -> void:
 		%GhostBookButton.show()
 		%AnimationPlayer.play("ghost_book_get")
 	
+	#await ghost.ready
+	#ghost.animation_player.play("idle")
+	
 	##创建对话节点
 	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_before)
-	
 	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
 	await dialogueController[0].finished
 	
@@ -64,6 +66,8 @@ func dialogue_after_judge():
 	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
 	await dialogueController[0].finished
 	EventServer.event_started.emit($CanvasLayer,%EventPosition,"news")
+	ghosts.animation_player.play("out")
+	await ghosts.animation_player.animation_finished
 	ghosts.queue_free()
 
 

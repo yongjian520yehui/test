@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c3uoxl1wc03me" path="res://asset/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 05.png" id="13_72qch"]
 [ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="14_32lh5"]
 [ext_resource type="Script" path="res://character/state_machine/state_machine.gd" id="15_r27ei"]
-[ext_resource type="Script" path="res://character/ghost/states/captain_fall.gd" id="16_kul0p"]
+[ext_resource type="Script" path="res://character/ghost/states/ghost_in.gd" id="16_ou5io"]
 [ext_resource type="Script" path="res://character/ghost/states/captain_hit.gd" id="17_5mtai"]
 [ext_resource type="Script" path="res://character/ghost/states/captain_idle.gd" id="18_tthr6"]
 [ext_resource type="Script" path="res://character/ghost/states/captain_jump.gd" id="19_0xqg1"]
@@ -121,8 +121,8 @@ position = Vector2(73, -71)
 script = ExtResource("15_r27ei")
 initial_state = NodePath("Idle")
 
-[node name="Fall" type="Node" parent="StateMachine"]
-script = ExtResource("16_kul0p")
+[node name="In" type="Node" parent="StateMachine"]
+script = ExtResource("16_ou5io")
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("17_5mtai")

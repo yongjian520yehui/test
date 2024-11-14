@@ -10,15 +10,19 @@ extends BasicCharacter
 @export var book: Dictionary
 @export var event: BaseEvent
 
+
 # 初始化角色，连接信号
 func _ready() -> void:
 	super()
-	var ghost1 = ResourceLoader.load("res://character/ghost/data/famous_people/emperor/ghost_嘉靖.tres")
 	
-	dialogue_list_before = ghost1.dialogue_list_before
-	dialogue_list_ask = ghost1.dialogue_list_ask
-	dialogue_list_after = ghost1.dialogue_list_after
-	book = ghost1.book
+	var ghost_data = ResourceLoader.load("res://character/ghost/data/famous_people/bad/ghost_yangli.tres")
+	dialogue_list_before = ghost_data.dialogue_list_before
+	dialogue_list_ask = ghost_data.dialogue_list_ask
+	dialogue_list_after = ghost_data.dialogue_list_after
+	book = ghost_data.book
+	animation_player.sprite_frames = ghost_data.sprite_frames
+
+	animation_player.play("in")
 	
 	Utils.attack_ghost.connect(isHurt)
 

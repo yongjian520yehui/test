@@ -6,3 +6,6 @@ class_name GhostTest
 @export var dialogue_list_after: DialogueList
 @export var book: Dictionary
 @export var event: BaseEvent
+@export var applay: String
+
+@export var sprite_frames: SpriteFrames
