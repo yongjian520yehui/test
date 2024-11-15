@@ -53,7 +53,13 @@ offset_right = 1095.0
 offset_bottom = 569.0
 text = "获取事件"
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "切换shader"
+
 [connection signal="pressed" from="CanvasLayer/Ask" to="CanvasLayer" method="_on_ask_pressed"]
 [connection signal="pressed" from="CanvasLayer/Next" to="CanvasLayer" method="_on_next_pressed"]
 [connection signal="pressed" from="CanvasLayer/Judge" to="CanvasLayer" method="_on_judge_pressed"]
 [connection signal="pressed" from="CanvasLayer/Event" to="CanvasLayer" method="_on_event_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]

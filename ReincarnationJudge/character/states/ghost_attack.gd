@@ -1,4 +1,4 @@
-class_name CaptainRun
+class_name CaptainAttack
 extends StateBase
 
 #var run_dust: Dust = null

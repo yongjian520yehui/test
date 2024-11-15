@@ -30,6 +30,7 @@ func _ready() -> void:
 ##	设置初始状态
 	if initial_state:
 		_add_history_state(initial_state.name)
+		await initial_state.character.animation_player.sprite_frames_changed
 		initial_state.enter()
 		current_state = initial_state
 

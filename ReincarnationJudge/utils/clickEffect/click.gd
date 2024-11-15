@@ -24,18 +24,3 @@ func _input(event):
 
 func _on_circle_finished(a):
 	a.queue_free()
-
-
-func _on_ask_pressed():
-	var dialogueList = DataServer.get_dialogue_list("question","姓名有问题无别名")
-	DataServer.get_dialogue_controller(self,workers[0],workers[1],dialogueList)
-
-
-func _on_next_pressed() -> void:
-	var dialogueList = DataServer.get_dialogue_list("beforeJudge","这是哪里")
-	DataServer.get_dialogue_controller(self,workers[0],workers[1],dialogueList)
-
-
-func _on_judge_pressed() -> void:
-	var dialogueList = DataServer.get_dialogue_list("afterJudge","加油")
-	DataServer.get_dialogue_controller(self,workers[0],workers[1],dialogueList)

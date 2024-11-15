@@ -21,8 +21,6 @@ func _ready() -> void:
 	dialogue_list_after = ghost_data.dialogue_list_after
 	book = ghost_data.book
 	animation_player.sprite_frames = ghost_data.sprite_frames
-
-	animation_player.play("in")
 	
 	Utils.attack_ghost.connect(isHurt)
 

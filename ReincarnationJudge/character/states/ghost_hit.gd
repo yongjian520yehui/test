@@ -1,4 +1,4 @@
-class_name CaptainHit
+class_name GhostHit
 extends StateBase
 
 

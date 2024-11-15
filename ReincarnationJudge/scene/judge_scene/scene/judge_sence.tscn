@@ -102,18 +102,23 @@ scale = Vector2(1.27474, 1.08301)
 texture = ExtResource("2_bru36")
 
 [node name="GhostPositon" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(977, 743)
 
 [node name="NiuTouPositon" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1157, 741)
 
 [node name="MaMianPositon" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(767, 739)
 
 [node name="BlackPositon" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(580, 775)
 
 [node name="WhitePositon" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1397, 775)
 
 [node name="ClickEffect" parent="." instance=ExtResource("18_bav3m")]
@@ -211,33 +216,21 @@ theme_override_fonts/font = ExtResource("6_7kowl")
 theme_override_font_sizes/font_size = 30
 text = "下一个"
 
-[node name="GhostBookPosition" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 7
+[node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -142.0
-offset_right = 44.0
-offset_bottom = -102.0
+anchor_bottom = 0.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
-[node name="FilesPosition" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -266.0
-offset_top = -139.0
-offset_right = -226.0
-offset_bottom = -99.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="EndThisYear" type="Button" parent="CanvasLayer"]
+offset_right = 88.0
+offset_bottom = 27.0
+text = "结束这一年"
 
 [node name="TimeUI" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 1
@@ -261,28 +254,43 @@ text = "19:20:20"
 speed = 0.5
 show = NodePath("../TimeLabel")
 
-[node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="EndThisYear" type="Button" parent="CanvasLayer"]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "结束这一年"
-
 [node name="Money" type="Label" parent="CanvasLayer"]
-offset_left = 1676.0
-offset_top = 8.0
-offset_right = 1732.0
-offset_bottom = 27.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 19.0
+grow_horizontal = 0
 text = "$1000
 "
+
+[node name="FilesPosition" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -139.0
+offset_right = -226.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GhostBookPosition" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -142.0
+offset_right = 44.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="EventPositon" type="Marker2D" parent="CanvasLayer"]
 

@@ -16,15 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://c3uoxl1wc03me" path="res://asset/character/captain_clown_nose/with_sword/09-Idle Sword/Idle Sword 05.png" id="13_72qch"]
 [ext_resource type="Script" path="res://utils/OutlineHighlighter.gd" id="14_32lh5"]
 [ext_resource type="Script" path="res://character/state_machine/state_machine.gd" id="15_r27ei"]
-[ext_resource type="Script" path="res://character/ghost/states/ghost_in.gd" id="16_ou5io"]
-[ext_resource type="Script" path="res://character/ghost/states/captain_hit.gd" id="17_5mtai"]
-[ext_resource type="Script" path="res://character/ghost/states/captain_idle.gd" id="18_tthr6"]
-[ext_resource type="Script" path="res://character/ghost/states/captain_jump.gd" id="19_0xqg1"]
-[ext_resource type="Script" path="res://character/ghost/states/captain_run.gd" id="20_5lx7y"]
+[ext_resource type="Script" path="res://character/states/ghost_in.gd" id="16_ou5io"]
+[ext_resource type="Script" path="res://character/states/ghost_hit.gd" id="17_5mtai"]
+[ext_resource type="Script" path="res://character/states/ghost_idle.gd" id="18_tthr6"]
+[ext_resource type="Script" path="res://character/states/ghost_jump.gd" id="19_0xqg1"]
+[ext_resource type="Script" path="res://character/states/ghost_attack.gd" id="20_5lx7y"]
 [ext_resource type="Script" path="res://character/stats/stats.gd" id="21_7vg0r"]
-[ext_resource type="Script" path="res://character/ghost/states/hover.gd" id="22_0k0qr"]
+[ext_resource type="Script" path="res://character/states/hover.gd" id="22_0k0qr"]
 [ext_resource type="Script" path="res://character/ghost/direction/direction.gd" id="22_f3qsl"]
-[ext_resource type="Script" path="res://character/ghost/states/selected.gd" id="23_r6y5v"]
+[ext_resource type="Script" path="res://character/states/selected.gd" id="23_r6y5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33bi0"]
 size = Vector2(25, 26)
@@ -46,7 +46,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -83,7 +83,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [node name="GhostNiuTou" type="CharacterBody2D" node_paths=PackedStringArray("bubble_marker", "stats", "animation_player", "state_machine") groups=["workers"]]
@@ -111,7 +111,7 @@ scale = Vector2(5, 5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
 sprite_frames = SubResource("SpriteFrames_gw831")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="ChatPosition" type="Node2D" parent="."]

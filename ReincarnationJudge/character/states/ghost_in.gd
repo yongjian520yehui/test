@@ -8,8 +8,7 @@ var can_coyote_jump: bool = false
 
 
 func enter() -> void:
-	print(character.animation_player.animation)
-	#character.animation_player.play("in")
+	character.animation_player.play("in")
 	await character.animation_player.animation_finished
 	transition_to("Idle")
 

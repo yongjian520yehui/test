@@ -34,3 +34,8 @@ func _on_judge_pressed() -> void:
 
 func _on_event_pressed() -> void:
 	EventServer.event_started.emit(self, event_position, "news")
+
+
+func _on_button_pressed() -> void:
+	var fatty_shader = ResourceLoader.load("res://shader/fatty_shader.tres")
+	$"../GhostNormal".animation_player.material = fatty_shader

@@ -1,4 +1,4 @@
-class_name CaptainJump
+class_name GhostJump
 extends StateBase
 
 #var jump_dust: Dust = null
