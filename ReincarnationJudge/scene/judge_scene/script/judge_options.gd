@@ -24,31 +24,21 @@ func _process(_delta: float) -> void:
 	##背景大小计算
 	color_rect.size = v_box_container.size
 
+
 ##确定按钮
 func _on_judge_pressed() -> void:
 	##判断审判的选项
-	var select_id: int = first_selection.selected
-	var item_string: String = first_selection.get_item_text(select_id)
-	match select_id:
-		0:
-			var second_tiantang_item_string: String = second_tiantang.get_item_text(second_tiantang.selected)
-			print(item_string+"->"+second_tiantang_item_string)
-		1:
-			var second_diyu_item_string: String = second_diyu.get_item_text(second_diyu.selected)
-			print(item_string+"->"+second_diyu_item_string)
-		2:
-			var second_renjian_item_string: String = second_renjian.get_item_text(second_renjian.selected)
-			print(item_string+"->"+second_renjian_item_string)
+	get_select_option()
 	##隐藏审判选项
 	hide()
 	judged.emit()
 	
-		
 	##下一个按钮可以点击
 	%NextButton.disabled = false
 	%GhostBookButton.disabled = false
 	%GhostBookButton.hide()
-	
+
+
 ##取消按钮
 func _on_cancel_pressed() -> void:
 	##隐藏审判选项
@@ -56,6 +46,7 @@ func _on_cancel_pressed() -> void:
 	##审判按钮可以点击
 	%JudgeButton.disabled = false
 	%GhostBookButton.disabled = false
+
 
 ##选项的显示和隐藏
 func _on_first_selection_item_selected(index: int) -> void:
@@ -72,3 +63,18 @@ func _on_first_selection_item_selected(index: int) -> void:
 			second_tiantang.hide()
 			second_diyu.hide()
 			second_renjian.show()
+
+
+func get_select_option():
+	var select_id: int = first_selection.selected
+	var item_string: String = first_selection.get_item_text(select_id)
+	match select_id:
+		0:
+			var second_tiantang_item_string: String = second_tiantang.get_item_text(second_tiantang.selected)
+			print(item_string+"->"+second_tiantang_item_string)
+		1:
+			var second_diyu_item_string: String = second_diyu.get_item_text(second_diyu.selected)
+			print(item_string+"->"+second_diyu_item_string)
+		2:
+			var second_renjian_item_string: String = second_renjian.get_item_text(second_renjian.selected)
+			print(item_string+"->"+second_renjian_item_string)

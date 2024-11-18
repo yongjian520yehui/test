@@ -10,6 +10,7 @@ extends CharacterBody2D
 ## 状态机组件
 @export var state_machine: StateMachine
 
+
 ## 是否受伤
 var is_hurt: bool = false
 ## 是否攻击

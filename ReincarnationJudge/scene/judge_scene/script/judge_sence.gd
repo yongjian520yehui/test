@@ -14,15 +14,17 @@ func _ready() -> void:
 	var ghost_niutou: GhostNiuTou = GHOST_NIU_TOU.instantiate()
 	add_child(ghost_niutou)
 	ghost_niutou.global_position = %NiuTouPositon.global_position
+	
+	%GhostPositon.global_position = Vector2(Utils.screen_size.x/2, Utils.screen_size.y*0.33)
+	%SelfPosition.global_position = Vector2(Utils.screen_size.x/2, Utils.screen_size.y*0.67)
+	
 	%JudgeButton.disabled = true
+	##连接审判按钮确定信号
 	%JudgeOptions.judged.connect(after_judge)
+	##事件推出节点
+	EventServer.push_node = $CanvasLayer
+	EventServer.push_node_positon = %EventPosition
 
-##判断案件是否审判成功
-func is_success(_current_case):
-	if true: 
-		DataServer.success_case += 1
-	else :
-		DataServer.failed_case += 1
 
 
 ##审判结束
@@ -30,16 +32,17 @@ func after_judge():
 	##获取目前所有ghost
 	var ghosts : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
 	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
-	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_after)
 	
+	##对话
+	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_after)
 	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
 	await dialogueController[0].finished
-	
+	##ghost退出动画
 	ghosts.animation_player.play("out")
 	await ghosts.animation_player.animation_finished
 	ghosts.queue_free()
-	
-	EventServer.event_started.emit($CanvasLayer,%EventPosition,"news")
+	##触发事件
+	EventServer.push_evnet("news")
 
 
 func _on_next_button_pressed() -> void:
@@ -56,7 +59,7 @@ func _on_next_button_pressed() -> void:
 	##显示book
 	if %GhostBookButton.visible == false:
 		%GhostBookButton.show()
-		%AnimationPlayer.play("ghost_book_get")
+		#%AnimationPlayer.play("ghost_book_get")
 	
 	##等待ghost进入动画改变成idle，然后开启对话
 	await ghost.animation_player.animation_changed
@@ -93,3 +96,15 @@ func _on_ghost_book_button_pressed() -> void:
 ##结束这一年按钮，跳转统计页面
 func _on_end_this_year_pressed() -> void:
 	get_tree().change_scene_to_file(Utils.STATISTICS_SCENE)
+
+
+func _on_ask_button_pressed() -> void:
+	%AskTree.show()
+
+
+func _on_ask_tree_item_selected() -> void:
+	%AskTree.hide()
+	var treeItemText = %AskTree.get_selected().get_text(%AskTree.get_selected_column())
+	var ghosts : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
+	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
+	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_ask)

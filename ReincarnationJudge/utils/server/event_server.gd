@@ -4,13 +4,17 @@ extends Node
 const NEWS_EVENT = preload("res://utils/event/news_event.tscn")
 const REQUEST_EVENT = preload("res://utils/event/request_event.tscn")
 
-signal event_started(node: Node, positon_node:Node, type: String)
+signal event_started(type: String)
+
+var push_node :Node
+var push_node_positon: Node
 
 func _ready() -> void:
-	event_started.connect(add_event)
+	event_started.connect(push_evnet)
+
 
 #获取事件数据
-func get_event_data(type: String):
+func _get_event_data(type: String):
 	var event
 	match  type:
 		"news":
@@ -23,23 +27,11 @@ func get_event_data(type: String):
 			event.event = loaded_resource
 	return event
 
-##根据数组显示事件按钮
-func get_event_button(node: Node,event):
-	for i in event.eventActions.action :
-		match i:
-			0:
-				node.get_node("%Known").show()
-			1:
-				node.get_node("%Accept").show()
-			2:
-				node.get_node("%Refuse").show()
-			3:
-				node.get_node("%Cancel").show()
 
-func add_event(node: Node, positon_node:Node, type: String):
+func _add_event(node: Node, positon_node:Node, type: String):
 	##获取场景数下的所有事件
 	var events = get_tree().get_nodes_in_group("events")
-	var event: VBoxContainer = EventServer.get_event_data(type)
+	var event: VBoxContainer = EventServer._get_event_data(type)
 	node.add_child(event)
 	event.global_position = positon_node.global_position
 	##如果数量小于1
@@ -58,3 +50,8 @@ func add_event(node: Node, positon_node:Node, type: String):
 		var tween2 = get_tree().create_tween().tween_property(events[0],"modulate:a",0,0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 		await tween2.finished
 		events[0].queue_free()
+
+
+func push_evnet(type: String):
+	if push_node and push_node_positon:
+		_add_event(push_node,push_node_positon,type)

@@ -15,3 +15,17 @@ enum eventType {MESSAGE_EVENT,CHAT_EVENT}
 
 func event_factory(eventName,eventDesc,eventActions,avatar,dialogue):
 	pass
+
+
+##根据数组显示事件按钮
+func get_event_button(node: Node):
+	for i in self.eventActions.action :
+		match i:
+			0:
+				node.get_node("%Known").show()
+			1:
+				node.get_node("%Accept").show()
+			2:
+				node.get_node("%Refuse").show()
+			3:
+				node.get_node("%Cancel").show()

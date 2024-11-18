@@ -13,6 +13,9 @@ func _ready() -> void:
 	workers[0].global_position = Vector2(screen_size.x/2, screen_size.y*0.67)
 	ghosts = get_tree().get_nodes_in_group("ghosts")
 	ghosts[0].global_position = Vector2(screen_size.x/2, screen_size.y*0.33)
+	EventServer.push_node=$"."
+	EventServer.push_node_positon=$EventPosition
+	
 	
 
 func _on_ask_pressed():
@@ -33,7 +36,7 @@ func _on_judge_pressed() -> void:
 
 
 func _on_event_pressed() -> void:
-	EventServer.event_started.emit(self, event_position, "news")
+	EventServer.event_started.emit("news")
 
 
 func _on_button_pressed() -> void:

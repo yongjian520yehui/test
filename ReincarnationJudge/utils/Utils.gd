@@ -26,14 +26,35 @@ var cost = {"道具":1}
 var salary = 102
 var fine = 10
 var year = 1
+var screen_size : Vector2
+
+
+func _ready() -> void:
+	screen_size = DisplayServer.window_get_size()
 
 func load_json_file(filePath: String)-> Dictionary:
 	var content: String = load_file(filePath)
 	var json: Dictionary = JSON.parse_string(content)
 	return json
 
+
 func load_file(filePath: String)-> String:
 	var file: FileAccess = FileAccess.open(filePath, FileAccess.READ)
 	var content: String = file.get_as_text()
 	return content
-	
+
+
+func load_character_data(character:BasicCharacter, resource_path: String):
+	var ghost_data = ResourceLoader.load(resource_path)
+	character.dialogue_list_before = ghost_data.dialogue_list_before
+	character.dialogue_list_ask = ghost_data.dialogue_list_ask
+	character.dialogue_list_after = ghost_data.dialogue_list_after
+	character.book = ghost_data.book
+	character.animation_player.sprite_frames = ghost_data.sprite_frames
+
+##判断案件是否审判成功
+func is_success(_current_case):
+	if true: 
+		DataServer.success_case += 1
+	else :
+		DataServer.failed_case += 1

@@ -9,7 +9,7 @@ func _ready() -> void:
 	#%Avatar.texture = event.avatar
 	%Name.text = event.eventName+":"+event.eventDesc
 	%TextureRect.texture = event.avatar
-	EventServer.get_event_button(self,event)
+	event.get_event_button(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

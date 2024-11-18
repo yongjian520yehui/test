@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_y3hxe"]
 [ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_m7fnx"]
 [ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_4s7yv"]
-[ext_resource type="Script" path="res://character/ghost/data/ghost_test.gd" id="5_lysrt"]
+[ext_resource type="Script" path="res://character/ghost/data/ghost_resource.gd" id="5_5aiaa"]
 
 [sub_resource type="Resource" id="Resource_qwkgt"]
 script = ExtResource("2_y3hxe")
@@ -60,7 +60,7 @@ eventDesc = "eventDesc"
 eventActions = SubResource("Resource_knmce")
 
 [resource]
-script = ExtResource("5_lysrt")
+script = ExtResource("5_5aiaa")
 dialogue_list_before = SubResource("Resource_opw7s")
 dialogue_list_ask = Array[ExtResource("1_sk0vk")]([SubResource("Resource_8bewd")])
 dialogue_list_after = SubResource("Resource_opjh8")

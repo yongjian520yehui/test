@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="GhostTest" load_steps=17 format=3 uid="uid://deveema2xfxle"]
+[gd_resource type="Resource" script_class="GhostResource" load_steps=17 format=3 uid="uid://deveema2xfxle"]
 
 [ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_jqnr1"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_ge5vc"]
 [ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_qwh7g"]
 [ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_7yj6n"]
-[ext_resource type="Script" path="res://character/ghost/data/ghost_test.gd" id="5_ehsfj"]
+[ext_resource type="Script" path="res://character/ghost/data/ghost_resource.gd" id="5_v2klc"]
 
 [sub_resource type="Resource" id="Resource_qwkgt"]
 script = ExtResource("2_ge5vc")
@@ -59,7 +59,7 @@ eventDesc = "eventDesc"
 eventActions = SubResource("Resource_knmce")
 
 [resource]
-script = ExtResource("5_ehsfj")
+script = ExtResource("5_v2klc")
 dialogue_list_before = SubResource("Resource_opw7s")
 dialogue_list_ask = Array[ExtResource("1_jqnr1")]([SubResource("Resource_8bewd")])
 dialogue_list_after = SubResource("Resource_opjh8")
@@ -73,3 +73,4 @@ book = {
 }
 event = SubResource("Resource_gn5ck")
 applay = ""
+is_can_pass = true

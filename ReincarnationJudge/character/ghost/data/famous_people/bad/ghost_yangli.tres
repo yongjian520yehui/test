@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="GhostTest" load_steps=82 format=3 uid="uid://dhm8fpj2nbi7q"]
+[gd_resource type="Resource" script_class="GhostResource" load_steps=86 format=3 uid="uid://dhm8fpj2nbi7q"]
 
 [ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_1akmj"]
 [ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_pyyme"]
 [ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_aln36"]
 [ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_24ce7"]
-[ext_resource type="Script" path="res://character/ghost/data/ghost_test.gd" id="5_1xn7t"]
+[ext_resource type="Script" path="res://character/ghost/data/ghost_resource.gd" id="5_xnoet"]
 [ext_resource type="Texture2D" uid="uid://c23xj51apax31" path="res://asset/character/Bomb Guy/1-Idle/1.png" id="12_1kj28"]
 [ext_resource type="Texture2D" uid="uid://dy35nwlgbwpre" path="res://asset/character/Bomb Guy/1-Idle/2.png" id="13_h5svh"]
 [ext_resource type="Texture2D" uid="uid://dmu43rvl3who0" path="res://asset/character/Bomb Guy/1-Idle/3.png" id="14_kx523"]
@@ -83,14 +83,34 @@ content = "你等着！！！"
 script = ExtResource("1_1akmj")
 value = Array[ExtResource("2_pyyme")]([SubResource("Resource_qwkgt"), SubResource("Resource_urt8f"), SubResource("Resource_j5l6x")])
 
-[sub_resource type="Resource" id="Resource_pemm5"]
+[sub_resource type="Resource" id="Resource_t5ufh"]
 script = ExtResource("2_pyyme")
 actor_id = 0
-content = "啊啊啊"
+content = "你的宗教不对"
 
-[sub_resource type="Resource" id="Resource_8bewd"]
+[sub_resource type="Resource" id="Resource_v5kks"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "我从出生就是信这个的"
+
+[sub_resource type="Resource" id="Resource_j7rlc"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "那你做祷告吗"
+
+[sub_resource type="Resource" id="Resource_5t05e"]
+script = ExtResource("2_pyyme")
+actor_id = 1
+content = "每天都做"
+
+[sub_resource type="Resource" id="Resource_nt53d"]
+script = ExtResource("2_pyyme")
+actor_id = 0
+content = "你个佛教徒做什么祷告"
+
+[sub_resource type="Resource" id="Resource_qwpi4"]
 script = ExtResource("1_1akmj")
-value = Array[ExtResource("2_pyyme")]([SubResource("Resource_pemm5")])
+value = Array[ExtResource("2_pyyme")]([SubResource("Resource_t5ufh"), SubResource("Resource_v5kks"), SubResource("Resource_j7rlc"), SubResource("Resource_5t05e"), SubResource("Resource_nt53d")])
 
 [sub_resource type="Resource" id="Resource_46ruu"]
 script = ExtResource("2_pyyme")
@@ -339,9 +359,9 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("5_1xn7t")
+script = ExtResource("5_xnoet")
 dialogue_list_before = SubResource("Resource_opw7s")
-dialogue_list_ask = Array[ExtResource("1_1akmj")]([SubResource("Resource_8bewd")])
+dialogue_list_ask = SubResource("Resource_qwpi4")
 dialogue_list_after = SubResource("Resource_opjh8")
 book = {
 "baseInfo": {
@@ -351,5 +371,7 @@ book = {
 }
 }
 event = SubResource("Resource_gn5ck")
-applay = "申请"
+applay = {}
 sprite_frames = SubResource("SpriteFrames_rxmbx")
+is_can_pass = false
+influence = ""
