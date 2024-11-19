@@ -88,9 +88,13 @@ func _on_judge_button_pressed() -> void:
 ##book按钮点击事件
 func _on_ghost_book_button_pressed() -> void:
 	##显示book详细内容
-	if %GhostBook.visible == false and ghost.book:
+	%GhostBook.visible = not %GhostBook.visible
+	if ghost and %GhostBook.visible:
 		%GhostBook.show()
-		%GhostBook.open(ghost.book)
+		%GhostBook.open(ghost)
+	else:
+		%GhostBook.close()
+		%GhostBook.hide()
 
 
 ##结束这一年按钮，跳转统计页面
@@ -104,7 +108,21 @@ func _on_ask_button_pressed() -> void:
 
 func _on_ask_tree_item_selected() -> void:
 	%AskTree.hide()
+	
 	var treeItemText = %AskTree.get_selected().get_text(%AskTree.get_selected_column())
 	var ghosts : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
 	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
-	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_ask)
+	
+	if ghost.dialogue_list_ask.value[0].content == treeItemText:
+		DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_ask)
+	else:
+		var dialogue = Dialogue.new()
+		dialogue.actor_id = 0 
+		dialogue.content = treeItemText
+		
+		var commondialogue = ResourceLoader.load("res://character/dialogue/story01.tres")
+		var dialogue_list = DialogueList.new()
+		dialogue_list = commondialogue
+		dialogue_list.value[0] = dialogue
+
+		DataServer.get_dialogue_controller(self,workers,ghosts,dialogue_list)

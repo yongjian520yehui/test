@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
-[ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://scene/judge_scene/scene/book_ghost.tscn" id="6_qugnk"]
+[ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://scene/judge_scene/scene/ghost_book.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://scene/judge_scene/script/PauseCanvasLayer.gd" id="6_vbum2"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="10_7mc66"]
-[ext_resource type="Script" path="res://scene/judge_scene/scene/ask_tree.gd" id="10_mdqm3"]
+[ext_resource type="Script" path="res://scene/judge_scene/script/ask_tree.gd" id="10_mdqm3"]
 [ext_resource type="PackedScene" uid="uid://di0yrbq0taqb1" path="res://utils/date/date_system.tscn" id="11_wgvcv"]
 [ext_resource type="PackedScene" uid="uid://c7k2if286c54n" path="res://scene/judge_scene/scene/judge_options.tscn" id="15_345g8"]
 [ext_resource type="PackedScene" uid="uid://b5h5c651ku2ub" path="res://utils/clickEffect/click.tscn" id="18_bav3m"]
@@ -286,14 +286,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Table"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="AskButton" type="Button" parent="CanvasLayer/Table/MarginContainer"]
+[node name="AskButton" type="Button" parent="CanvasLayer/Table"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -333,7 +326,7 @@ visible = false
 
 [connection signal="pressed" from="CanvasLayer/EndThisYear" to="." method="_on_end_this_year_pressed"]
 [connection signal="pressed" from="CanvasLayer/GhostBookButton" to="." method="_on_ghost_book_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Table/MarginContainer/AskButton" to="." method="_on_ask_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Table/AskButton" to="." method="_on_ask_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Table/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Table/JudgeButton" to="." method="_on_judge_button_pressed"]
 [connection signal="item_selected" from="CanvasLayer/AskTree" to="." method="_on_ask_tree_item_selected"]

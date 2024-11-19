@@ -46,11 +46,32 @@ func load_file(filePath: String)-> String:
 
 func load_character_data(character:BasicCharacter, resource_path: String):
 	var ghost_data = ResourceLoader.load(resource_path)
+	
+	##对话
 	character.dialogue_list_before = ghost_data.dialogue_list_before
 	character.dialogue_list_ask = ghost_data.dialogue_list_ask
 	character.dialogue_list_after = ghost_data.dialogue_list_after
-	character.book = ghost_data.book
+	
+	##信息资料
+	character.ghostname = ghost_data.ghostname
+	character.country = ghost_data.country
+	character.religion = ghost_data.religion
+	character.death_reason = ghost_data.death_reason
+	character.sex = ghost_data.sex
+	character.applay = ghost_data.applay
+	character.event = ghost_data.event
+	
+	##档案信息
+	character.life_stories = ghost_data.life_stories
+	character.people_evaluation = ghost_data.people_evaluation
+
+	##资源
 	character.animation_player.sprite_frames = ghost_data.sprite_frames
+	
+	##判断和通过影响
+	character.is_can_pass = ghost_data.is_can_pass
+	character.pass_influence = ghost_data.pass_influence
+	character.refuse_influence = ghost_data.refuse_influence
 
 ##判断案件是否审判成功
 func is_success(_current_case):
