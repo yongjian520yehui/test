@@ -17,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/GhostBookButton:position")
+tracks/0/path = NodePath("JudgeUI/BookButton:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,7 +33,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/GhostBookButton:rotation")
+tracks/0/path = NodePath("JudgeUI/BookButton:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,7 +45,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/GhostBookButton:scale")
+tracks/1/path = NodePath("JudgeUI/BookButton:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -57,7 +57,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/GhostBookButton:position")
+tracks/2/path = NodePath("JudgeUI/BookButton:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -126,6 +126,7 @@ position = Vector2(1397, 775)
 unique_name_in_owner = true
 
 [node name="ClickEffect" parent="." instance=ExtResource("18_bav3m")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -134,16 +135,16 @@ libraries = {
 }
 autoplay = "death_god2_idle"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="JudgeUI" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="EndThisYear" type="Button" parent="CanvasLayer"]
+[node name="EndThisYear" type="Button" parent="JudgeUI"]
 offset_right = 112.0
 offset_bottom = 48.0
 size_flags_horizontal = 3
 text = "结束这一年"
 
-[node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
+[node name="JudgeOptions" parent="JudgeUI" instance=ExtResource("15_345g8")]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 8
@@ -154,7 +155,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimeUI" type="HBoxContainer" parent="CanvasLayer"]
+[node name="TimeUI" type="HBoxContainer" parent="JudgeUI"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -162,59 +163,21 @@ offset_left = -132.0
 offset_bottom = 48.0
 grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TimeUI"]
+[node name="TextureRect" type="TextureRect" parent="JudgeUI/TimeUI"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_4v52v")
 
-[node name="TimeLabel" type="Label" parent="CanvasLayer/TimeUI"]
+[node name="TimeLabel" type="Label" parent="JudgeUI/TimeUI"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_7kowl")
 text = "19:20:20"
 
-[node name="DateSystem" parent="CanvasLayer/TimeUI" node_paths=PackedStringArray("show") instance=ExtResource("11_wgvcv")]
+[node name="DateSystem" parent="JudgeUI/TimeUI" node_paths=PackedStringArray("show") instance=ExtResource("11_wgvcv")]
 speed = 0.5
 show = NodePath("../TimeLabel")
 
-[node name="Money" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -56.0
-offset_bottom = 19.0
-grow_horizontal = 0
-text = "$1000
-"
-
-[node name="FilesPosition" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -266.0
-offset_top = -139.0
-offset_right = -226.0
-offset_bottom = -99.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="GhostBookPosition" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -142.0
-offset_right = 44.0
-offset_bottom = -102.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="EventPosition" type="Control" parent="CanvasLayer"]
+[node name="EventPosition" type="Control" parent="JudgeUI"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 6
@@ -225,8 +188,9 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="GhostBookButton" type="TextureButton" parent="CanvasLayer"]
+[node name="BookButton" type="TextureButton" parent="JudgeUI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -245,17 +209,18 @@ texture_normal = SubResource("AtlasTexture_l1qv1")
 texture_pressed = SubResource("AtlasTexture_d7i1h")
 stretch_mode = 3
 
-[node name="FilesButton" type="TextureButton" parent="CanvasLayer"]
+[node name="FilesButton" type="TextureButton" parent="JudgeUI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -104.0
-offset_top = -186.0
-offset_right = -56.0
-offset_bottom = -126.0
+offset_left = -96.0
+offset_top = -165.0
+offset_right = -48.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 0
 toggle_mode = true
@@ -264,45 +229,50 @@ texture_normal = SubResource("AtlasTexture_q308k")
 texture_pressed = SubResource("AtlasTexture_d06n2")
 stretch_mode = 3
 
-[node name="Table" type="BoxContainer" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
+[node name="Table" type="BoxContainer" parent="JudgeUI"]
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -257.5
-offset_top = -80.0
-offset_right = 257.5
-offset_bottom = -20.0
-grow_horizontal = 2
+offset_left = -350.0
+offset_top = -50.0
+grow_horizontal = 0
 grow_vertical = 0
 
-[node name="AskButton" type="Button" parent="CanvasLayer/Table"]
+[node name="AskButton" type="Button" parent="JudgeUI/Table"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "询问"
 
-[node name="NextButton" type="Button" parent="CanvasLayer/Table"]
+[node name="NextButton" type="Button" parent="JudgeUI/Table"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 text = "下一个"
 
-[node name="JudgeButton" type="Button" parent="CanvasLayer/Table"]
+[node name="JudgeButton" type="Button" parent="JudgeUI/Table"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "判决"
 
-[node name="AskTree" type="Tree" parent="CanvasLayer"]
+[node name="AskTree" type="Tree" parent="JudgeUI"]
 unique_name_in_owner = true
 visible = false
-offset_left = 447.0
-offset_top = 225.0
-offset_right = 747.0
-offset_bottom = 425.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("10_mdqm3")
@@ -315,9 +285,9 @@ script = ExtResource("6_vbum2")
 unique_name_in_owner = true
 visible = false
 
-[connection signal="pressed" from="CanvasLayer/EndThisYear" to="." method="_on_end_this_year_pressed"]
-[connection signal="pressed" from="CanvasLayer/GhostBookButton" to="." method="_on_ghost_book_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Table/AskButton" to="." method="_on_ask_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Table/NextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Table/JudgeButton" to="." method="_on_judge_button_pressed"]
-[connection signal="item_selected" from="CanvasLayer/AskTree" to="." method="_on_ask_tree_item_selected"]
+[connection signal="pressed" from="JudgeUI/EndThisYear" to="." method="_on_end_this_year_pressed"]
+[connection signal="pressed" from="JudgeUI/BookButton" to="." method="_on_ghost_book_button_pressed"]
+[connection signal="pressed" from="JudgeUI/Table/AskButton" to="." method="_on_ask_button_pressed"]
+[connection signal="pressed" from="JudgeUI/Table/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="JudgeUI/Table/JudgeButton" to="." method="_on_judge_button_pressed"]
+[connection signal="item_selected" from="JudgeUI/AskTree" to="." method="_on_ask_tree_item_selected"]

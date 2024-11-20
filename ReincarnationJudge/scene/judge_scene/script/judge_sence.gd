@@ -57,8 +57,9 @@ func _on_next_button_pressed() -> void:
 	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
 	
 	##显示book
-	if %GhostBookButton.visible == false:
-		%GhostBookButton.show()
+	if %BookButton.visible == false:
+		%BookButton.show()
+		%FilesButton.show()
 		#%AnimationPlayer.play("ghost_book_get")
 	
 	##等待ghost进入动画改变成idle，然后开启对话
@@ -80,9 +81,8 @@ func _on_next_button_pressed() -> void:
 func _on_judge_button_pressed() -> void:
 	%JudgeButton.disabled = true
 	##显示审判页面,隐藏book，显示option
-	if %GhostBook.visible == false:
-		%GhostBookButton.disabled = true
-		%JudgeOptions.show()
+	%GhostBookButton.disabled = true
+	%JudgeOptions.show()
 
 
 ##book按钮点击事件
@@ -91,7 +91,6 @@ func _on_ghost_book_button_pressed() -> void:
 	%BookGhost.visible = not %BookGhost.visible
 	if ghost and %GhostBook.visible:
 		%BookGhost.show()
-
 	else:
 		%BookGhost.hide()
 
