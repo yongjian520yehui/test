@@ -88,13 +88,12 @@ func _on_judge_button_pressed() -> void:
 ##book按钮点击事件
 func _on_ghost_book_button_pressed() -> void:
 	##显示book详细内容
-	%GhostBook.visible = not %GhostBook.visible
+	%BookGhost.visible = not %BookGhost.visible
 	if ghost and %GhostBook.visible:
-		%GhostBook.show()
-		%GhostBook.open(ghost)
+		%BookGhost.show()
+
 	else:
-		%GhostBook.close()
-		%GhostBook.hide()
+		%BookGhost.hide()
 
 
 ##结束这一年按钮，跳转统计页面

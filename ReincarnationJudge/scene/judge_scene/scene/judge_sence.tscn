@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://byw7sibergtuc"]
+[gd_scene load_steps=20 format=3 uid="uid://byw7sibergtuc"]
 
 [ext_resource type="Script" path="res://scene/judge_scene/script/judge_sence.gd" id="1_gltdn"]
 [ext_resource type="Texture2D" uid="uid://bsh0604avgdle" path="res://scene/judge_scene/sprites/dungeon background 11.png" id="2_bru36"]
 [ext_resource type="PackedScene" uid="uid://dh71g61cm8k44" path="res://scene/menu/scene/pause_menu.tscn" id="5_vev0h"]
 [ext_resource type="FontFile" uid="uid://cxe2ygnd717oj" path="res://fonts/px.ttf" id="6_7kowl"]
 [ext_resource type="Texture2D" uid="uid://66e038fnmrpt" path="res://scene/judge_scene/sprites/UI books & more.png" id="6_aghy4"]
-[ext_resource type="PackedScene" uid="uid://dwgw3k2tmmxfs" path="res://scene/judge_scene/scene/ghost_book.tscn" id="6_qugnk"]
 [ext_resource type="Script" path="res://scene/judge_scene/script/PauseCanvasLayer.gd" id="6_vbum2"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="10_7mc66"]
 [ext_resource type="Script" path="res://scene/judge_scene/script/ask_tree.gd" id="10_mdqm3"]
@@ -143,14 +142,6 @@ offset_right = 112.0
 offset_bottom = 48.0
 size_flags_horizontal = 3
 text = "结束这一年"
-
-[node name="GhostBook" parent="CanvasLayer" instance=ExtResource("6_qugnk")]
-unique_name_in_owner = true
-visible = false
-offset_left = 579.0
-offset_top = 74.0
-offset_right = -741.0
-offset_bottom = -506.0
 
 [node name="JudgeOptions" parent="CanvasLayer" instance=ExtResource("15_345g8")]
 unique_name_in_owner = true

@@ -1,56 +1,46 @@
-extends Control
+extends PanelContainer
 
-@onready var v_box_container = $VBoxContainer
-@onready var book_ghost = $"."
-@export var fade_in_duration := 1
-@export var fade_out_duration := 1
-@onready var ghost_name = %Name
-@onready var country: Label = %Country
-@onready var religion: Label = %Religion
+@onready var Mainmenu: Panel = $MarginContainer/VBoxContainer/HBoxContainer/Menu
+@onready var margin_container: MarginContainer = $MarginContainer/VBoxContainer/HBoxContainer/Menu/MarginContainer
+@onready var menu_1: GridContainer = $MarginContainer/VBoxContainer/HBoxContainer/Menu/MarginContainer/Menu1
+@onready var menu_2: GridContainer = $MarginContainer/VBoxContainer/HBoxContainer/Menu/MarginContainer/Menu2
+@onready var menu_3: GridContainer = $MarginContainer/VBoxContainer/HBoxContainer/Menu/MarginContainer/Menu3
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
+	#先关闭
+	#Mainmenu.hide()
 	pass
 
 
-func close() -> void:
-	#var tween := create_tween()
-	#tween.tween_property(
-		#self,
-		#^"modulate:a",
-		#0.0,
-		#fade_out_duration
-	#).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	#tween.tween_property(
-		#book_ghost,
-		#^"anchor_bottom",
-		#0.5,
-		#fade_out_duration
-	#).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	#z_index = 0
-	pass
+func _set_menu(menu):
+	##取反
+	var wasClosed = menu.visible == false
+	##先关闭所有的
+	_close_all_menus()
+	##再设置需要控制的
+	#Mainmenu.visible = wasClosed
+	
+	menu.visible = wasClosed
 
-func open(ghost) -> void:
-	z_index=1
-	%Name.text = ghost.ghostname
-	%Country.text = ghost.country
-	%Religion.text = ghost.religion
-	%Sex.text= ghost.sex
-	%DeathReason.text= ghost.death_reason
+func _close_all_menus():
+	for menu in margin_container.get_children():
+		menu.visible = false
 
-	#modulate.a = 0.0
-	#v_box_container.anchor_bottom = 0.5
-	#var tween := create_tween()
-	#tween.tween_property(
-		#self,
-		#^"modulate:a",
-		#1.0,
-		#fade_in_duration
-	#).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-	#tween.parallel().tween_property(
-		#v_box_container,
-		#^"anchor_bottom",
-		#1.0,
-		#fade_out_duration
-	#).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+func _on_base_info_button_pressed() -> void:
+	print(111)
+	_set_menu(menu_1)
+
+
+func _on_death_reason_button_pressed() -> void:
+	_set_menu(menu_2)
+
+
+func _on_apply_button_pressed() -> void:
+	_set_menu(menu_3)
+
+
+func _on_close_button_pressed() -> void:
+	hide()
