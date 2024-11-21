@@ -35,6 +35,7 @@ dialogueController=""
 save=""
 bubble=""
 events=""
+checklist=""
 
 [gui]
 

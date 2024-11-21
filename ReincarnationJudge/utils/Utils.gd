@@ -27,7 +27,7 @@ var salary = 102
 var fine = 10
 var year = 1
 var screen_size : Vector2
-
+var current_ghost: BasicCharacter
 
 func _ready() -> void:
 	screen_size = DisplayServer.window_get_size()

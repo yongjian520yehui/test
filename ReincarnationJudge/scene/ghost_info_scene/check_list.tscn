@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://8atycgv0p70d"]
+
+[ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="1_6m8jh"]
+[ext_resource type="Script" path="res://scene/ghost_info_scene/check_list.gd" id="1_8bsrp"]
+
+[node name="CheckList" type="PanelContainer"]
+custom_minimum_size = Vector2(250, 450)
+script = ExtResource("1_8bsrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "检查清单"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Right" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "✔"
+
+[node name="False" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "❌"
+
+[node name="ID" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "身份证是否正确？"
+
+[node name="RightID" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FlaseID" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer" groups=["checklist"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Applay" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "申请表是否正确？"
+
+[node name="RightApplay" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FalseApplay" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer" groups=["checklist"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Appearance" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "外观是否正确？"
+
+[node name="RightAppearance" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FalseAppearance" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer" groups=["checklist"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Passport" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "通行证是否正确？"
+
+[node name="RightPassport" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FalsePassport" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer" groups=["checklist"]]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("drag_area", "target")]
+script = ExtResource("1_6m8jh")
+drag_area = NodePath("../MarginContainer")
+target = NodePath("..")
+
+[node name="Close" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CloseButton" type="Button" parent="Close"]
+layout_mode = 2
+text = "X"
+
+[node name="Ask" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="AskButton" type="Button" parent="Ask"]
+layout_mode = 2
+text = "询问这个人"
+
+[connection signal="pressed" from="Close/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Ask/AskButton" to="." method="_on_ask_button_pressed"]

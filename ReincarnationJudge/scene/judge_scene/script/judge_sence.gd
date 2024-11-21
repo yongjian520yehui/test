@@ -5,9 +5,6 @@ const GHOST_NIU_TOU = preload(Utils.GHOST_NIU_TOU)
 const GHOST_NORMAL = preload(Utils.GHOST_NORMAL)
 
 
-var ghost: GhostNormal 
-
-
 func _ready() -> void:
 	##加载员工，后续从存档中获取
 	#DataServer.load_game()
@@ -22,7 +19,7 @@ func _ready() -> void:
 	##连接审判按钮确定信号
 	%JudgeOptions.judged.connect(after_judge)
 	##事件推出节点
-	EventServer.push_node = $CanvasLayer
+	EventServer.push_node = $JudgeUI
 	EventServer.push_node_positon = %EventPosition
 
 
@@ -34,7 +31,7 @@ func after_judge():
 	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
 	
 	##对话
-	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_after)
+	DataServer.get_dialogue_controller(self,workers,ghosts,Utils.current_ghost.dialogue_list_after)
 	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
 	await dialogueController[0].finished
 	##ghost退出动画
@@ -48,10 +45,10 @@ func after_judge():
 func _on_next_button_pressed() -> void:
 	##如果没有ghost，则添加
 	if get_tree().get_nodes_in_group("ghosts").size() < 1:
-		ghost = GHOST_NORMAL.instantiate()
+		var ghost = GHOST_NORMAL.instantiate()
 		add_child(ghost)
 		ghost.global_position = %GhostPositon.global_position
-	
+		Utils.current_ghost = ghost
 	##获取目前所有ghost
 	var ghosts : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
 	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
@@ -63,10 +60,10 @@ func _on_next_button_pressed() -> void:
 		#%AnimationPlayer.play("ghost_book_get")
 	
 	##等待ghost进入动画改变成idle，然后开启对话
-	await ghost.animation_player.animation_changed
+	await Utils.current_ghost.animation_player.animation_changed
 	
 	##创建对话节点
-	DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_before)
+	DataServer.get_dialogue_controller(self,workers,ghosts,Utils.current_ghost.dialogue_list_before)
 	var dialogueController = get_tree().get_nodes_in_group("dialogueController")
 	
 	##nextbutton禁用
@@ -88,11 +85,13 @@ func _on_judge_button_pressed() -> void:
 ##book按钮点击事件
 func _on_ghost_book_button_pressed() -> void:
 	##显示book详细内容
-	%BookGhost.visible = not %BookGhost.visible
-	if ghost and %GhostBook.visible:
-		%BookGhost.show()
+
+	if Utils.current_ghost :
+		#%BookGhost.show()
+		print("BookGhost")
 	else:
-		%BookGhost.hide()
+		#%BookGhost.hide()
+		print("BookGhost")
 
 
 ##结束这一年按钮，跳转统计页面
@@ -111,8 +110,8 @@ func _on_ask_tree_item_selected() -> void:
 	var ghosts : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
 	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
 	
-	if ghost.dialogue_list_ask.value[0].content == treeItemText:
-		DataServer.get_dialogue_controller(self,workers,ghosts,ghost.dialogue_list_ask)
+	if Utils.current_ghost.dialogue_list_ask.value[0].content == treeItemText:
+		DataServer.get_dialogue_controller(self,workers,ghosts,Utils.current_ghost.dialogue_list_ask)
 	else:
 		var dialogue = Dialogue.new()
 		dialogue.actor_id = 0 

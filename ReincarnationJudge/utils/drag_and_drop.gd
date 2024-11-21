@@ -6,6 +6,7 @@ signal drag_started
 signal dropped(starting_position: Vector2)
 
 @export var enabled: bool = true
+@export var drag_area: Control
 @export var target: Control
 
 var starting_position: Vector2
@@ -14,21 +15,14 @@ var dragging := false
 
 
 func _ready() -> void:
-	assert(target, "No target set for DragAndDrop Component!")
-	var children : Array
-	if is_instance_of(target , MarginContainer):
-		children = target.get_children()
-		#print(children)
-		for child in children:
-			if is_instance_of(child , GridContainer):
-				child.gui_input.connect(_on_target_input_event)
-	else :
-		target.gui_input.connect(_on_target_input_event)
+	if drag_area:
+		drag_area.gui_input.connect(_on_target_input_event)
 
-func _process(_delta: float) -> void:
-	if dragging and target:
-		get_parent().global_position = target.get_global_mouse_position() + offset
-		#target.global_position = target.get_global_mouse_position() + offset
+
+
+func _physics_process(delta: float) -> void:
+	if dragging and drag_area:
+		target.global_position = drag_area.get_global_mouse_position() + offset
 
 
 func _input(event: InputEvent) -> void:
@@ -40,7 +34,7 @@ func _input(event: InputEvent) -> void:
 
 func _end_dragging() -> void:
 	dragging = false
-	target.remove_from_group("dragging")
+	drag_area.remove_from_group("dragging")
 	target.z_index = 0
 
 
@@ -51,8 +45,8 @@ func _cancel_dragging() -> void:
 
 func _start_dragging() -> void:
 	dragging = true
-	starting_position = target.global_position
-	target.add_to_group("dragging")
+	starting_position = drag_area.global_position
+	drag_area.add_to_group("dragging")
 	target.z_index = 99
 	offset = get_parent().global_position - get_parent().get_global_mouse_position()
 	drag_started.emit()
@@ -61,7 +55,7 @@ func _start_dragging() -> void:
 func _drop() -> void:
 	_end_dragging()
 	dropped.emit(starting_position)
-	
+
 
 func _on_target_input_event(event: InputEvent) -> void:
 	if not enabled:
