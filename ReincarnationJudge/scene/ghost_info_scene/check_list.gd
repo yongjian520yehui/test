@@ -14,6 +14,8 @@ func _ready() -> void:
 	%FalseAppearance.pressed.connect(_on_check_box_pressed.bind(%FalseAppearance))
 	%RightPassport.pressed.connect(_on_check_box_pressed.bind(%RightPassport))
 	%FalsePassport.pressed.connect(_on_check_box_pressed.bind(%FalsePassport))
+	%RightPolicy.pressed.connect(_on_check_box_pressed.bind(%RightPolicy))
+	%FalsePolicy.pressed.connect(_on_check_box_pressed.bind(%FalsePolicy))
 	checklists = get_tree().get_nodes_in_group("checklist")
 
 
@@ -68,6 +70,10 @@ func _on_check_box_pressed(box: CheckBox) -> void:
 			%FalsePassport.button_pressed = false
 		"FalsePassport":
 			%RightPassport.button_pressed = false
+		"RightPolicy":
+			%FalsePolicy.button_pressed = false
+		"FalsePolicy":
+			%RightPolicy.button_pressed = false
 		_:
 			print("这个按钮没有匹配项，需要加入代码中。。。")
 	_is_show_ask()
