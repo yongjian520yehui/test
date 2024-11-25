@@ -1,7 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://belye4qutgpra"]
+[gd_scene load_steps=7 format=3 uid="uid://belye4qutgpra"]
 
+[ext_resource type="LabelSettings" uid="uid://eqqho22ubks4" path="res://fonts/8px_font.tres" id="1_7p5l1"]
+[ext_resource type="Script" path="res://scene/ghost_info_scene/passport.gd" id="1_s81ef"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="1_tjwb0"]
 [ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="2_rvgth"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfyi7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogju2"]
 atlas = ExtResource("1_tjwb0")
@@ -9,13 +18,15 @@ region = Rect2(176, 64, 48, 48)
 
 [node name="Passport" type="PanelContainer"]
 custom_minimum_size = Vector2(350, 200)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfyi7")
+script = ExtResource("1_s81ef")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -27,52 +38,64 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="通行证" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "通行证"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "PASS"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="类型" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "类型/Type"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "P"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="国家码" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "国家码/Country Code"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "USA"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="通行证号" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
 text = "通行证号/Pass Number"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
 text = "USA469235982"
+label_settings = ExtResource("1_7p5l1")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
+size_flags_stretch_ratio = 5.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -147,13 +170,21 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+text = "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+text = "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("drag_area", "target")]
 script = ExtResource("2_rvgth")
 drag_area = NodePath("../MarginContainer")
 target = NodePath("..")
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

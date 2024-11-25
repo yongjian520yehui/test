@@ -1,48 +1,101 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3451qilnjdr7"]
+[gd_scene load_steps=6 format=3 uid="uid://b3451qilnjdr7"]
+
+[ext_resource type="Texture2D" uid="uid://dnlxnpc6l643y" path="res://scene/judge_scene/sprites/table.png.jpeg" id="1_3m48f"]
+[ext_resource type="Script" path="res://check_scene.gd" id="1_blvm2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qswgv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ufi6"]
 
-[node name="CheckScene" type="PanelContainer"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmdfq"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_blvm2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CheckScene" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CheckScene"]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="VBoxContainer"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/CheckScene/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CheckScene/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="LeftWall" type="Panel" parent="VBoxContainer/HBoxContainer"]
+[node name="LeftWall" type="Panel" parent="CanvasLayer/CheckScene/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_qswgv")
 
-[node name="Window" type="Panel" parent="VBoxContainer/HBoxContainer"]
+[node name="Window" type="Panel" parent="CanvasLayer/CheckScene/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ufi6")
 
-[node name="RightWall" type="Panel" parent="VBoxContainer/HBoxContainer"]
+[node name="RightWall" type="Panel" parent="CanvasLayer/CheckScene/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="VBoxContainer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/CheckScene/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CheckScene/VBoxContainer/Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(286, 208)
+texture = ExtResource("1_3m48f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 326)
+
+[node name="CameraArea" type="Node2D" parent="."]
+
+[node name="TopLet" type="Area2D" parent="CameraArea"]
+unique_name_in_owner = true
+
+[node name="TopLetCollisionShape" type="CollisionShape2D" parent="CameraArea/TopLet"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_gmdfq")
+
+[node name="TopRight" type="Area2D" parent="CameraArea"]
+unique_name_in_owner = true
+
+[node name="TopRightCollisionShape" type="CollisionShape2D" parent="CameraArea/TopRight"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_gmdfq")
+
+[node name="BottomLeft" type="Area2D" parent="CameraArea"]
+unique_name_in_owner = true
+
+[node name="BottomLeftCollisionShape2D" type="CollisionShape2D" parent="CameraArea/BottomLeft"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_gmdfq")
+
+[node name="BottomRight" type="Area2D" parent="CameraArea"]
+unique_name_in_owner = true
+
+[node name="BottomRightCollisionShape2D" type="CollisionShape2D" parent="CameraArea/BottomRight"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_gmdfq")
+
+[connection signal="mouse_entered" from="CameraArea/TopLet" to="." method="_on_top_let_mouse_entered"]
+[connection signal="mouse_entered" from="CameraArea/TopRight" to="." method="_on_top_right_mouse_entered"]
+[connection signal="mouse_entered" from="CameraArea/BottomLeft" to="." method="_on_bottom_left_mouse_entered"]
+[connection signal="mouse_entered" from="CameraArea/BottomRight" to="." method="_on_bottom_right_mouse_entered"]

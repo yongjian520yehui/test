@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dimu1vumwrvoh"]
+[gd_scene load_steps=6 format=3 uid="uid://dimu1vumwrvoh"]
 
 [ext_resource type="Script" path="res://scene/ghost_info_scene/apply.gd" id="1_pb86q"]
 [ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="2_ho44j"]
 [ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="3_qnakx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olfgl"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1k1ys"]
 atlas = ExtResource("2_ho44j")
-region = Rect2(112, 64, 48, 48)
+region = Rect2(112, 112, 48, 48)
 
 [node name="Apply" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 500)
+theme_override_styles/panel = SubResource("StyleBoxFlat_olfgl")
 script = ExtResource("1_pb86q")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
