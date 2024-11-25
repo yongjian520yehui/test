@@ -1,0 +1,159 @@
+[gd_scene load_steps=4 format=3 uid="uid://belye4qutgpra"]
+
+[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="1_tjwb0"]
+[ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="2_rvgth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogju2"]
+atlas = ExtResource("1_tjwb0")
+region = Rect2(176, 64, 48, 48)
+
+[node name="Passport" type="PanelContainer"]
+custom_minimum_size = Vector2(350, 200)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="通行证" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "通行证"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "PASS"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="类型" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "类型/Type"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "P"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="国家码" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "国家码/Country Code"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "USA"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="通行证号" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "通行证号/Pass Number"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "USA469235982"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ogju2")
+expand_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="姓名" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "姓名"
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "代用名"
+
+[node name="身份证号" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "身份证号"
+
+[node name="ID" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "123456789953268"
+
+[node name="签发机关" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "签发机关"
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "美国管理局"
+
+[node name="签发地点" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "签发地点"
+
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "美国"
+
+[node name="有效期" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "有效期"
+
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "2025-9-11"
+
+[node name="通行目的" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "通行目的"
+
+[node name="Label12" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "抓捕亡魂"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("drag_area", "target")]
+script = ExtResource("2_rvgth")
+drag_area = NodePath("../MarginContainer")
+target = NodePath("..")

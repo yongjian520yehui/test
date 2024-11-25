@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://u2goc8i0qnmf"]
+[gd_scene load_steps=9 format=3 uid="uid://u2goc8i0qnmf"]
 
 [ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
 [ext_resource type="PackedScene" uid="uid://d3xtwo83t57ri" path="res://character/ghost/scene/ghost_normal.tscn" id="1_q61mu"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://8atycgv0p70d" path="res://scene/ghost_info_scene/check_list.tscn" id="4_rblis"]
 [ext_resource type="PackedScene" uid="uid://jrj4a7j6087m" path="res://scene/ghost_info_scene/files.tscn" id="5_v0lcj"]
 [ext_resource type="PackedScene" uid="uid://c4fe0yl35bo6r" path="res://scene/ghost_info_scene/idcard.tscn" id="6_8wvre"]
+[ext_resource type="PackedScene" uid="uid://dimu1vumwrvoh" path="res://scene/ghost_info_scene/apply.tscn" id="7_k2qqy"]
+[ext_resource type="PackedScene" uid="uid://belye4qutgpra" path="res://scene/ghost_info_scene/passport.tscn" id="8_sjwro"]
 
 [node name="Test" type="Node2D"]
 
@@ -61,11 +63,19 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "切换shader"
 
-[node name="CheckList" parent="CanvasLayer" instance=ExtResource("4_rblis")]
-
 [node name="Files" parent="CanvasLayer" instance=ExtResource("5_v0lcj")]
 
+[node name="Passport" parent="CanvasLayer" instance=ExtResource("8_sjwro")]
+
+[node name="Apply" parent="CanvasLayer" instance=ExtResource("7_k2qqy")]
+offset_right = 314.0
+offset_bottom = 500.0
+
 [node name="IDCard" parent="CanvasLayer" instance=ExtResource("6_8wvre")]
+
+[node name="CheckList" parent="CanvasLayer" instance=ExtResource("4_rblis")]
+offset_right = 250.0
+offset_bottom = 400.0
 
 [connection signal="pressed" from="CanvasLayer/Ask" to="CanvasLayer" method="_on_ask_pressed"]
 [connection signal="pressed" from="CanvasLayer/Next" to="CanvasLayer" method="_on_next_pressed"]

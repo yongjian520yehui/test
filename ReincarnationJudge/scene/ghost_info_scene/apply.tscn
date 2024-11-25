@@ -1,0 +1,218 @@
+[gd_scene load_steps=5 format=3 uid="uid://dimu1vumwrvoh"]
+
+[ext_resource type="Script" path="res://scene/ghost_info_scene/apply.gd" id="1_pb86q"]
+[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="2_ho44j"]
+[ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="3_qnakx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k1ys"]
+atlas = ExtResource("2_ho44j")
+region = Rect2(112, 64, 48, 48)
+
+[node name="Apply" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 500)
+script = ExtResource("1_pb86q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Info" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="申请表" type="Label" parent="MarginContainer/Info"]
+layout_mode = 2
+text = "申请表"
+horizontal_alignment = 1
+
+[node name="基本信息" type="Label" parent="MarginContainer/Info"]
+layout_mode = 2
+text = "基本信息"
+
+[node name="BaseInfo" type="GridContainer" parent="MarginContainer/Info"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="姓名" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "姓名"
+
+[node name="Name" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "代用名"
+
+[node name="性别" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "性别"
+
+[node name="Sex" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "男"
+
+[node name="民族" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "民族"
+
+[node name="Nationality" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "央格鲁撒克逊"
+
+[node name="出生" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "出生"
+
+[node name="Birthday" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1996-3-8"
+
+[node name="国籍" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "国籍"
+
+[node name="Country" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "美国"
+
+[node name="死亡" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "死亡"
+
+[node name="DeathDay" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "2001-9-11"
+
+[node name="申请信息" type="Label" parent="MarginContainer/Info"]
+layout_mode = 2
+text = "申请信息"
+
+[node name="ApplyInfo" type="GridContainer" parent="MarginContainer/Info"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="申请类型" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+layout_mode = 2
+text = "申请类型"
+
+[node name="Type" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+layout_mode = 2
+text = "投胎为人"
+
+[node name="申请理由" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+layout_mode = 2
+text = "申请理由"
+
+[node name="Reason" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+custom_minimum_size = Vector2(220, 30)
+layout_mode = 2
+text = "本人无相关罪行，按照轮回法典，应该轮回为人"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="特殊要求" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+layout_mode = 2
+text = "特殊要求"
+
+[node name="SpecialRequirements" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+layout_mode = 2
+text = "轮回到美国富裕家庭"
+vertical_alignment = 1
+
+[node name="StampArea" type="MarginContainer" parent="MarginContainer/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Info/StampArea"]
+layout_mode = 2
+
+[node name="签名" type="Label" parent="MarginContainer/Info/StampArea/HBoxContainer"]
+layout_mode = 2
+text = "签名："
+
+[node name="ApplayName" type="Label" parent="MarginContainer/Info/StampArea/HBoxContainer"]
+layout_mode = 2
+text = "申请人姓名"
+
+[node name="盖章" type="Label" parent="MarginContainer/Info/StampArea/HBoxContainer"]
+layout_mode = 2
+text = "盖章："
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Info/StampArea/HBoxContainer"]
+layout_mode = 2
+
+[node name="PassTexture" type="TextureRect" parent="MarginContainer/Info/StampArea/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("AtlasTexture_1k1ys")
+
+[node name="RejectTexture" type="TextureRect" parent="MarginContainer/Info/StampArea/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("AtlasTexture_1k1ys")
+
+[node name="申明" type="Label" parent="MarginContainer/Info"]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+text = "申明：申请人确认所填写的信息真实有效，并愿意承担相应的责任。"
+autowrap_mode = 1
+
+[node name="ButtonArea" type="MarginContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+size_flags_stretch_ratio = 9.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ButtonArea"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Pass" type="Button" parent="MarginContainer/ButtonArea/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pass"
+
+[node name="Reject" type="Button" parent="MarginContainer/ButtonArea/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reject"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("drag_area", "target")]
+script = ExtResource("3_qnakx")
+drag_area = NodePath("../MarginContainer")
+target = NodePath("..")
+
+[connection signal="pressed" from="MarginContainer/ButtonArea/HBoxContainer/Pass" to="." method="_on_pass_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonArea/HBoxContainer/Reject" to="." method="_on_reject_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
