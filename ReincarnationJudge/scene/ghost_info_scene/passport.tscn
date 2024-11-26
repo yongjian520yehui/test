@@ -67,6 +67,7 @@ label_settings = ExtResource("1_7p5l1")
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="国家码" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -81,6 +82,7 @@ label_settings = ExtResource("1_7p5l1")
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="通行证号" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
@@ -136,7 +138,7 @@ text = "123456789953268"
 layout_mode = 2
 text = "签发机关"
 
-[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+[node name="Authority" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "美国管理局"
 
@@ -144,7 +146,7 @@ text = "美国管理局"
 layout_mode = 2
 text = "签发地点"
 
-[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+[node name="Place" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "美国"
 
@@ -152,7 +154,7 @@ text = "美国"
 layout_mode = 2
 text = "有效期"
 
-[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
+[node name="ValidPeriod" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "2025-9-11"
 

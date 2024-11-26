@@ -59,7 +59,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Table" type="Sprite2D" parent="."]
-position = Vector2(286, 208)
+position = Vector2(87.75, 59.75)
+scale = Vector2(0.305604, 0.285542)
 texture = ExtResource("1_3m48f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -94,6 +95,21 @@ unique_name_in_owner = true
 [node name="BottomRightCollisionShape2D" type="CollisionShape2D" parent="CameraArea/BottomRight"]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_gmdfq")
+
+[node name="Table2" type="Sprite2D" parent="."]
+position = Vector2(1066, 60)
+scale = Vector2(0.305604, 0.285542)
+texture = ExtResource("1_3m48f")
+
+[node name="Table3" type="Sprite2D" parent="."]
+position = Vector2(90, 588)
+scale = Vector2(0.305604, 0.285542)
+texture = ExtResource("1_3m48f")
+
+[node name="Table4" type="Sprite2D" parent="."]
+position = Vector2(1064, 586)
+scale = Vector2(0.305604, 0.285542)
+texture = ExtResource("1_3m48f")
 
 [connection signal="mouse_entered" from="CameraArea/TopLet" to="." method="_on_top_let_mouse_entered"]
 [connection signal="mouse_entered" from="CameraArea/TopRight" to="." method="_on_top_right_mouse_entered"]

@@ -3,6 +3,12 @@ extends Node
 func _ready():
 	
 	print(Utils.screen_size)
+	
+	$Table.global_position = Vector2.ZERO
+	$Table2.global_position = Vector2(Utils.screen_size.x,0)
+	$Table3.global_position = Vector2(0,Utils.screen_size.y)
+	$Table4.global_position = Utils.screen_size
+	
 	%TopLetCollisionShape.shape.size = Utils.screen_size
 	%TopRightCollisionShape.shape.size = Utils.screen_size
 	%BottomLeftCollisionShape2D.shape.size = Utils.screen_size
@@ -27,19 +33,19 @@ func _ready():
 
 
 func _on_top_let_mouse_entered():
-	var tween = create_tween().tween_property($Camera2D,"position",Utils.screen_size/4, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-	await tween.finished
+	create_tween().tween_property($Camera2D,"position",Utils.screen_size/4, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	#await tween.finished
 
 func _on_top_right_mouse_entered():
-	var tween = create_tween().tween_property($Camera2D,"position",Vector2(Utils.screen_size.x*0.75, Utils.screen_size.y*0.25), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-	await tween.finished
+	create_tween().tween_property($Camera2D,"position",Vector2(Utils.screen_size.x*0.75, Utils.screen_size.y*0.25), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	#await tween.finished
 
 
 func _on_bottom_left_mouse_entered():
-	var tween = create_tween().tween_property($Camera2D,"position",Vector2(Utils.screen_size.x*0.25, Utils.screen_size.y*0.75), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-	await tween.finished
+	create_tween().tween_property($Camera2D,"position",Vector2(Utils.screen_size.x*0.25, Utils.screen_size.y*0.75), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	#await tween.finished
 
 
 func _on_bottom_right_mouse_entered():
-	var tween = create_tween().tween_property($Camera2D,"position",Vector2(Utils.screen_size.x*0.75, Utils.screen_size.y*0.75), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-	await tween.finished
+	create_tween().tween_property($Camera2D,"position",Vector2(Utils.screen_size.x*0.75, Utils.screen_size.y*0.75), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	#await tween.finished
