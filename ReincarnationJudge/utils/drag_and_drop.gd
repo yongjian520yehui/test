@@ -17,11 +17,14 @@ var dragging := false
 func _ready() -> void:
 	if drag_area:
 		drag_area.gui_input.connect(_on_target_input_event)
+		
 
 
 func _physics_process(delta: float) -> void:
 	if dragging and drag_area:
-		target.global_position = drag_area.get_global_mouse_position() + offset
+		var mouse_pos = drag_area.get_global_mouse_position()
+		target.global_position = Vector2(clamp(mouse_pos.x + offset.x, 0 , Utils.screen_size.x-target.size.x),
+		clamp(mouse_pos.y + offset.y, 0 ,Utils.screen_size.y-target.size.y))
 
 
 func _input(event: InputEvent) -> void:

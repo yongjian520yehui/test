@@ -25,6 +25,7 @@ EventServer="*res://utils/server/event_server.gd"
 [display]
 
 window/size/mode=3
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://asset/cursor.png"
 
 [global_group]
