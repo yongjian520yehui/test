@@ -19,7 +19,6 @@ func _ready() -> void:
 		drag_area.gui_input.connect(_on_target_input_event)
 
 
-
 func _physics_process(delta: float) -> void:
 	if dragging and drag_area:
 		target.global_position = drag_area.get_global_mouse_position() + offset

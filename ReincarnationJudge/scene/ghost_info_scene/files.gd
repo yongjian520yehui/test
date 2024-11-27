@@ -8,6 +8,7 @@ var total_page : Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hide()
 	total_page = content_parent.get_children()
 	%Previous.hide()
 

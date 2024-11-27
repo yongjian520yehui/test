@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://pb56jwkk8ods"]
+
+[ext_resource type="Texture2D" uid="uid://cfnvwqmeb8hjo" path="res://scene/judge_scene/sprites/Time & weather.png" id="1_1sn7c"]
+[ext_resource type="Script" path="res://scene/ghost_info_scene/license.gd" id="1_ir6jc"]
+[ext_resource type="Script" path="res://utils/drag_and_drop.gd" id="2_r7uey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fiwk1"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2eug"]
+atlas = ExtResource("1_1sn7c")
+region = Rect2(224, 64, 48, 48)
+
+[node name="License" type="PanelContainer" groups=["papers"]]
+custom_minimum_size = Vector2(450, 300)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fiwk1")
+script = ExtResource("1_ir6jc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("AtlasTexture_o2eug")
+stretch_mode = 3
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "轮回许可证"
+horizontal_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="姓名" type="Label" parent="MarginContainer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "姓名"
+
+[node name="license_now_ghostname" type="Label" parent="MarginContainer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "代用名"
+
+[node name="身份证号" type="Label" parent="MarginContainer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "身份号码"
+
+[node name="license_now_id" type="Label" parent="MarginContainer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "2136496789655"
+
+[node name="下辈子信息" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "下辈子信息"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="下辈子信息" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "个人信息"
+
+[node name="license_next_lifeinfo" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "性别：男孩，身高：170cm"
+
+[node name="下辈子父亲信息" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "父亲信息"
+
+[node name="license_next_fatherinfo" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="下辈子母亲信息" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "母亲信息"
+
+[node name="license_next_matherinfo" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="有效期" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "有效期"
+
+[node name="license_ValidPeriod" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="StampArea" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Stamp" type="TextureRect" parent="StampArea"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_o2eug")
+
+[node name="license_effective_date" type="Label" parent="StampArea"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "签署日期：2025-3-8"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("drag_area", "target")]
+script = ExtResource("2_r7uey")
+drag_area = NodePath("../StampArea")
+target = NodePath("..")
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

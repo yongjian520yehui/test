@@ -16,7 +16,7 @@ corner_radius_bottom_left = 10
 atlas = ExtResource("1_tjwb0")
 region = Rect2(176, 64, 48, 48)
 
-[node name="Passport" type="PanelContainer"]
+[node name="Passport" type="PanelContainer" groups=["papers"]]
 custom_minimum_size = Vector2(350, 200)
 theme_override_styles/panel = SubResource("StyleBoxFlat_mfyi7")
 script = ExtResource("1_s81ef")

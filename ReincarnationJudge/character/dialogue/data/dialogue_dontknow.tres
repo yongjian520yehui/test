@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueList" load_steps=4 format=3 uid="uid://bkaiymc42jyal"]
+
+[ext_resource type="Script" path="res://character/dialogue/dialogue_list.gd" id="1_14bfw"]
+[ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_ndyum"]
+
+[sub_resource type="Resource" id="Resource_gdjms"]
+script = ExtResource("2_ndyum")
+actor_id = 0
+content = "我不知道，不清楚"
+
+[resource]
+script = ExtResource("1_14bfw")
+value = Array[ExtResource("2_ndyum")]([SubResource("Resource_gdjms")])

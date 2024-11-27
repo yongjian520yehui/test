@@ -11,7 +11,7 @@ bg_color = Color(0, 0, 0, 1)
 atlas = ExtResource("2_ho44j")
 region = Rect2(112, 112, 48, 48)
 
-[node name="Apply" type="PanelContainer"]
+[node name="Apply" type="PanelContainer" groups=["papers"]]
 custom_minimum_size = Vector2(300, 500)
 theme_override_styles/panel = SubResource("StyleBoxFlat_olfgl")
 script = ExtResource("1_pb86q")
@@ -39,7 +39,7 @@ text = "基本信息"
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 5
-columns = 2
+columns = 4
 
 [node name="姓名" type="Label" parent="MarginContainer/Info/BaseInfo"]
 layout_mode = 2
@@ -94,6 +94,17 @@ text = "死亡"
 unique_name_in_owner = true
 layout_mode = 2
 text = "2001-9-11"
+
+[node name="身份号码" type="Label" parent="MarginContainer/Info/BaseInfo"]
+layout_mode = 2
+text = "身份号码"
+
+[node name="ID" type="Label" parent="MarginContainer/Info/BaseInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+text = "123546546wadsada"
+autowrap_mode = 2
 
 [node name="申请信息" type="Label" parent="MarginContainer/Info"]
 layout_mode = 2

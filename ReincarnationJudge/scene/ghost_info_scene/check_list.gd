@@ -6,6 +6,7 @@ var checklists
 
 
 func _ready() -> void:
+	hide()
 	%RightID.pressed.connect(_on_check_box_pressed.bind(%RightID))
 	%FlaseID.pressed.connect(_on_check_box_pressed.bind(%FlaseID))
 	%RightApplay.pressed.connect(_on_check_box_pressed.bind(%RightApplay))
@@ -24,28 +25,15 @@ func _process(delta: float) -> void:
 
 
 func _on_ask_button_pressed() -> void:
-	var ghosts : BasicCharacter = get_tree().get_nodes_in_group("ghosts")[0]
-	var workers : BasicCharacter = get_tree().get_nodes_in_group("workers")[0]
+	var ghosts = get_tree().get_nodes_in_group("ghosts")
 	var check_list_name: Array
 	for i: CheckBox in checklists:
 		if i.button_pressed == true:
 			check_list_name.append(i.name)
 	print("check_list_name:",check_list_name)
-	for j in check_list_name:
-		print(j)
-		if Utils.current_ghost.dialogue_list_ask.value[0].content == j:
-			DataServer.get_dialogue_controller(self,workers,ghosts,Utils.current_ghost.dialogue_list_ask)
-		else:
-			var dialogue = Dialogue.new()
-			dialogue.actor_id = 0 
-			dialogue.content = j
-			
-			var commondialogue = ResourceLoader.load("res://character/dialogue/story01.tres")
-			var dialogue_list = DialogueList.new()
-			dialogue_list = commondialogue
-			dialogue_list.value[0] = dialogue
-
-			DataServer.get_dialogue_controller(self,workers,ghosts,dialogue_list)
+	#for j in check_list_name:
+		#print(j)
+		#DataServer.get_dialogue_controller(self,ghosts,ghosts,DataServer.current_ghost.ghost_data)
 
 
 func _on_close_button_pressed() -> void:

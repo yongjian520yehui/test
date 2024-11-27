@@ -8,13 +8,14 @@ class_name GhostResource
 @export var dialogue_list_IDcard: DialogueList
 @export var dialogue_list_passport: DialogueList
 @export var dialogue_list_applay: DialogueList
-@export var dialogue_list_licence: DialogueList
+@export var dialogue_list_license: DialogueList
 @export_category("dialogue_end")
 @export var dialogue_list_pass: DialogueList
 @export var dialogue_list_reject: DialogueList
 
 ##身份证
 @export_category("IDCard")
+@export var IDCard_show_immediately: bool
 @export var IDCard_ghostname: String
 @export var IDCard_sex: String
 @export var IDCard_country: String
@@ -26,25 +27,30 @@ class_name GhostResource
 ##背面信息
 @export var IDCard_Authority: String
 @export var IDCard_ValidPeriod: String
-@export var IDCard_logo: String
+@export var IDCard_logo: Texture
 
 ##轮回许可
-@export_category("licence")
-@export var licence_ghostname: String
-@export var licence_sex: String
-@export var licence_country: String
-@export var licence_birthday: String
-@export var licence_nationality: String
-@export var licence_id: String
+@export_category("license")
+@export var license_show_immediately: bool
+@export var license_logo: Texture
+@export var license_name: String
+@export var license_now_ghostname: String
+@export var license_now_id: String
+@export var license_next_lifeinfo: String
+@export var license_next_fatherinfo: String
+@export var license_next_matherinfo: String
+@export var license_ValidPeriod: String
+@export var license_effective_date: String
 
 ##通行证
 @export_category("passport")
+@export var passport_show_immediately: bool
 @export var passport_ghostname: String
 @export var passport_place: String
 @export var passport_Authority: String
 @export var passport_ValidPeriod: String
 @export var passport_id: String
-@export var passport_inumber: String
+@export var passport_number: String
 
 ##档案信息
 @export_category("files_baseinfo")
@@ -74,11 +80,17 @@ class_name GhostResource
 
 ##申请表
 @export_category("applay")
-@export var applay: String
-@export var father_name: String
-@export var mather_name: String
-@export var next_country: String
-@export var event: BaseEvent
+@export var applay_show_immediately: bool
+@export var applay_ghostname: String
+@export var applay_sex: String
+@export var applay_nationality: String
+@export var applay_country: String
+@export var applay_deathday: String
+@export var applay_birthday: String
+@export var applay_id: String
+@export var applay_type: String
+@export var applay_reason: String
+@export var applay_require: String
 
 ##资源
 @export_category("resource")

@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="GhostResource" load_steps=6 format=3 uid="uid://deveema2xfxle"]
+
+[ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_qwh7g"]
+[ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_7yj6n"]
+[ext_resource type="Script" path="res://character/ghost/ghost_resource.gd" id="5_v2klc"]
+
+[sub_resource type="Resource" id="Resource_knmce"]
+script = ExtResource("3_qwh7g")
+action = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_gn5ck"]
+script = ExtResource("4_7yj6n")
+eventName = "eventName"
+eventDesc = "eventDesc"
+eventActions = SubResource("Resource_knmce")
+
+[resource]
+script = ExtResource("5_v2klc")
+IDCard_ghostname = ""
+IDCard_sex = ""
+IDCard_country = ""
+IDCard_deathday = ""
+IDCard_birthday = ""
+IDCard_nationality = ""
+IDCard_id = ""
+IDCard_Authority = ""
+IDCard_ValidPeriod = ""
+license_name = ""
+license_now_ghostname = ""
+license_now_id = ""
+license_next_lifeinfo = ""
+license_next_fatherinfo = ""
+license_next_matherinfo = ""
+license_ValidPeriod = ""
+license_effective_date = ""
+passport_ghostname = ""
+passport_place = ""
+passport_Authority = ""
+passport_ValidPeriod = ""
+passport_id = ""
+passport_inumber = ""
+files_ghostname = ""
+files_sex = ""
+files_country = ""
+files_deathday = ""
+files_birthday = ""
+files_nationality = ""
+files_id = ""
+files_job = ""
+files_weight = ""
+files_height = ""
+files_religion = ""
+files_death_reason = ""
+files_life_stories = Array[String]([])
+files_evaluation = Array[String]([])
+files_record = Array[String]([])
+applay = ""
+father_name = ""
+mather_name = ""
+next_country = ""
+event = SubResource("Resource_gn5ck")
+is_can_pass = true
+pass_influence = ""
+refuse_influence = ""

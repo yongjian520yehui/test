@@ -1,45 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://u2goc8i0qnmf"]
+[gd_scene load_steps=2 format=3 uid="uid://u2goc8i0qnmf"]
 
-[ext_resource type="PackedScene" uid="uid://s0vsemqwnofk" path="res://character/ghost/scene/ghost_niu_tou.tscn" id="1_pgy0d"]
-[ext_resource type="PackedScene" uid="uid://d3xtwo83t57ri" path="res://character/ghost/scene/ghost_normal.tscn" id="1_q61mu"]
 [ext_resource type="Script" path="res://test_ui.gd" id="4_gxjma"]
-[ext_resource type="PackedScene" uid="uid://8atycgv0p70d" path="res://scene/ghost_info_scene/check_list.tscn" id="4_rblis"]
-[ext_resource type="PackedScene" uid="uid://jrj4a7j6087m" path="res://scene/ghost_info_scene/files.tscn" id="5_v0lcj"]
-[ext_resource type="PackedScene" uid="uid://c4fe0yl35bo6r" path="res://scene/ghost_info_scene/idcard.tscn" id="6_8wvre"]
-[ext_resource type="PackedScene" uid="uid://dimu1vumwrvoh" path="res://scene/ghost_info_scene/apply.tscn" id="7_k2qqy"]
-[ext_resource type="PackedScene" uid="uid://belye4qutgpra" path="res://scene/ghost_info_scene/passport.tscn" id="8_sjwro"]
 
 [node name="Test" type="Node2D"]
 
-[node name="GhostNormal" parent="." instance=ExtResource("1_q61mu")]
-position = Vector2(305, 205)
-
-[node name="GhostNiuTou" parent="." instance=ExtResource("1_pgy0d")]
-position = Vector2(300, 534)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_gxjma")
-
-[node name="Ask" type="Button" parent="CanvasLayer"]
-offset_left = 705.0
-offset_top = 541.0
-offset_right = 777.0
-offset_bottom = 572.0
-text = "审问"
-
-[node name="Next" type="Button" parent="CanvasLayer"]
-offset_left = 930.0
-offset_top = 539.0
-offset_right = 986.0
-offset_bottom = 570.0
-text = "下一个"
-
-[node name="Judge" type="Button" parent="CanvasLayer"]
-offset_left = 828.0
-offset_top = 540.0
-offset_right = 884.0
-offset_bottom = 571.0
-text = "审判"
 
 [node name="EventPosition" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -51,34 +17,128 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="GhostPosition" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 572.0
+offset_top = 223.0
+offset_right = 612.0
+offset_bottom = 263.0
+
+[node name="Next" type="Button" parent="CanvasLayer"]
+offset_left = 930.0
+offset_top = 539.0
+offset_right = 986.0
+offset_bottom = 570.0
+text = "下一个"
+
 [node name="Event" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 1023.0
 offset_top = 538.0
 offset_right = 1095.0
 offset_bottom = 569.0
 text = "获取事件"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="ChangeShader" type="Button" parent="CanvasLayer"]
 offset_right = 8.0
 offset_bottom = 8.0
 text = "切换shader"
 
-[node name="Files" parent="CanvasLayer" instance=ExtResource("5_v0lcj")]
+[node name="IDCardButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 502.0
+offset_top = 406.0
+offset_right = 558.0
+offset_bottom = 433.0
+text = "身份证"
 
-[node name="Passport" parent="CanvasLayer" instance=ExtResource("8_sjwro")]
+[node name="CheckListButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 839.0
+offset_top = 405.0
+offset_right = 895.0
+offset_bottom = 432.0
+text = "检查表"
 
-[node name="Apply" parent="CanvasLayer" instance=ExtResource("7_k2qqy")]
-offset_right = 314.0
-offset_bottom = 500.0
+[node name="ApplyButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 671.0
+offset_top = 408.0
+offset_right = 727.0
+offset_bottom = 435.0
+text = "申请表"
 
-[node name="IDCard" parent="CanvasLayer" instance=ExtResource("6_8wvre")]
+[node name="LicenseButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 608.0
+offset_top = 405.0
+offset_right = 664.0
+offset_bottom = 432.0
+text = "许可证"
 
-[node name="CheckList" parent="CanvasLayer" instance=ExtResource("4_rblis")]
-offset_right = 250.0
-offset_bottom = 400.0
+[node name="PassportButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 608.0
+offset_top = 408.0
+offset_right = 664.0
+offset_bottom = 435.0
+text = "通行证"
 
-[connection signal="pressed" from="CanvasLayer/Ask" to="CanvasLayer" method="_on_ask_pressed"]
+[node name="FilesButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 1013.0
+offset_top = 225.0
+offset_right = 1053.0
+offset_bottom = 252.0
+text = "档案"
+
+[node name="Phone" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 249.0
+offset_top = 390.0
+offset_right = 289.0
+offset_bottom = 417.0
+text = "电话"
+
+[node name="Code" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 1015.0
+offset_top = 293.0
+offset_right = 1055.0
+offset_bottom = 320.0
+text = "法典"
+
+[node name="Wanted" type="Button" parent="CanvasLayer"]
+offset_left = 74.0
+offset_top = 172.0
+offset_right = 130.0
+offset_bottom = 199.0
+text = "通缉令"
+
+[node name="PapersPosition" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 509.0
+offset_top = 235.0
+offset_right = 549.0
+offset_bottom = 275.0
+
 [connection signal="pressed" from="CanvasLayer/Next" to="CanvasLayer" method="_on_next_pressed"]
-[connection signal="pressed" from="CanvasLayer/Judge" to="CanvasLayer" method="_on_judge_pressed"]
 [connection signal="pressed" from="CanvasLayer/Event" to="CanvasLayer" method="_on_event_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChangeShader" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/IDCardButton" to="CanvasLayer" method="_on_id_card_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CheckListButton" to="CanvasLayer" method="_on_check_list_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ApplyButton" to="CanvasLayer" method="_on_apply_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LicenseButton" to="CanvasLayer" method="_on_license_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PassportButton" to="CanvasLayer" method="_on_passport_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/FilesButton" to="CanvasLayer" method="_on_files_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Phone" to="CanvasLayer" method="_on_phone_pressed"]
+[connection signal="pressed" from="CanvasLayer/Code" to="CanvasLayer" method="_on_code_pressed"]
+[connection signal="pressed" from="CanvasLayer/Wanted" to="CanvasLayer" method="_on_wanted_pressed"]

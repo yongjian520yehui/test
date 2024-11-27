@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://character/dialogue/dialogue.gd" id="2_y3hxe"]
 [ext_resource type="Script" path="res://utils/event/baseAction.gd" id="3_m7fnx"]
 [ext_resource type="Script" path="res://utils/event/base_event.gd" id="4_4s7yv"]
-[ext_resource type="Script" path="res://character/ghost/data/ghost_resource.gd" id="5_5aiaa"]
+[ext_resource type="Script" path="res://character/ghost/ghost_resource.gd" id="5_5aiaa"]
 
 [sub_resource type="Resource" id="Resource_qwkgt"]
 script = ExtResource("2_y3hxe")
