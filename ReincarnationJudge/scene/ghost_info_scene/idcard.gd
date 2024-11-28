@@ -19,7 +19,8 @@ func _ready() -> void:
 	%Country.text = data.IDCard_country
 	%DeathDay.text = data.IDCard_deathday
 	%Id.text = data.IDCard_id
-
+	%Avatar.texture = data.IDCard_avatar
+	%Logo.texture = data.IDCard_logo
 
 func _on_close_button_pressed() -> void:
 	hide()

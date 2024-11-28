@@ -41,16 +41,24 @@ class_name GhostResource
 @export var license_next_matherinfo: String
 @export var license_ValidPeriod: String
 @export var license_effective_date: String
+@export var license_stamp: Texture
 
 ##通行证
 @export_category("passport")
 @export var passport_show_immediately: bool
+@export var passport_passname: String
+@export var passport_passtype: String
+@export var passport_countrycode: String
+@export var passport_number: String
+@export var passport_logo: Texture
+
 @export var passport_ghostname: String
-@export var passport_place: String
+@export var passport_issueplace: String
 @export var passport_Authority: String
 @export var passport_ValidPeriod: String
 @export var passport_id: String
-@export var passport_number: String
+@export var passport_destination: String
+
 
 ##档案信息
 @export_category("files_baseinfo")

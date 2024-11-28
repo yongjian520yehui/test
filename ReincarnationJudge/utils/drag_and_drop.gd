@@ -20,7 +20,7 @@ func _ready() -> void:
 		
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if dragging and drag_area:
 		var mouse_pos = drag_area.get_global_mouse_position()
 		target.global_position = Vector2(clamp(mouse_pos.x + offset.x, 0 , Utils.screen_size.x-target.size.x),
@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 func _end_dragging() -> void:
 	dragging = false
 	drag_area.remove_from_group("dragging")
-	target.z_index = 0
+	#target.z_index = 0
 
 
 func _cancel_dragging() -> void:
@@ -49,7 +49,10 @@ func _start_dragging() -> void:
 	dragging = true
 	starting_position = drag_area.global_position
 	drag_area.add_to_group("dragging")
-	target.z_index = 99
+	
+	var maxindex = target.get_parent().get_children().size()
+	target.get_parent().move_child(target, maxindex - 1)
+	
 	offset = get_parent().global_position - get_parent().get_global_mouse_position()
 	drag_started.emit()
 

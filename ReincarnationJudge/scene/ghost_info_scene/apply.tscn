@@ -45,7 +45,7 @@ columns = 4
 layout_mode = 2
 text = "姓名"
 
-[node name="Name" type="Label" parent="MarginContainer/Info/BaseInfo"]
+[node name="GhostName" type="Label" parent="MarginContainer/Info/BaseInfo"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "代用名"
@@ -120,6 +120,7 @@ layout_mode = 2
 text = "申请类型"
 
 [node name="Type" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "投胎为人"
 
@@ -128,6 +129,7 @@ layout_mode = 2
 text = "申请理由"
 
 [node name="Reason" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 30)
 layout_mode = 2
 text = "本人无相关罪行，按照轮回法典，应该轮回为人"
@@ -139,6 +141,7 @@ layout_mode = 2
 text = "特殊要求"
 
 [node name="SpecialRequirements" type="Label" parent="MarginContainer/Info/ApplyInfo"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "轮回到美国富裕家庭"
 vertical_alignment = 1
@@ -160,6 +163,7 @@ layout_mode = 2
 text = "签名："
 
 [node name="ApplayName" type="Label" parent="MarginContainer/Info/StampArea/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "申请人姓名"
 

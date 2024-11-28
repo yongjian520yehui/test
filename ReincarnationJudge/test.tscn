@@ -56,6 +56,7 @@ text = "身份证"
 
 [node name="CheckListButton" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_left = 839.0
 offset_top = 405.0
 offset_right = 895.0
@@ -74,10 +75,10 @@ text = "申请表"
 [node name="LicenseButton" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-offset_left = 608.0
-offset_top = 405.0
-offset_right = 664.0
-offset_bottom = 432.0
+offset_left = 607.0
+offset_top = 444.0
+offset_right = 663.0
+offset_bottom = 471.0
 text = "许可证"
 
 [node name="PassportButton" type="Button" parent="CanvasLayer"]
@@ -100,7 +101,6 @@ text = "档案"
 
 [node name="Phone" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 offset_left = 249.0
 offset_top = 390.0
 offset_right = 289.0

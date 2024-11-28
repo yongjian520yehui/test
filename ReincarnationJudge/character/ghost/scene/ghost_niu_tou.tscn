@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://s0vsemqwnofk"]
+[gd_scene load_steps=28 format=3 uid="uid://s0vsemqwnofk"]
 
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://shader/2d_outline_shader.tres" id="1_7yi67"]
 [ext_resource type="Script" path="res://character/ghost/scene/ghost_niu_tou.gd" id="1_kc5ne"]
@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://character/states/ghost_attack.gd" id="20_5lx7y"]
 [ext_resource type="Script" path="res://character/stats/stats.gd" id="21_7vg0r"]
 [ext_resource type="Script" path="res://character/states/hover.gd" id="22_0k0qr"]
-[ext_resource type="Script" path="res://character/ghost/direction/direction.gd" id="22_f3qsl"]
 [ext_resource type="Script" path="res://character/states/selected.gd" id="23_r6y5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33bi0"]
@@ -150,10 +149,6 @@ outline_thickness = 1
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("21_7vg0r")
-
-[node name="Direction" type="Node" parent="." node_paths=PackedStringArray("Graphics")]
-script = ExtResource("22_f3qsl")
-Graphics = NodePath("../CanvasGroup/AnimatedSprite2D")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

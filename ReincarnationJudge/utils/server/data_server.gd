@@ -112,7 +112,7 @@ func get_dialogue_controller(node: Node,character1: BasicCharacter,
 
 
 func get_ghost_data(filepath: String):
-	var ghost_resource = ResourceLoader.load("res://character/ghost/data/ghost_yangli.tres")
+	var ghost_resource = ResourceLoader.load("res://character/ghost/data/ghost_希特勒.tres")
 	var ghost = GHOST_NORMAL.instantiate()
 	ghost.ghost_data = ghost_resource
 	self.current_ghost = ghost

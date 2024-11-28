@@ -20,9 +20,6 @@ func _ready() -> void:
 	checklists = get_tree().get_nodes_in_group("checklist")
 
 
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_ask_button_pressed() -> void:
 	var ghosts = get_tree().get_nodes_in_group("ghosts")
